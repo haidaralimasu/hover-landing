@@ -1,0 +1,31 @@
+<svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="320" fill="#000000"/>
+
+  <!-- Hagalaz rune (H) - Elder Futhark, diagonal crossbar instead of
+       horizontal - two vertical staves with sharp angular corner cuts
+       instead of rounded joins, chunky blocky proportions like Nordic
+       national-team kit badge typography. Fill matches the current
+       app logo's H exactly: a top-to-bottom gradient sampled from the
+       real asset (assets/branding/logo.png), #E3E3E3 to #A3A3A3, on a
+       pure black (#000000) background. -->
+  <defs>
+    <!-- gradientUnits="userSpaceOnUse" with real canvas coordinates (not
+         the default objectBoundingBox) - otherwise each shape normalizes
+         the same gradient to its OWN bounding box independently, so the
+         diagonal crossbar's banding doesn't line up with the staves' at
+         all, reading as mismatched pieces stuck together instead of one
+         continuous gradient across the whole glyph. -->
+    <linearGradient id="hGradient" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="0" y2="280">
+      <stop offset="0%" stop-color="#E3E3E3"/>
+      <stop offset="100%" stop-color="#A3A3A3"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#hGradient)">
+    <!-- Left stave -->
+    <path d="M 60 40 L 116 40 L 116 280 L 60 280 Z"/>
+    <!-- Right stave -->
+    <path d="M 204 40 L 260 40 L 260 280 L 204 280 Z"/>
+    <!-- Diagonal crossbar, angular blocky cut (parallelogram, not a thin line) -->
+    <path d="M 60 128 L 260 192 L 260 234 L 60 170 Z"/>
+  </g>
+</svg>

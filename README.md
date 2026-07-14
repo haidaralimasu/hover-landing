@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hover — Landing page
 
-## Getting Started
+Marketing / pre-launch landing page for **Hover**, the simplest way to send
+money across borders.
 
-First, run the development server:
+> Positioning note: the public site deliberately avoids all crypto/blockchain
+> language. Users just "sign in and send"; the underlying rails are never
+> surfaced in copy, links, or metadata. Keep new copy consumer-plain.
+
+- **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer
+  Motion · Lucide icons.
+- **Design:** monochrome black-and-white system anchored on the silver "H"
+  mark. Built following the vendored design skills in
+  [`../.claude/skills`](../.claude/skills) (impeccable, taste-skill,
+  emil-design-eng) and their anti-slop / motion rules.
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/
+    layout.tsx           # metadata, JSON-LD (Organization), fonts, header/footer
+    page.tsx             # composes sections + Product/FAQ JSON-LD
+    globals.css          # design tokens, easings, reveal system
+    opengraph-image.tsx  # OG/Twitter card, generated with next/og (ImageResponse)
+    twitter-image.tsx    # re-exports the OG image
+    icon.png / apple-icon.png / favicon.ico
+    robots.ts / sitemap.ts
+    api/notify/route.ts  # waitlist email capture endpoint
+  components/
+    sections/            # site-header, hero, foundations, how-it-works,
+                         # features, security(+diagram), faq(+accordion),
+                         # cta, site-footer
+    ui/                  # button, container, logo, reveal, section-heading, store-badge
+    notify-form.tsx      # email capture form (client)
+  lib/                   # site config, faq data, utils
+brand/                   # source logo (svg + png)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customizing
 
-## Learn More
+- **Brand assets:** replace `public/hover-logo.*` and `brand/hover-logo.*`. The
+  inline mark lives in `src/components/ui/logo.tsx`; the OG mark in
+  `src/app/opengraph-image.tsx`.
+- **Copy / metadata:** `src/lib/site.ts` (name, tagline, description, keywords,
+  social handles) and `src/lib/faq.ts`.
+- **Waitlist storage:** `src/app/api/notify/route.ts` currently appends to a
+  local `.data/waitlist.jsonl` (gitignored). Swap the `persist()` function for
+  Resend / Mailchimp / a database — the route contract stays the same. A Resend
+  example is commented in the file.
 
-To learn more about Next.js, take a look at the following resources:
+## Notes / TODO before launch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Imagery:** the page is intentionally typographic + brand-mark driven (no
+  stock photos, per the B&W brief). Add real app screenshots / product shots
+  once the mobile app screens exist.
+- **Legal:** footer links to `/privacy` and `/terms` — create those routes.
+- **Store links:** badges currently scroll to the notify form. Point them at the
+  real App Store / Google Play URLs at launch (`src/components/ui/store-badge.tsx`).
