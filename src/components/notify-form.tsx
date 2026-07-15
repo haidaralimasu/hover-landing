@@ -15,8 +15,8 @@ export function NotifyForm({ className }: { className?: string }) {
   const inputId = useId();
   const errorId = useId();
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<Status>("error");
-  const [message, setMessage] = useState<string>("Please enter a valid email address.");
+  const [status, setStatus] = useState<Status>("idle");
+  const [message, setMessage] = useState<string>("");
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
