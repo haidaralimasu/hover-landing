@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { SiteHeader } from "@/components/sections/site-header";
 import { SiteFooter } from "@/components/sections/site-footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -52,8 +53,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 const organizationLd = {
@@ -75,7 +76,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${poppins.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg text-ink">
         {/* Flag JS as available BEFORE paint so reveal styles only apply with
@@ -88,7 +89,7 @@ export default function RootLayout({
         {/* Fixed film-grain overlay: non-scrolling, pointer-events-none (perf) */}
         <div
           aria-hidden="true"
-          className="grain pointer-events-none fixed inset-0 z-[var(--z-grain)] opacity-[0.03] mix-blend-screen"
+          className="grain pointer-events-none fixed inset-0 z-[var(--z-grain)] opacity-[0.025] mix-blend-multiply"
         />
         <script
           type="application/ld+json"

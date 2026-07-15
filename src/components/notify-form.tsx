@@ -63,11 +63,11 @@ export function NotifyForm({ className }: { className?: string }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "flex items-center gap-3 rounded-[12px] border border-line-2 bg-surface px-4 py-3.5",
+          "flex items-center gap-3 rounded-[var(--radius-input)] border border-line-2 bg-surface px-4 py-3.5",
           className
         )}
       >
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-silver text-[#0a0a0a]">
+        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-silver text-white">
           <Check className="h-3.5 w-3.5" strokeWidth={3} />
         </span>
         <p className="text-sm text-ink">{message}</p>
@@ -95,10 +95,10 @@ export function NotifyForm({ className }: { className?: string }) {
             if (status === "error") setStatus("idle");
           }}
           className={cn(
-            "h-12 w-full rounded-[12px] border bg-surface px-4 text-[15px] text-ink",
+            "h-12 w-full rounded-[var(--radius-input)] border bg-surface px-4 text-[15px] text-ink",
             "placeholder:text-ink-3 outline-none transition-colors duration-150",
-            "focus:border-white/30",
-            status === "error" ? "border-white/40" : "border-line-2"
+            "focus:border-black/35",
+            status === "error" ? "border-black/45" : "border-line-2"
           )}
         />
         <button
@@ -106,7 +106,7 @@ export function NotifyForm({ className }: { className?: string }) {
           disabled={status === "loading"}
           className={cn(
             "inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-silver px-6",
-            "text-[15px] font-medium text-[#0a0a0a] shadow-[0_1px_0_rgba(255,255,255,0.4)_inset]",
+            "text-[15px] font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
             "transition-[transform,filter] duration-150 [transition-timing-function:var(--ease-out-quart)]",
             "hover:brightness-108 active:scale-[0.97] disabled:opacity-70"
           )}

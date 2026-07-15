@@ -67,7 +67,7 @@ export function SiteHeader() {
                   {hovered === item.href && (
                     <motion.span
                       layoutId="nav-hover"
-                      className="absolute inset-0 -z-0 rounded-full bg-white/8"
+                      className="absolute inset-0 -z-0 rounded-full bg-black/5"
                       transition={
                         reduce
                           ? { duration: 0 }
@@ -83,9 +83,9 @@ export function SiteHeader() {
               <Link
                 href="#notify"
                 className={cn(
-                  "hidden rounded-full bg-silver px-4 py-2 text-sm font-medium text-[#0a0a0a] sm:inline-flex",
-                  "shadow-[0_1px_0_rgba(255,255,255,0.4)_inset] transition-[transform,filter] duration-150",
-                  "[transition-timing-function:var(--ease-out-quart)] hover:brightness-108 active:scale-[0.97]"
+                  "hidden rounded-full bg-silver px-4 py-2 text-sm font-medium text-white sm:inline-flex",
+                  "shadow-[0_1px_0_rgba(255,255,255,0.12)_inset] transition-[transform,filter] duration-150",
+                  "[transition-timing-function:var(--ease-out-quart)] hover:brightness-125 active:scale-[0.97]"
                 )}
               >
                 Get notified
@@ -123,7 +123,7 @@ export function SiteHeader() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="block rounded-lg px-3 py-3 text-base text-ink-2 hover:bg-white/5 hover:text-ink"
+                      className="block rounded-lg px-3 py-3 text-base text-ink-2 hover:bg-black/5 hover:text-ink"
                     >
                       {item.label}
                     </Link>
@@ -133,7 +133,7 @@ export function SiteHeader() {
                   <Link
                     href="#notify"
                     onClick={() => setOpen(false)}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-silver px-4 py-3 text-sm font-medium text-[#0a0a0a]"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-silver px-4 py-3 text-sm font-medium text-white"
                   >
                     Get notified
                   </Link>

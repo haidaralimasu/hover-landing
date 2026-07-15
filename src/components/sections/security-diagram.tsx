@@ -45,11 +45,11 @@ export function SecurityDiagram() {
             )}
             <div className="relative flex items-center gap-4">
               <motion.span
-                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[14px] border border-line-2 bg-surface text-ink"
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[var(--radius-chip)] border border-line-2 bg-surface text-ink"
                 animate={
                   reduce
                     ? undefined
-                    : { borderColor: ["rgba(255,255,255,0.14)", "rgba(255,255,255,0.4)", "rgba(255,255,255,0.14)"] }
+                    : { borderColor: ["rgba(0,0,0,0.12)", "rgba(0,0,0,0.38)", "rgba(0,0,0,0.12)"] }
                 }
                 transition={
                   reduce
