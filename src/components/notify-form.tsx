@@ -135,7 +135,7 @@ export function NotifyForm({ className }: { className?: string }) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="mt-2 pl-1 text-sm text-ink-2"
+            className="mt-2.5 text-sm text-ink-2"
           >
             {message}
           </motion.p>

@@ -22,18 +22,11 @@ export function Hero() {
         <div className="grid min-h-[100dvh] items-center gap-12 pb-16 pt-28 md:grid-cols-[1.05fr_0.95fr] md:gap-8 md:pt-24">
           {/* Left: copy + conversion */}
           <div className="flex flex-col items-start">
-            <Reveal
-              as="span"
-              className="inline-flex items-center rounded-full border border-line-2 bg-surface px-3.5 py-1.5 text-xs font-medium text-ink-2"
-            >
-              Launching soon on iOS &amp; Android
-            </Reveal>
-
             {/* Sole H1 on the page, carrying the primary keyword */}
             <Reveal
               as="h1"
               delay={0.06}
-              className="mt-6 max-w-xl text-balance text-4xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-5xl lg:text-6xl"
+              className="max-w-xl text-balance text-4xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-5xl lg:text-6xl"
             >
               Send money across borders in seconds.
             </Reveal>

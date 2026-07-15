@@ -16,7 +16,7 @@ export const siteConfig = {
     "secure payments",
     "sign in with Google",
   ],
-  twitter: "@hovermoney",
+  twitter: "@hover_money",
 } as const;
 
 export type NavItem = { label: string; href: string };

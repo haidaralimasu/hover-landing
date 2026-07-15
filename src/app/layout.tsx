@@ -4,6 +4,8 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { SiteHeader } from "@/components/sections/site-header";
 import { SiteFooter } from "@/components/sections/site-footer";
+import { CookieConsent } from "@/components/cookie-consent";
+import { Analytics } from "@/components/analytics";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -64,7 +66,7 @@ const organizationLd = {
   url: siteConfig.url,
   logo: `${siteConfig.url}/hover-logo.png`,
   description: siteConfig.description,
-  sameAs: ["https://x.com/hovermoney"],
+  sameAs: ["https://x.com/hover_money"],
 };
 
 export default function RootLayout({
@@ -100,6 +102,8 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );

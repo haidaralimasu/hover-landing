@@ -1,12 +1,21 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { Resend } from "resend";
+import { unsubscribeUrl } from "@/lib/unsubscribe";
 
-// Runs on the Node.js runtime so the local-file fallback below works in dev.
+// Runs on the Node.js runtime so the local-file log below works in dev.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Sender must be a verified domain in Resend. Overridable via env.
+const FROM = process.env.NOTIFY_FROM ?? "Hover <noreply@hover.money>";
+const REPLY_TO = process.env.NOTIFY_REPLY_TO ?? "support@hover.money";
+// CAN-SPAM / CASL require a physical postal address in every commercial email.
+const COMPANY_ADDRESS =
+  process.env.COMPANY_ADDRESS ?? "Hover, 1 Market Street, San Francisco, CA 94105";
 
 type Body = { email?: unknown };
 
@@ -27,56 +36,151 @@ export async function POST(request: Request) {
     );
   }
 
-  const record = {
-    email,
-    ts: new Date().toISOString(),
-    source: "landing",
-  };
-
-  try {
-    await persist(record);
-  } catch (err) {
-    console.error("[notify] failed to persist signup", err);
-    // Don't leak internals; the signup intent is what matters to the user.
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("[notify] RESEND_API_KEY is not set");
     return NextResponse.json(
       { error: "We couldn't save that right now. Please try again." },
       { status: 500 }
     );
   }
 
+  const unsub = unsubscribeUrl(email);
+
+  // Send the confirmation email — this is the action the user is waiting on.
+  try {
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from: FROM,
+      to: email,
+      replyTo: REPLY_TO,
+      subject: "You're on the Hover waitlist",
+      html: confirmationHtml(unsub),
+      text: confirmationText(unsub),
+      headers: {
+        // One-click unsubscribe (RFC 8058) — shows the native "Unsubscribe"
+        // control in Gmail/Apple Mail and improves deliverability.
+        "List-Unsubscribe": `<${unsub}>, <mailto:${REPLY_TO}?subject=unsubscribe>`,
+        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+      },
+    });
+
+    if (error) {
+      console.error("[notify] Resend send failed", error);
+      return NextResponse.json(
+        { error: "We couldn't sign you up right now. Please try again." },
+        { status: 502 }
+      );
+    }
+  } catch (err) {
+    console.error("[notify] Resend request threw", err);
+    return NextResponse.json(
+      { error: "We couldn't sign you up right now. Please try again." },
+      { status: 502 }
+    );
+  }
+
+  // Best-effort local log of who signed up (never blocks the response).
+  logSignup({ email, ts: new Date().toISOString(), source: "landing" }).catch(
+    (err) => console.error("[notify] failed to log signup", err)
+  );
+
   return NextResponse.json({ ok: true }, { status: 201 });
 }
 
-/**
- * Waitlist persistence.
- *
- * Default: append to a local JSONL file (works in local dev / a persistent
- * server). Swap this for your provider of choice before launch, e.g.:
- *
- *   - Resend audiences / Mailchimp / ConvertKit (POST to their API)
- *   - Postgres / Supabase (insert row)
- *   - A Google Sheet via an Apps Script webhook
- *
- * Only this function needs to change; the route contract stays the same.
- */
-async function persist(record: { email: string; ts: string; source: string }) {
-  // Example provider wiring (uncomment + set env vars):
-  // if (process.env.RESEND_API_KEY && process.env.RESEND_AUDIENCE_ID) {
-  //   const res = await fetch(
-  //     `https://api.resend.com/audiences/${process.env.RESEND_AUDIENCE_ID}/contacts`,
-  //     {
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ email: record.email }),
-  //     }
-  //   );
-  //   if (!res.ok) throw new Error(`Resend responded ${res.status}`);
-  //   return;
-  // }
+const PREHEADER =
+  "You're on the list — we'll email you the moment Hover launches.";
 
+function confirmationHtml(unsub: string) {
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title>You're on the Hover waitlist</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f2f2f2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#0a0a0a;-webkit-font-smoothing:antialiased;">
+    <!-- Preheader: shown as the inbox preview, hidden in the body -->
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;height:0;width:0;">
+      ${PREHEADER}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f2f2;">
+      <tr>
+        <td align="center" style="padding:40px 16px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;width:100%;">
+            <!-- Brand -->
+            <tr>
+              <td style="padding:0 4px 20px;">
+                <span style="font-size:20px;font-weight:700;letter-spacing:-0.02em;color:#0a0a0a;">Hover</span>
+              </td>
+            </tr>
+            <!-- Card -->
+            <tr>
+              <td style="background:#ffffff;border:1px solid rgba(0,0,0,0.08);border-radius:20px;padding:40px;">
+                <h1 style="margin:0 0 12px;font-size:24px;line-height:1.25;font-weight:700;letter-spacing:-0.02em;color:#0a0a0a;">
+                  You're on the list.
+                </h1>
+                <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
+                  Thanks for signing up. We'll email you the moment Hover is ready
+                  so you can send money across borders in seconds — no spam, just
+                  the one message that matters.
+                </p>
+                <table role="presentation" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="border-radius:999px;background:#0a0a0a;">
+                      <a href="https://hover.money" target="_blank"
+                        style="display:inline-block;padding:12px 22px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:999px;">
+                        Visit hover.money
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Footer -->
+            <tr>
+              <td style="padding:24px 8px 0;">
+                <p style="margin:0 0 8px;font-size:12px;line-height:1.6;color:#8a8a8a;">
+                  You received this because you asked to be notified at hover.money.
+                  If this wasn't you, you can safely
+                  <a href="${unsub}" style="color:#5c5c5c;text-decoration:underline;">unsubscribe</a>.
+                </p>
+                <p style="margin:0;font-size:12px;line-height:1.6;color:#b0b0b0;">
+                  &copy; ${new Date().getFullYear()} Hover. All rights reserved.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+function confirmationText(unsub: string) {
+  return [
+    "You're on the list.",
+    "",
+    "Thanks for signing up. We'll email you the moment Hover is ready so you can send money across borders in seconds — no spam, just the one message that matters.",
+    "",
+    "Visit hover.money: https://hover.money",
+    "",
+    "—",
+    "You received this because you asked to be notified at hover.money.",
+    `Unsubscribe: ${unsub}`,
+    COMPANY_ADDRESS,
+  ].join("\n");
+}
+
+/**
+ * Best-effort local record of signups (dev / persistent server only).
+ * Serverless read-only filesystems will throw here — that's fine, it's caught
+ * by the caller and never affects the user-facing response.
+ */
+async function logSignup(record: { email: string; ts: string; source: string }) {
   const dir = path.join(process.cwd(), ".data");
   await fs.mkdir(dir, { recursive: true });
   await fs.appendFile(

@@ -75,6 +75,15 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Tailwind v4 no longer sets a pointer cursor on buttons — restore it for
+     every interactive control so affordance is never lost. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  label[for],
+  summary {
+    cursor: pointer;
+  }
+
   ::selection {
     background: var(--color-ink);
     color: #ffffff;

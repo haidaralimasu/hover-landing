@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Wordmark } from "@/components/ui/logo";
+import { CookiePrefsLink } from "@/components/cookie-prefs-link";
 
 function XGlyph() {
   return (
@@ -48,7 +49,7 @@ export function SiteFooter() {
             </p>
             <div className="mt-1 flex items-center gap-2">
               <a
-                href="https://x.com/hovermoney"
+                href="https://x.com/hover_money"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Hover on X"
@@ -91,7 +92,10 @@ export function SiteFooter() {
 
         <div className="flex flex-col items-start justify-between gap-3 border-t border-line py-6 text-sm text-ink-4 sm:flex-row sm:items-center">
           <p>&copy; {new Date().getFullYear()} Hover. All rights reserved.</p>
-          <p>Money across borders, in seconds.</p>
+          <div className="flex items-center gap-4">
+            <CookiePrefsLink className="transition-colors hover:text-ink-2" />
+            <p>Money across borders, in seconds.</p>
+          </div>
         </div>
       </Container>
     </footer>
