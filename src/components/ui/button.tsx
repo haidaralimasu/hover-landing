@@ -11,12 +11,12 @@ const base =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-silver-1)]";
 
 const variants: Record<Variant, string> = {
-  // Highest-contrast CTA: light fill, black label. AA-safe.
+  // Highest-contrast CTA: dark graphite fill, white label (app Button.primary).
   primary:
-    "bg-silver text-[#0a0a0a] hover:brightness-108 shadow-[0_1px_0_rgba(255,255,255,0.4)_inset]",
+    "bg-silver text-white hover:brightness-125 shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
   secondary:
-    "border border-line-2 bg-surface text-ink hover:bg-surface-2 hover:border-white/25",
-  ghost: "text-ink-2 hover:text-ink hover:bg-white/5",
+    "border border-line-2 bg-surface text-ink hover:bg-surface-2 hover:border-black/20",
+  ghost: "text-ink-2 hover:text-ink hover:bg-black/5",
 };
 
 const sizes: Record<Size, string> = {

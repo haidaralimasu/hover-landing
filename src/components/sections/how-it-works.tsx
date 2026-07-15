@@ -26,7 +26,6 @@ export function HowItWorks() {
       <Container>
         <SectionHeading
           id="how-it-works"
-          eyebrow="How it works"
           title="Three steps. That's the whole thing."
           intro="Sending money should feel as easy as sending a message. With Hover, it does."
         />

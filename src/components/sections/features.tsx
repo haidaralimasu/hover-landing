@@ -49,7 +49,7 @@ const rest: Feature[] = [
 
 function FeatureIcon({ icon: Icon }: { icon: LucideIcon }) {
   return (
-    <span className="inline-flex h-11 w-11 items-center justify-center rounded-[12px] border border-line-2 bg-surface text-ink">
+    <span className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-chip)] border border-line-2 bg-surface text-ink">
       <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
     </span>
   );
@@ -70,7 +70,7 @@ export function Features() {
           <Reveal
             className={cn(
               "relative flex flex-col justify-between overflow-hidden rounded-[var(--radius-card)]",
-              "border border-line bg-gradient-to-br from-white/[0.07] to-transparent p-8",
+              "border border-line bg-gradient-to-br from-black/[0.04] to-transparent p-8",
               "md:col-span-4 md:min-h-[260px]"
             )}
           >

@@ -30,7 +30,6 @@ export function Security() {
           <div className="flex flex-col">
             <SectionHeading
               id="security"
-              eyebrow="Security"
               title="Serious about keeping your money safe."
               intro="You never have to think about how it works. It just has to keep your money protected, and it does, on every single transfer."
             />
@@ -38,7 +37,7 @@ export function Security() {
             <ul className="mt-10 flex flex-col gap-8">
               {points.map((p, i) => (
                 <Reveal key={p.title} delay={i * 0.07} as="li" className="flex gap-4">
-                  <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] border border-line-2 bg-surface text-ink">
+                  <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-chip)] border border-line-2 bg-surface text-ink">
                     <p.icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <div>

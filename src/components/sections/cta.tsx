@@ -16,7 +16,7 @@ export function Cta() {
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full bg-white/[0.06] blur-[110px]"
+            className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full bg-black/[0.05] blur-[110px]"
           />
 
           <div className="relative mx-auto flex max-w-xl flex-col items-center">

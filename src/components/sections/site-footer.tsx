@@ -52,7 +52,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Hover on X"
-                className="grid h-9 w-9 place-items-center rounded-full border border-line-2 text-ink-2 transition-colors hover:border-white/25 hover:text-ink"
+                className="grid h-9 w-9 place-items-center rounded-full border border-line-2 text-ink-2 transition-colors hover:border-black/25 hover:text-ink"
               >
                 <XGlyph />
               </a>
