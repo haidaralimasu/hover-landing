@@ -28,6 +28,11 @@
   --color-silver-1: #3a3a3a;
   --color-silver-2: #0a0a0a;
 
+  /* Semantic error state only — the one deliberate exception to "no hue",
+     used for form field validation (border + message). Muted, not neon. */
+  --color-danger: #c81e3a;
+  --color-danger-bg: #fdf1f2;
+
   /* Fonts (wired from next/font in layout.tsx) */
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
@@ -110,7 +115,8 @@
     html {
       scroll-behavior: auto;
     }
-    .flag-lane {
+    .flag-lane,
+    .flag-lane-x {
       animation: none !important;
     }
   }
@@ -153,6 +159,24 @@
     mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   }
 
+  /* Left/right edge fade, for horizontal marquees (global coverage flag row) */
+  .mask-x-faded {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  }
+
   /* Flag flow (app onboarding-1): a lane holds two stacked copies of a flag
      train; translating -50% loops seamlessly. Duration/direction set inline. */
   .flag-lane {
@@ -161,6 +185,16 @@
   @keyframes hover-flag-flow {
     to {
       transform: translateY(-50%);
+    }
+  }
+
+  /* Horizontal counterpart — right-to-left flag marquee (global coverage). */
+  .flag-lane-x {
+    animation: hover-flag-flow-x linear infinite;
+  }
+  @keyframes hover-flag-flow-x {
+    to {
+      transform: translateX(-50%);
     }
   }
 

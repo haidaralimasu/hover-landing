@@ -1,9 +1,12 @@
 import { Hero } from "@/components/sections/hero";
+import { Stats } from "@/components/sections/stats";
 import { Foundations } from "@/components/sections/foundations";
 import { HowItWorks } from "@/components/sections/how-it-works";
+import { GlobalCoverage } from "@/components/sections/global-coverage";
 import { Features } from "@/components/sections/features";
 import { Security } from "@/components/sections/security";
 import { Faq } from "@/components/sections/faq";
+import { HelpCenter } from "@/components/sections/help-center";
 import { Cta } from "@/components/sections/cta";
 import { siteConfig } from "@/lib/site";
 import { faqs } from "@/lib/faq";
@@ -45,11 +48,14 @@ export default function Home() {
         }}
       />
       <Hero />
+      <Stats />
       <Foundations />
       <HowItWorks />
+      <GlobalCoverage />
       <Features />
       <Security />
       <Faq />
+      <HelpCenter />
       <Cta />
     </main>
   );

@@ -24,7 +24,7 @@ const columns: { title: string; links: { label: string; href: string; external?:
   {
     title: "Company",
     links: [
-      { label: "Contact", href: "mailto:tech@hover.money" },
+      { label: "Help center", href: "#help" },
       { label: "Get notified", href: "#notify" },
     ],
   },
