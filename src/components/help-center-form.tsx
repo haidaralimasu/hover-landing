@@ -120,11 +120,11 @@ export function HelpCenterForm({ className }: { className?: string }) {
   }
 
   const inputBase =
-    "h-12 w-full rounded-[var(--radius-input)] border bg-surface px-4 text-[15px] text-ink placeholder:text-ink-3 outline-none transition-colors duration-150";
+    "h-14 w-full rounded-[var(--radius-input)] border bg-surface px-5 text-base text-ink placeholder:text-ink-3 outline-none transition-colors duration-150";
 
   return (
-    <form onSubmit={onSubmit} noValidate className={cn("flex w-full flex-col gap-4", className)}>
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={onSubmit} noValidate className={cn("flex w-full flex-col gap-5", className)}>
+      <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor={nameId} className="sr-only">
             Name
@@ -184,7 +184,7 @@ export function HelpCenterForm({ className }: { className?: string }) {
         </label>
         <textarea
           id={messageId}
-          rows={4}
+          rows={6}
           placeholder="How can we help?"
           value={message}
           aria-invalid={!!errors.message}
@@ -194,7 +194,7 @@ export function HelpCenterForm({ className }: { className?: string }) {
             if (errors.message || errors.form) setErrors((p) => ({ ...p, message: undefined, form: undefined }));
           }}
           className={cn(
-            "w-full resize-none rounded-[var(--radius-input)] border bg-surface px-4 py-3 text-[15px] text-ink",
+            "w-full resize-none rounded-[var(--radius-input)] border bg-surface px-5 py-4 text-base text-ink",
             "placeholder:text-ink-3 outline-none transition-colors duration-150",
             errors.message
               ? "border-[var(--color-danger)] focus:border-[var(--color-danger)]"
@@ -208,8 +208,8 @@ export function HelpCenterForm({ className }: { className?: string }) {
         type="submit"
         disabled={status === "loading"}
         className={cn(
-          "inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 self-start rounded-full bg-silver px-6 sm:w-auto",
-          "text-[15px] font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
+          "inline-flex h-14 w-full shrink-0 items-center justify-center gap-2 self-start rounded-full bg-silver px-8 sm:w-auto",
+          "text-base font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
           "transition-[transform,filter] duration-150 [transition-timing-function:var(--ease-out-quart)]",
           "hover:brightness-108 active:scale-[0.97] disabled:opacity-70"
         )}

@@ -7,16 +7,18 @@ export function HelpCenter() {
   return (
     <section id="help" className="scroll-mt-28 py-24 md:py-32">
       <Container>
-        <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-          <SectionHeading
-            title="Still have a question?"
-            intro="Send us a message and a real person on the team will get back to you at the email you provide."
-          />
+        <SectionHeading
+          align="center"
+          title="Still have a question?"
+          intro="Send us a message and a real person on the team will get back to you at the email you provide."
+        />
 
-          <Reveal delay={0.1} className="rounded-[var(--radius-card)] border border-line bg-bg-2 p-6 sm:p-8">
-            <HelpCenterForm />
-          </Reveal>
-        </div>
+        <Reveal
+          delay={0.1}
+          className="mx-auto mt-12 max-w-3xl rounded-[var(--radius-card)] border border-line bg-bg-2 p-7 sm:p-10"
+        >
+          <HelpCenterForm />
+        </Reveal>
       </Container>
     </section>
   );

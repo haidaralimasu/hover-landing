@@ -4,6 +4,7 @@ import { Foundations } from "@/components/sections/foundations";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { GlobalCoverage } from "@/components/sections/global-coverage";
 import { Features } from "@/components/sections/features";
+import { BeforeAfter } from "@/components/sections/before-after";
 import { Security } from "@/components/sections/security";
 import { Faq } from "@/components/sections/faq";
 import { HelpCenter } from "@/components/sections/help-center";
@@ -53,6 +54,7 @@ export default function Home() {
       <HowItWorks />
       <GlobalCoverage />
       <Features />
+      <BeforeAfter />
       <Security />
       <Faq />
       <HelpCenter />
