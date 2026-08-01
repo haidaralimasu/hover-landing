@@ -109,7 +109,7 @@ export function HelpCenterForm({ className }: { className?: string }) {
           className
         )}
       >
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-silver text-white">
+        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-white">
           <Check className="h-3.5 w-3.5" strokeWidth={3} />
         </span>
         <p className="text-sm text-ink">
@@ -208,10 +208,10 @@ export function HelpCenterForm({ className }: { className?: string }) {
         type="submit"
         disabled={status === "loading"}
         className={cn(
-          "inline-flex h-14 w-full shrink-0 items-center justify-center gap-2 self-start rounded-full bg-silver px-8 sm:w-auto",
-          "text-base font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
-          "transition-[transform,filter] duration-150 [transition-timing-function:var(--ease-out-quart)]",
-          "hover:brightness-108 active:scale-[0.97] disabled:opacity-70"
+          "inline-flex h-14 w-full shrink-0 items-center justify-center gap-2 self-start rounded-full bg-ink px-8 sm:w-auto",
+          "text-base font-medium text-white",
+          "transition-[transform,opacity] duration-150 [transition-timing-function:var(--ease-out-quart)]",
+          "hover:opacity-90 active:scale-[0.97] active:opacity-85 disabled:opacity-70"
         )}
       >
         {status === "loading" ? (

@@ -69,6 +69,25 @@ const organizationLd = {
   sameAs: ["https://x.com/hover_money"],
 };
 
+// SoftwareApplication + releaseStatus tell search/AI answer engines the
+// precise current state (iOS private beta via TestFlight, not "available"
+// or "coming soon") instead of them inferring it from prose.
+const softwareAppLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: siteConfig.name,
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "iOS, Android",
+  releaseStatus: "https://schema.org/OnlineOnly",
+  description: siteConfig.description,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    availability: "https://schema.org/PreOrder",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -97,6 +116,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(softwareAppLd).replace(/</g, "\\u003c"),
           }}
         />
         <SiteHeader />

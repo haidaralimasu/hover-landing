@@ -19,6 +19,24 @@ export function HelpCenter() {
         >
           <HelpCenterForm />
         </Reveal>
+
+        <p className="mx-auto mt-6 max-w-3xl text-center text-sm text-ink-3">
+          You can also reach us directly at{" "}
+          <a
+            href="mailto:haidaralimasu123@gmail.com"
+            className="text-ink-2 underline underline-offset-2 transition-colors hover:text-ink"
+          >
+            haidaralimasu123@gmail.com
+          </a>{" "}
+          or{" "}
+          <a
+            href="mailto:mustakimkhan1111176@gmail.com"
+            className="text-ink-2 underline underline-offset-2 transition-colors hover:text-ink"
+          >
+            mustakimkhan1111176@gmail.com
+          </a>
+          .
+        </p>
       </Container>
     </section>
   );

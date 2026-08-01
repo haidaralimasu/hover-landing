@@ -11,9 +11,10 @@ const base =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-silver-1)]";
 
 const variants: Record<Variant, string> = {
-  // Highest-contrast CTA: dark graphite fill, white label (app Button.primary).
-  primary:
-    "bg-silver text-white hover:brightness-125 shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
+  // Highest-contrast CTA: flat black fill, white label (app Button.primary —
+  // colors.black, no gradient/shine; hover/active mirror the app's Pressable
+  // opacity feedback instead of a web-only brightness shine).
+  primary: "bg-ink text-white hover:opacity-90 active:opacity-85",
   secondary:
     "border border-line-2 bg-surface text-ink hover:bg-surface-2 hover:border-black/20",
   ghost: "text-ink-2 hover:text-ink hover:bg-black/5",

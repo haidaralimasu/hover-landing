@@ -54,7 +54,7 @@ export async function POST(request: Request) {
       from: FROM,
       to: email,
       replyTo: REPLY_TO,
-      subject: "You're on the Hover waitlist",
+      subject: "You're on the Hover private beta list",
       html: confirmationHtml(unsub),
       text: confirmationText(unsub),
       headers: {
@@ -89,7 +89,7 @@ export async function POST(request: Request) {
 }
 
 const PREHEADER =
-  "You're on the list — we'll email you the moment Hover launches.";
+  "You're on the private beta list — we'll email you when your invite is ready.";
 
 function confirmationHtml(unsub: string) {
   return `<!doctype html>
@@ -99,7 +99,7 @@ function confirmationHtml(unsub: string) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <meta name="x-apple-disable-message-reformatting" />
-    <title>You're on the Hover waitlist</title>
+    <title>You're on the Hover private beta list</title>
   </head>
   <body style="margin:0;padding:0;background:#f2f2f2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#0a0a0a;-webkit-font-smoothing:antialiased;">
     <!-- Preheader: shown as the inbox preview, hidden in the body -->
@@ -120,12 +120,12 @@ function confirmationHtml(unsub: string) {
             <tr>
               <td style="background:#ffffff;border:1px solid rgba(0,0,0,0.08);border-radius:20px;padding:40px;">
                 <h1 style="margin:0 0 12px;font-size:24px;line-height:1.25;font-weight:700;letter-spacing:-0.02em;color:#0a0a0a;">
-                  You're on the list.
+                  You're on the private beta list.
                 </h1>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
-                  Thanks for signing up. We'll email you the moment Hover is ready
-                  so you can send money across borders in seconds — no spam, just
-                  the one message that matters.
+                  Thanks for joining. We'll email you an invite as soon as a spot
+                  opens up so you can send money across borders in seconds — no
+                  spam, just the one message that matters.
                 </p>
                 <table role="presentation" cellpadding="0" cellspacing="0">
                   <tr>
@@ -143,7 +143,7 @@ function confirmationHtml(unsub: string) {
             <tr>
               <td style="padding:24px 8px 0;">
                 <p style="margin:0 0 8px;font-size:12px;line-height:1.6;color:#8a8a8a;">
-                  You received this because you asked to be notified at hover.money.
+                  You received this because you asked to join the private beta at hover.money.
                   If this wasn't you, you can safely
                   <a href="${unsub}" style="color:#5c5c5c;text-decoration:underline;">unsubscribe</a>.
                 </p>
@@ -162,14 +162,14 @@ function confirmationHtml(unsub: string) {
 
 function confirmationText(unsub: string) {
   return [
-    "You're on the list.",
+    "You're on the private beta list.",
     "",
-    "Thanks for signing up. We'll email you the moment Hover is ready so you can send money across borders in seconds — no spam, just the one message that matters.",
+    "Thanks for joining. We'll email you an invite as soon as a spot opens up so you can send money across borders in seconds — no spam, just the one message that matters.",
     "",
     "Visit hover.money: https://hover.money",
     "",
     "—",
-    "You received this because you asked to be notified at hover.money.",
+    "You received this because you asked to join the private beta at hover.money.",
     `Unsubscribe: ${unsub}`,
     COMPANY_ADDRESS,
   ].join("\n");

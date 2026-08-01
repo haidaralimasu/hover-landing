@@ -45,7 +45,7 @@ export function UnsubscribeClient({
   if (status === "done") {
     return (
       <>
-        <span className="mt-8 grid h-12 w-12 place-items-center rounded-full bg-silver text-white">
+        <span className="mt-8 grid h-12 w-12 place-items-center rounded-full bg-ink text-white">
           <Check className="h-5 w-5" strokeWidth={3} />
         </span>
         <h1 className="mt-6 text-2xl font-semibold tracking-tight text-ink">
@@ -53,7 +53,7 @@ export function UnsubscribeClient({
         </h1>
         <p className="mt-3 text-pretty text-ink-2">
           We&apos;ve removed <span className="font-medium text-ink">{email}</span>{" "}
-          from the Hover waitlist. You won&apos;t hear from us again.
+          from the Hover private beta list. You won&apos;t hear from us again.
         </p>
       </>
     );
@@ -65,15 +65,15 @@ export function UnsubscribeClient({
         Unsubscribe from Hover
       </h1>
       <p className="mt-3 text-pretty text-ink-2">
-        Stop launch emails to{" "}
-        <span className="font-medium text-ink">{email}</span>? You can rejoin the
-        waitlist any time.
+        Stop private beta emails to{" "}
+        <span className="font-medium text-ink">{email}</span>? You can rejoin any
+        time.
       </p>
       <button
         type="button"
         onClick={confirm}
         disabled={status === "loading"}
-        className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-silver px-6 text-[15px] font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset] transition-[transform,filter] duration-150 [transition-timing-function:var(--ease-out-quart)] hover:brightness-110 active:scale-[0.97] disabled:opacity-70"
+        className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink px-6 text-[15px] font-medium text-white transition-[transform,opacity] duration-150 [transition-timing-function:var(--ease-out-quart)] hover:opacity-90 active:scale-[0.97] active:opacity-85 disabled:opacity-70"
       >
         {status === "loading" ? (
           <>

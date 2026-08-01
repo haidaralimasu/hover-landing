@@ -72,7 +72,7 @@ export function CookieConsent() {
               <button
                 type="button"
                 onClick={() => choose("granted")}
-                className="inline-flex h-10 items-center justify-center rounded-full bg-silver px-5 text-sm font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset] transition-[transform,filter] duration-150 [transition-timing-function:var(--ease-out-quart)] hover:brightness-110 active:scale-[0.97]"
+                className="inline-flex h-10 items-center justify-center rounded-full bg-ink px-5 text-sm font-medium text-white transition-[transform,opacity] duration-150 [transition-timing-function:var(--ease-out-quart)] hover:opacity-90 active:scale-[0.97] active:opacity-85"
               >
                 Accept
               </button>

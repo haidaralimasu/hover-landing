@@ -123,14 +123,11 @@
 }
 
 @layer utilities {
-  /* Brand silver gradient — used on SHAPES/borders only, never on text
-     (gradient text is banned by the design rules). */
-  .bg-silver {
-    background-image: linear-gradient(
-      180deg,
-      var(--color-silver-1),
-      var(--color-silver-2)
-    );
+  /* Flat solid ink fill — matches the mobile app's Button.tsx primary
+     (colors.black, no gradient/shine). The silver gradient variables stay
+     reserved for the "H" brand mark only. */
+  .bg-ink {
+    background-color: var(--color-ink);
   }
 
   /* Hairline grid backdrop, extremely subtle, decorative */

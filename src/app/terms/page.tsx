@@ -4,42 +4,52 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: `The terms that govern your use of the ${siteConfig.name} website and waitlist.`,
+  description: `The terms that govern your use of the ${siteConfig.name} website and private beta.`,
   alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Service" updated="July 15, 2026">
+    <LegalPage title="Terms of Service" updated="August 1, 2026">
       <section>
         <p>
           These Terms govern your use of the {siteConfig.name} website at{" "}
-          {siteConfig.domain} and the waitlist signup. By using the site, you
-          agree to these Terms.
+          {siteConfig.domain} and the {siteConfig.name} private beta app. By using
+          the site or the app, you agree to these Terms.
         </p>
       </section>
 
       <section>
         <h2>The service</h2>
         <p>
-          {siteConfig.name} is a pre-launch product. The website currently
-          provides information about the product and lets you join a waitlist to
-          be notified when it becomes available. Features described are subject to
-          change and do not constitute a binding offer of any financial product.
+          {siteConfig.name} is currently available as a private beta on iOS
+          through Apple TestFlight, with Android coming soon. The website lets
+          you request an invite to the beta by email. Features described are
+          subject to change during the beta period and do not constitute a
+          binding offer of any financial product.
         </p>
       </section>
 
       <section>
-        <h2>Waitlist</h2>
+        <h2>Private beta</h2>
         <ul>
-          <li>You must provide a valid email address that you own.</li>
+          <li>You must provide a valid email address that you own to request an invite.</li>
           <li>
-            Joining the waitlist does not guarantee access, pricing, or
-            availability at launch.
+            Requesting an invite does not guarantee access, and invites are
+            issued as spots become available.
           </li>
           <li>
-            You may leave the waitlist at any time via the unsubscribe link in any
-            email we send.
+            The beta app is provided for testing purposes and may contain bugs,
+            incomplete features, or be changed or discontinued at any time
+            without notice.
+          </li>
+          <li>
+            You may leave the beta invite list at any time via the unsubscribe
+            link in any email we send.
+          </li>
+          <li>
+            Your use of the TestFlight app is also subject to Apple&rsquo;s
+            TestFlight terms.
           </li>
         </ul>
       </section>
@@ -88,7 +98,15 @@ export default function TermsPage() {
         <h2>Contact</h2>
         <p>
           Questions about these Terms? Email{" "}
-          <a href="mailto:legal@hover.money">legal@hover.money</a>.
+          <a href="mailto:support@hover.money">support@hover.money</a>,{" "}
+          <a href="mailto:haidaralimasu123@gmail.com">
+            haidaralimasu123@gmail.com
+          </a>
+          , or{" "}
+          <a href="mailto:mustakimkhan1111176@gmail.com">
+            mustakimkhan1111176@gmail.com
+          </a>
+          .
         </p>
       </section>
 

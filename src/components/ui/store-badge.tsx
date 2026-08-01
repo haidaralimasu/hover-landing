@@ -20,8 +20,8 @@ function GooglePlayGlyph({ className }: { className?: string }) {
 }
 
 /**
- * "Coming soon" store badge. Not an outbound link yet (app is pre-launch),
- * so it anchors to the notify form instead of a dead store URL.
+ * "Coming soon" store badge. Not an outbound link yet (app is in private
+ * beta), so it anchors to the notify form instead of a dead store URL.
  */
 export function StoreBadge({
   platform,
@@ -34,7 +34,7 @@ export function StoreBadge({
   return (
     <Link
       href="#notify"
-      aria-label={`${label}: coming soon. Get notified at launch.`}
+      aria-label={`${label}: coming soon. Join the beta.`}
       className={cn(
         "group inline-flex items-center gap-3 rounded-[var(--radius-chip)] border border-line-2 bg-surface px-4 py-2.5",
         "transition-[transform,border-color,background-color] duration-150 [transition-timing-function:var(--ease-out-quart)]",

@@ -48,7 +48,7 @@ export function NotifyForm({ className }: { className?: string }) {
       }
 
       setStatus("success");
-      setMessage("You're on the list. We'll email you at launch.");
+      setMessage("You're on the private beta list. We'll email you an invite.");
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");
@@ -67,7 +67,7 @@ export function NotifyForm({ className }: { className?: string }) {
           className
         )}
       >
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-silver text-white">
+        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-white">
           <Check className="h-3.5 w-3.5" strokeWidth={3} />
         </span>
         <p className="text-sm text-ink">{message}</p>
@@ -105,10 +105,10 @@ export function NotifyForm({ className }: { className?: string }) {
           type="submit"
           disabled={status === "loading"}
           className={cn(
-            "inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-silver px-6",
-            "text-[15px] font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset]",
-            "transition-[transform,filter] duration-150 [transition-timing-function:var(--ease-out-quart)]",
-            "hover:brightness-108 active:scale-[0.97] disabled:opacity-70"
+            "inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-6",
+            "text-[15px] font-medium text-white",
+            "transition-[transform,opacity] duration-150 [transition-timing-function:var(--ease-out-quart)]",
+            "hover:opacity-90 active:scale-[0.97] active:opacity-85 disabled:opacity-70"
           )}
         >
           {status === "loading" ? (
@@ -118,7 +118,7 @@ export function NotifyForm({ className }: { className?: string }) {
             </>
           ) : (
             <>
-              Notify me
+              Join the beta
               <ArrowRight className="h-4 w-4" />
             </>
           )}

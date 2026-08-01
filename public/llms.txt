@@ -1,0 +1,25 @@
+# Hover
+
+> Hover is the simplest way to send money across borders. Sign in with Google or Apple, choose an amount, and your money arrives in seconds.
+
+Hover is currently in **private beta on iOS** (via Apple TestFlight), with Android coming soon. It is not yet publicly available on the App Store or Google Play. Visitors can join the private beta waitlist at https://hover.money by entering their email; an invite is emailed as spots open up.
+
+## Key facts
+
+- No password: sign in with an existing Google or Apple account.
+- Transfers are typically delivered in seconds, any time of day, including weekends and holidays.
+- Built for cross-border (international) payments, but also supports domestic transfers.
+- Every transfer's fee is shown before confirmation — no hidden charges.
+- Payments are end-to-end protected and require explicit user approval.
+
+## Pages
+
+- [Home](https://hover.money): product overview, how it works, features, security, FAQ, and the beta signup form.
+- [Terms of Service](https://hover.money/terms): terms governing the website and private beta.
+- [Privacy Policy](https://hover.money/privacy): what data is collected during the private beta and how it's used.
+
+## Contact
+
+- Support / help center: via the form at https://hover.money/#help
+- Legal: legal@hover.money, haidaralimasu123@gmail.com, mustakimkhan1111176@gmail.com
+- Privacy: privacy@hover.money, haidaralimasu123@gmail.com, mustakimkhan1111176@gmail.com
