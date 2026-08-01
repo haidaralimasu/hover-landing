@@ -33,6 +33,13 @@
   --color-danger: #c81e3a;
   --color-danger-bg: #fdf1f2;
 
+  /* Second deliberate hue exception: the Before/After comparison (red ✕ /
+     green ✓) reads as a literal "this vs. that" checklist everywhere this
+     pattern exists, so leaving it monochrome would read as a bug, not
+     restraint. Not used anywhere else. */
+  --color-success: #1a8a4a;
+  --color-success-bg: #eefaf2;
+
   /* Fonts (wired from next/font in layout.tsx) */
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;

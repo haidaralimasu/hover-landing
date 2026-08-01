@@ -8,6 +8,8 @@ const before: string[] = [
   "Fees hidden until after you send",
   "Paperwork and bank branch visits",
   "Cut off outside banking hours",
+  "Recovery phrases you can lose forever",
+  "Gas fees that spike without warning",
 ];
 
 const after: string[] = [
@@ -15,16 +17,18 @@ const after: string[] = [
   "Fee shown upfront, before you send",
   "Sign in with Google or Apple, done",
   "Works any time, any day",
+  "No seed phrase — just Google or Apple sign-in",
+  "Gas is sponsored, you never pay it",
 ];
 
 function Row({ label, included }: { label: string; included: boolean }) {
   return (
-    <li className="flex items-start gap-3.5">
+    <li className="group flex items-start gap-3.5">
       <span
         className={
           included
-            ? "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-white"
-            : "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-line-2 text-ink-3"
+            ? "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-[1.5px] border-[var(--color-success)] bg-[var(--color-success-bg)] text-[var(--color-success)] transition-all duration-200 [transition-timing-function:var(--ease-out-quart)] group-hover:scale-110 group-hover:bg-[var(--color-success)] group-hover:text-white group-hover:shadow-[0_0_0_4px_var(--color-success-bg)]"
+            : "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-[1.5px] border-[var(--color-danger)] bg-[var(--color-danger-bg)] text-[var(--color-danger)] transition-all duration-200 [transition-timing-function:var(--ease-out-quart)] group-hover:scale-110 group-hover:bg-[var(--color-danger)] group-hover:text-white group-hover:shadow-[0_0_0_4px_var(--color-danger-bg)]"
         }
       >
         {included ? (

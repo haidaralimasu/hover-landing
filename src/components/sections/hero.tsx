@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { NotifyForm } from "@/components/notify-form";
-import { StoreBadge } from "@/components/ui/store-badge";
 import {
   AppHomeScreen,
   HeroFlagBackdrop,
@@ -42,11 +41,6 @@ export function Hero() {
 
             <Reveal delay={0.18} className="mt-8 w-full max-w-md">
               <NotifyForm />
-            </Reveal>
-
-            <Reveal delay={0.24} className="mt-6 flex flex-wrap items-center gap-3">
-              <StoreBadge platform="ios" />
-              <StoreBadge platform="android" />
             </Reveal>
           </div>
 

@@ -7,7 +7,6 @@ import { Features } from "@/components/sections/features";
 import { BeforeAfter } from "@/components/sections/before-after";
 import { Security } from "@/components/sections/security";
 import { Faq } from "@/components/sections/faq";
-import { HelpCenter } from "@/components/sections/help-center";
 import { Cta } from "@/components/sections/cta";
 import { siteConfig } from "@/lib/site";
 import { faqs } from "@/lib/faq";
@@ -57,7 +56,6 @@ export default function Home() {
       <BeforeAfter />
       <Security />
       <Faq />
-      <HelpCenter />
       <Cta />
     </main>
   );

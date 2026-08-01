@@ -92,15 +92,7 @@ export default function PrivacyPage() {
         <h2>Contact</h2>
         <p>
           Questions about this policy or your data? Email{" "}
-          <a href="mailto:support@hover.money">support@hover.money</a>,{" "}
-          <a href="mailto:haidaralimasu123@gmail.com">
-            haidaralimasu123@gmail.com
-          </a>
-          , or{" "}
-          <a href="mailto:mustakimkhan1111176@gmail.com">
-            mustakimkhan1111176@gmail.com
-          </a>
-          .
+          <a href="mailto:support@hover.money">support@hover.money</a>.
         </p>
       </section>
 

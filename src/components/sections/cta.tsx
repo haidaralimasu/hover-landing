@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { HoverMark } from "@/components/ui/logo";
 import { NotifyForm } from "@/components/notify-form";
-import { StoreBadge } from "@/components/ui/store-badge";
 
 export function Cta() {
   return (
@@ -31,11 +30,6 @@ export function Cta() {
 
             <div className="mt-8 w-full max-w-md">
               <NotifyForm />
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <StoreBadge platform="ios" />
-              <StoreBadge platform="android" />
             </div>
           </div>
         </Reveal>
