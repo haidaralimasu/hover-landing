@@ -17,7 +17,7 @@ export default function HelpPage() {
       <Container>
         <SectionHeading
           align="center"
-          title="Still have a question?"
+          title="Get in touch"
           intro="Send us a message and a real person on the team will get back to you at the email you provide."
         />
 

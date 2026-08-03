@@ -7,12 +7,12 @@ export function Stats() {
   return (
     <section className="border-y border-line bg-bg-2 py-16 md:py-20">
       <Container>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6">
           {coverageStats.map((stat, i) => (
             <Reveal
               key={stat.label}
               delay={0.05 * i}
-              className="flex flex-col items-center gap-1.5 text-center md:items-start md:text-left"
+              className="flex flex-col items-center gap-1.5 text-center"
             >
               <p className="text-4xl font-semibold tracking-tight text-ink tabular-nums sm:text-5xl">
                 <StatNumber value={stat.value} suffix={stat.suffix} />

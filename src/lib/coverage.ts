@@ -32,5 +32,4 @@ export const coverageStats: { value: number; suffix?: string; label: string }[] 
   { value: SUPPORTED_COUNTRIES_COUNT, suffix: "+", label: "Countries reached" },
   { value: SUPPORTED_CURRENCIES_COUNT, suffix: "+", label: "Local currencies" },
   { value: 24, suffix: "/7", label: "Always on, no bank hours" },
-  { value: 0, label: "Seed phrases to remember" },
 ];
