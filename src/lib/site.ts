@@ -17,6 +17,10 @@ export const siteConfig = {
     "sign in with Google",
   ],
   twitter: "@hover_money",
+  // iOS beta - a real TestFlight public link, no per-tester invite needed.
+  // Android has no equivalent yet (Play Console open testing pending
+  // review) - keep this as the only beta download link until that exists.
+  testflightUrl: "https://testflight.apple.com/join/yfPNFGFC",
 } as const;
 
 export type NavItem = { label: string; href: string };
