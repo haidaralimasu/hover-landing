@@ -22,8 +22,8 @@ export const siteConfig = {
 export type NavItem = { label: string; href: string };
 
 export const navItems: NavItem[] = [
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Features", href: "#features" },
-  { label: "Security", href: "#security" },
-  { label: "FAQ", href: "#faq" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "Features", href: "/#features" },
+  { label: "Security", href: "/#security" },
+  { label: "FAQ", href: "/#faq" },
 ];

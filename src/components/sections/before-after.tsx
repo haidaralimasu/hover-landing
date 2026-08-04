@@ -8,8 +8,8 @@ const before: string[] = [
   "Fees hidden until after you send",
   "Paperwork and bank branch visits",
   "Cut off outside banking hours",
-  "Recovery phrases you can lose forever",
-  "Gas fees that spike without warning",
+  "No real support if something goes wrong",
+  "Confusing apps built for experts, not you",
 ];
 
 const after: string[] = [
@@ -17,8 +17,8 @@ const after: string[] = [
   "Fee shown upfront, before you send",
   "Sign in with Google or Apple, done",
   "Works any time, any day",
-  "No seed phrase — just Google or Apple sign-in",
-  "Gas is sponsored, you never pay it",
+  "Real people ready to help, day or night",
+  "Designed to be simple for everyone",
 ];
 
 function Row({ label, included }: { label: string; included: boolean }) {

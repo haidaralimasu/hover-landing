@@ -87,6 +87,7 @@ export function ProductTour() {
     <section className="py-24 md:py-32">
       <Container>
         <SectionHeading
+          id="how-it-works"
           eyebrow="See it in action"
           title="From open app to money sent, in seconds"
           intro="A real walk-through of sending an international money transfer with Hover — choose a recipient, enter an amount, confirm, done."

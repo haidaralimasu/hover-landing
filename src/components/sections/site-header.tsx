@@ -81,7 +81,7 @@ export function SiteHeader() {
 
             <div className="flex items-center gap-2">
               <Link
-                href="#notify"
+                href="/#notify"
                 className={cn(
                   "hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-white sm:inline-flex",
                   "transition-[transform,opacity] duration-150",
@@ -131,7 +131,7 @@ export function SiteHeader() {
                 ))}
                 <li className="px-1 pt-2">
                   <Link
-                    href="#notify"
+                    href="/#notify"
                     onClick={() => setOpen(false)}
                     className="inline-flex w-full items-center justify-center rounded-full bg-ink px-4 py-3 text-sm font-medium text-white transition-opacity duration-150 hover:opacity-90 active:opacity-85"
                   >

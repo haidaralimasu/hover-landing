@@ -98,7 +98,9 @@ export function NotifyForm({ className }: { className?: string }) {
             "h-12 w-full rounded-[var(--radius-input)] border bg-surface px-4 text-[15px] text-ink",
             "placeholder:text-ink-3 outline-none transition-colors duration-150",
             "focus:border-black/35",
-            status === "error" ? "border-black/45" : "border-line-2"
+            status === "error"
+              ? "border-[var(--color-danger)] focus:border-[var(--color-danger)]"
+              : "border-line-2"
           )}
         />
         <button
@@ -135,7 +137,7 @@ export function NotifyForm({ className }: { className?: string }) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="mt-2.5 text-sm text-ink-2"
+            className="mt-2.5 text-sm text-[var(--color-danger)]"
           >
             {message}
           </motion.p>

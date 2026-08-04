@@ -25,7 +25,7 @@ export function HowItWorks() {
     <section className="py-24 md:py-32">
       <Container>
         <SectionHeading
-          id="how-it-works"
+          id="three-steps"
           title="Three steps. That's the whole thing."
           intro="Sending money should feel as easy as sending a message. With Hover, it does."
         />
