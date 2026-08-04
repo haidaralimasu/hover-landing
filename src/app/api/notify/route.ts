@@ -3,6 +3,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { Resend } from "resend";
 import { unsubscribeUrl } from "@/lib/unsubscribe";
+import { siteConfig } from "@/lib/site";
 
 // Runs on the Node.js runtime so the local-file log below works in dev.
 export const runtime = "nodejs";
@@ -54,7 +55,7 @@ export async function POST(request: Request) {
       from: FROM,
       to: email,
       replyTo: REPLY_TO,
-      subject: "You're on the Hover private beta list",
+      subject: "You're in — download the Hover iOS beta",
       html: confirmationHtml(unsub),
       text: confirmationText(unsub),
       headers: {
@@ -120,19 +121,19 @@ function confirmationHtml(unsub: string) {
             <tr>
               <td style="background:#ffffff;border:1px solid rgba(0,0,0,0.08);border-radius:20px;padding:40px;">
                 <h1 style="margin:0 0 12px;font-size:24px;line-height:1.25;font-weight:700;letter-spacing:-0.02em;color:#0a0a0a;">
-                  You're on the private beta list.
+                  You're in.
                 </h1>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
-                  Thanks for joining. We'll email you an invite as soon as a spot
-                  opens up so you can send money across borders in seconds — no
-                  spam, just the one message that matters.
+                  Install Hover through TestFlight below to send money across
+                  borders in seconds. Android beta access is coming soon — we'll
+                  email you the moment it's ready.
                 </p>
                 <table role="presentation" cellpadding="0" cellspacing="0">
                   <tr>
                     <td style="border-radius:999px;background:#0a0a0a;">
-                      <a href="https://hover.money" target="_blank"
+                      <a href="${siteConfig.testflightUrl}" target="_blank"
                         style="display:inline-block;padding:12px 22px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:999px;">
-                        Visit hover.money
+                        Join the iOS beta
                       </a>
                     </td>
                   </tr>
@@ -162,11 +163,11 @@ function confirmationHtml(unsub: string) {
 
 function confirmationText(unsub: string) {
   return [
-    "You're on the private beta list.",
+    "You're in.",
     "",
-    "Thanks for joining. We'll email you an invite as soon as a spot opens up so you can send money across borders in seconds — no spam, just the one message that matters.",
+    "Install Hover through TestFlight to send money across borders in seconds. Android beta access is coming soon — we'll email you the moment it's ready.",
     "",
-    "Visit hover.money: https://hover.money",
+    `Join the iOS beta: ${siteConfig.testflightUrl}`,
     "",
     "—",
     "You received this because you asked to join the private beta at hover.money.",

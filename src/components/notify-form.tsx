@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useReducedMotionSafe } from "@/lib/use-reduced-motion-safe";
+import { siteConfig } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -48,7 +49,7 @@ export function NotifyForm({ className }: { className?: string }) {
       }
 
       setStatus("success");
-      setMessage("You're on the private beta list. We'll email you an invite.");
+      setMessage("You're in. Check your email, or download it right now below.");
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");
@@ -63,14 +64,25 @@ export function NotifyForm({ className }: { className?: string }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "flex items-center gap-3 rounded-[var(--radius-input)] border border-line-2 bg-surface px-4 py-3.5",
+          "flex flex-col gap-3 rounded-[var(--radius-input)] border border-line-2 bg-surface px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between",
           className
         )}
       >
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-white">
-          <Check className="h-3.5 w-3.5" strokeWidth={3} />
-        </span>
-        <p className="text-sm text-ink">{message}</p>
+        <div className="flex items-center gap-3">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+            <Check className="h-3.5 w-3.5" strokeWidth={3} />
+          </span>
+          <p className="text-sm text-ink">{message}</p>
+        </div>
+        <a
+          href={siteConfig.testflightUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-5 text-sm font-medium text-white transition-[transform,opacity] duration-150 hover:opacity-90 active:scale-[0.97] active:opacity-85"
+        >
+          Join the iOS beta
+          <ArrowRight className="h-3.5 w-3.5" />
+        </a>
       </motion.div>
     );
   }
