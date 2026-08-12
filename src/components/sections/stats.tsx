@@ -14,7 +14,7 @@ export function Stats() {
               delay={0.05 * i}
               className="flex flex-col items-center gap-1.5 text-center"
             >
-              <p className="text-4xl font-semibold tracking-tight text-ink tabular-nums sm:text-5xl">
+              <p className="text-4xl font-semibold tracking-[-0.02em] text-ink tabular-nums sm:text-5xl sm:tracking-[-0.025em]">
                 <StatNumber value={stat.value} suffix={stat.suffix} />
               </p>
               <p className="text-sm text-ink-2">{stat.label}</p>

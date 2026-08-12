@@ -29,15 +29,18 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-[var(--z-header)]">
-      <div
-        className={cn(
-          "transition-[background-color,border-color,backdrop-filter] duration-300",
-          scrolled
-            ? "border-b border-line bg-bg/70 backdrop-blur-xl"
-            : "border-b border-transparent bg-transparent"
-        )}
-      >
-        <Container>
+      <div className="relative">
+        {/* Glass backdrop as its own layer: only opacity + backdrop-filter
+            (the materialize blur-in) ever animate here, never background-
+            color or border-color directly on a scroll-driven element. */}
+        <div
+          aria-hidden="true"
+          className={cn(
+            "glass absolute inset-0 border-b border-line bg-bg/70 transition-[opacity,backdrop-filter] duration-300",
+            scrolled ? "opacity-100 backdrop-blur-xl" : "opacity-0 backdrop-blur-none"
+          )}
+        />
+        <Container className="relative">
           <nav
             aria-label="Primary"
             className="flex h-16 items-center justify-between gap-4"
@@ -110,11 +113,19 @@ export function SiteHeader() {
         {open && (
           <motion.div
             key="mobile-menu"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
+            initial={
+              reduce
+                ? { opacity: 0 }
+                : { opacity: 0, y: -8, filter: "blur(8px)" }
+            }
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={
+              reduce
+                ? { opacity: 0 }
+                : { opacity: 0, y: -8, filter: "blur(8px)" }
+            }
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="border-b border-line bg-bg/95 backdrop-blur-xl md:hidden"
+            className="glass border-b border-line bg-bg/95 backdrop-blur-xl md:hidden"
           >
             <Container>
               <ul className="flex flex-col py-3">

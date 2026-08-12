@@ -127,6 +127,24 @@
       animation: none !important;
     }
   }
+
+  /* Translucent chrome (header, mobile menu) turns near-solid and drops its
+     blur for users who've asked for less transparency. */
+  @media (prefers-reduced-transparency: reduce) {
+    .glass {
+      background-color: var(--color-bg) !important;
+      opacity: 1 !important;
+      backdrop-filter: none !important;
+    }
+  }
+
+  /* High-contrast preference: swap the hairline border for a solid,
+     clearly-defined one on the same translucent surfaces. */
+  @media (prefers-contrast: more) {
+    .glass {
+      border-color: var(--color-ink) !important;
+    }
+  }
 }
 
 @layer utilities {

@@ -286,7 +286,7 @@ function BalanceAmount({ reduce }: { reduce: boolean }) {
     return () => controls.stop();
   }, [count, reduce]);
   return (
-    <motion.p className="mt-1 text-[27px] font-semibold leading-none tracking-tight text-ink tabular-nums">
+    <motion.p className="mt-1 text-[27px] font-semibold leading-none tracking-[-0.01em] text-ink tabular-nums">
       {text}
     </motion.p>
   );

@@ -47,7 +47,7 @@ export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <HoverMark className="h-7 w-7" />
-      <span className="text-lg font-semibold tracking-tight text-ink">
+      <span className="text-lg font-semibold tracking-[-0.006em] text-ink">
         Hover
       </span>
     </span>

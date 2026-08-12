@@ -41,7 +41,7 @@ export function Security() {
                     <p.icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <div>
-                    <h3 className="text-lg font-medium tracking-tight text-ink">
+                    <h3 className="text-lg font-medium tracking-[-0.006em] text-ink">
                       {p.title}
                     </h3>
                     <p className="mt-2 max-w-lg text-pretty text-[15px] leading-relaxed text-ink-2">

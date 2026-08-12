@@ -126,7 +126,7 @@ export function ProductTour() {
                       </span>
                       <h3
                         className={cn(
-                          "text-lg font-medium tracking-tight transition-colors duration-500 motion-reduce:transition-none",
+                          "text-lg font-medium tracking-[-0.006em] transition-colors duration-500 motion-reduce:transition-none",
                           active ? "text-ink" : "text-ink-3"
                         )}
                       >

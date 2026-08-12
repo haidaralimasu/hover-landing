@@ -15,14 +15,14 @@ export function LegalPage({
     <main className="pb-24 pt-32 md:pt-40">
       <Container>
         <div className="mx-auto max-w-2xl">
-          <h1 className="text-balance text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+          <h1 className="text-balance text-4xl font-semibold tracking-[-0.02em] text-ink sm:text-5xl sm:tracking-[-0.025em]">
             {title}
           </h1>
           <p className="mt-4 text-sm text-ink-3">Last updated: {updated}</p>
           <div
             className={[
               "mt-12 flex flex-col gap-8",
-              "[&_h2]:text-xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-ink",
+              "[&_h2]:text-xl [&_h2]:font-semibold [&_h2]:tracking-[-0.008em] [&_h2]:text-ink",
               "[&_h2]:mb-3",
               "[&_p]:text-pretty [&_p]:leading-relaxed [&_p]:text-ink-2",
               "[&_a]:font-medium [&_a]:text-ink [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-ink-2",

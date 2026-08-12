@@ -82,7 +82,7 @@ export function Features() {
             </div>
             <FeatureIcon icon={lead.icon} />
             <div className="relative mt-8 max-w-md">
-              <h3 className="text-2xl font-medium tracking-tight text-ink">
+              <h3 className="text-2xl font-medium tracking-[-0.012em] text-ink">
                 {lead.title}
               </h3>
               <p className="mt-3 text-pretty text-[15px] leading-relaxed text-ink-2">
@@ -98,7 +98,7 @@ export function Features() {
           >
             <FeatureIcon icon={rest[0].icon} />
             <div className="mt-8">
-              <h3 className="text-xl font-medium tracking-tight text-ink">
+              <h3 className="text-xl font-medium tracking-[-0.008em] text-ink">
                 {rest[0].title}
               </h3>
               <p className="mt-3 text-pretty text-[15px] leading-relaxed text-ink-2">
@@ -116,7 +116,7 @@ export function Features() {
             >
               <FeatureIcon icon={f.icon} />
               <div>
-                <h3 className="text-xl font-medium tracking-tight text-ink">
+                <h3 className="text-xl font-medium tracking-[-0.008em] text-ink">
                   {f.title}
                 </h3>
                 <p className="mt-3 text-pretty text-[15px] leading-relaxed text-ink-2">

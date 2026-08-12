@@ -20,7 +20,7 @@ export function Hero() {
           <Reveal
             as="h1"
             delay={0.06}
-            className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-5xl lg:text-6xl"
+            className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.025em] text-ink sm:text-5xl sm:tracking-[-0.028em] lg:text-6xl lg:tracking-[-0.032em]"
           >
             Send money across borders in seconds.
           </Reveal>

@@ -31,7 +31,7 @@ export function UnsubscribeClient({
   if (!email || !token) {
     return (
       <>
-        <h1 className="mt-8 text-2xl font-semibold tracking-tight text-ink">
+        <h1 className="mt-8 text-2xl font-semibold tracking-[-0.012em] text-ink">
           Invalid link
         </h1>
         <p className="mt-3 text-pretty text-ink-2">
@@ -48,7 +48,7 @@ export function UnsubscribeClient({
         <span className="mt-8 grid h-12 w-12 place-items-center rounded-full bg-ink text-white">
           <Check className="h-5 w-5" strokeWidth={3} />
         </span>
-        <h1 className="mt-6 text-2xl font-semibold tracking-tight text-ink">
+        <h1 className="mt-6 text-2xl font-semibold tracking-[-0.012em] text-ink">
           You&apos;re unsubscribed
         </h1>
         <p className="mt-3 text-pretty text-ink-2">
@@ -61,7 +61,7 @@ export function UnsubscribeClient({
 
   return (
     <>
-      <h1 className="mt-8 text-2xl font-semibold tracking-tight text-ink">
+      <h1 className="mt-8 text-2xl font-semibold tracking-[-0.012em] text-ink">
         Unsubscribe from Hover
       </h1>
       <p className="mt-3 text-pretty text-ink-2">

@@ -38,7 +38,7 @@ export function HowItWorks() {
               className="relative flex flex-col gap-4 bg-bg-2 p-8"
             >
               <span className="font-mono text-sm text-ink-4">{step.n}</span>
-              <h3 className="text-xl font-medium tracking-tight text-ink">
+              <h3 className="text-xl font-medium tracking-[-0.008em] text-ink">
                 {step.title}
               </h3>
               <p className="text-pretty text-[15px] leading-relaxed text-ink-2">

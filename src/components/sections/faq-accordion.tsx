@@ -29,7 +29,7 @@ export function FaqAccordion({ items }: { items: Faq[] }) {
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="flex w-full items-center justify-between gap-6 py-6 text-left"
               >
-                <span className="text-[17px] font-medium tracking-tight text-ink">
+                <span className="text-[17px] font-medium tracking-[-0.005em] text-ink">
                   {item.q}
                 </span>
                 <span

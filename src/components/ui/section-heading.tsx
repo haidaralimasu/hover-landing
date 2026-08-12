@@ -36,7 +36,7 @@ export function SectionHeading({
       <Reveal
         as="h2"
         delay={eyebrow ? 0.06 : 0}
-        className="max-w-2xl text-balance text-3xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl md:text-[2.75rem]"
+        className="max-w-2xl text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.02em] text-ink sm:text-4xl sm:tracking-[-0.022em] md:text-[2.75rem] md:tracking-[-0.025em]"
       >
         <span id={id} className="scroll-mt-28">
           {title}
