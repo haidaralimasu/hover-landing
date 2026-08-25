@@ -13,8 +13,8 @@ import { useReducedMotionSafe } from "@/lib/use-reduced-motion-safe";
 
 /**
  * Cookie consent banner. Shows on first visit (no stored decision) and can be
- * re-opened from the footer's "Cookie preferences" link. Nothing is tracked
- * until the visitor clicks "Accept" — see @/components/analytics.
+ * re-opened from the footer's "Cookie preferences" link. Analytics runs
+ * regardless of the choice made here — see @/components/analytics.
  */
 export function CookieConsent() {
   const reduce = useReducedMotionSafe();
@@ -51,8 +51,7 @@ export function CookieConsent() {
         >
           <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 rounded-[var(--radius-card)] border border-line-2 bg-bg/90 p-5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-6">
             <p className="text-[13.5px] leading-relaxed text-ink-2">
-              We use cookies to understand how the site is used. Analytics only
-              runs if you accept — reject and nothing is stored. See our{" "}
+              We use cookies to understand how the site is used. See our{" "}
               <Link
                 href="/privacy"
                 className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
