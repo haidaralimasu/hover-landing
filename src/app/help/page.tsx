@@ -31,10 +31,10 @@ export default function HelpPage() {
         <p className="mx-auto mt-6 max-w-3xl text-center text-sm text-ink-3">
           You can also reach us directly at{" "}
           <a
-            href="mailto:support@hover.money"
+            href="mailto:tech@hover.money"
             className="text-ink-2 underline underline-offset-2 transition-colors hover:text-ink"
           >
-            support@hover.money
+            tech@hover.money
           </a>
           .
         </p>

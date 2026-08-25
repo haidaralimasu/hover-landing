@@ -13,7 +13,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Sender must be a verified domain in Resend. Overridable via env.
 const FROM = process.env.NOTIFY_FROM ?? "Hover <noreply@hover.money>";
-const REPLY_TO = process.env.NOTIFY_REPLY_TO ?? "support@hover.money";
+const REPLY_TO = process.env.NOTIFY_REPLY_TO ?? "tech@hover.money";
+const NOTIFY_TO = process.env.NOTIFY_TEAM_TO ?? "tech@hover.money";
 // CAN-SPAM / CASL require a physical postal address in every commercial email.
 const COMPANY_ADDRESS =
   process.env.COMPANY_ADDRESS ?? "Hover, 1 Market Street, San Francisco, CA 94105";
@@ -85,6 +86,19 @@ export async function POST(request: Request) {
   logSignup({ email, ts: new Date().toISOString(), source: "landing" }).catch(
     (err) => console.error("[notify] failed to log signup", err)
   );
+
+  // Best-effort internal notification — never blocks the response the
+  // visitor is already waiting on.
+  new Resend(apiKey).emails
+    .send({
+      from: FROM,
+      to: NOTIFY_TO,
+      replyTo: email,
+      subject: `New beta signup: ${email}`,
+      html: `<p>New beta signup: <strong>${email}</strong></p>`,
+      text: `New beta signup: ${email}`,
+    })
+    .catch((err) => console.error("[notify] team notification failed", err));
 
   return NextResponse.json({ ok: true }, { status: 201 });
 }

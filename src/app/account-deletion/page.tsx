@@ -22,8 +22,8 @@ export default function AccountDeletionPage() {
         <h2>How to request deletion</h2>
         <p>
           Email{" "}
-          <a href="mailto:support@hover.money?subject=Account%20deletion%20request">
-            support@hover.money
+          <a href="mailto:tech@hover.money?subject=Account%20deletion%20request">
+            tech@hover.money
           </a>{" "}
           from the email address on your account and ask us to delete your
           account. Include your username so we can find your account
