@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { HeroFlagBackdrop } from "@/components/ui/app-hero-visual";
+import { MobileAccessForm } from "@/components/mobile-access-form";
 import { siteConfig } from "@/lib/site";
 
 export function Hero() {
@@ -44,6 +45,13 @@ export function Hero() {
             <ButtonLink href="/#how-it-works" variant="ghost" size="lg">
               See how it works
             </ButtonLink>
+          </Reveal>
+
+          <Reveal delay={0.24} className="flex w-full max-w-sm flex-col items-center gap-3">
+            <p className="text-sm text-ink-3">
+              Prefer a native app? Get notified when iOS and Android are ready.
+            </p>
+            <MobileAccessForm />
           </Reveal>
         </div>
       </Container>
