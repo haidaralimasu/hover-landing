@@ -37,7 +37,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.18} className="flex flex-col items-center gap-4 sm:flex-row">
-            <ButtonLink href={siteConfig.appUrl} size="lg" className="px-8">
+            <ButtonLink href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" size="lg" className="px-8">
               Open App
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>

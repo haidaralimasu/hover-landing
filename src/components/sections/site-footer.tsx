@@ -42,7 +42,7 @@ const columns: { title: string; links: { label: string; href: string; external?:
     title: "Company",
     links: [
       { label: "Help center", href: "/help" },
-      { label: "Open App", href: siteConfig.appUrl },
+      { label: "Open App", href: siteConfig.appUrl, external: true },
     ],
   },
   {

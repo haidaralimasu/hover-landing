@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { HoverMark } from "@/components/ui/logo";
 import { ButtonLink } from "@/components/ui/button";
+import { MobileAccessForm } from "@/components/mobile-access-form";
 import { siteConfig } from "@/lib/site";
 
 export function Cta() {
@@ -31,10 +32,20 @@ export function Cta() {
             </p>
 
             <div className="mt-8">
-              <ButtonLink href={siteConfig.appUrl} size="lg" className="px-8">
+              <ButtonLink href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" size="lg" className="px-8">
                 Open App
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
+            </div>
+
+            <div id="mobile-access" className="scroll-mt-24 mt-10 w-full max-w-sm border-t border-line pt-8">
+              <p className="text-sm text-ink-2">
+                Prefer a native app? Leave your email and we&apos;ll notify you
+                the moment iOS and Android are ready.
+              </p>
+              <div className="mt-4">
+                <MobileAccessForm />
+              </div>
             </div>
           </div>
         </Reveal>
