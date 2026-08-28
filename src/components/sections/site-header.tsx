@@ -11,7 +11,7 @@ import {
 import { Menu, X } from "lucide-react";
 import { Wordmark } from "@/components/ui/logo";
 import { Container } from "@/components/ui/container";
-import { navItems } from "@/lib/site";
+import { navItems, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { useReducedMotionSafe } from "@/lib/use-reduced-motion-safe";
 
@@ -84,14 +84,14 @@ export function SiteHeader() {
 
             <div className="flex items-center gap-2">
               <Link
-                href="/#notify"
+                href={siteConfig.appUrl}
                 className={cn(
                   "hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-white sm:inline-flex",
                   "transition-[transform,opacity] duration-150",
                   "[transition-timing-function:var(--ease-out-quart)] hover:opacity-90 active:scale-[0.97] active:opacity-85"
                 )}
               >
-                Join the beta
+                Open App
               </Link>
 
               <button
@@ -142,11 +142,11 @@ export function SiteHeader() {
                 ))}
                 <li className="px-1 pt-2">
                   <Link
-                    href="/#notify"
+                    href={siteConfig.appUrl}
                     onClick={() => setOpen(false)}
                     className="inline-flex w-full items-center justify-center rounded-full bg-ink px-4 py-3 text-sm font-medium text-white transition-opacity duration-150 hover:opacity-90 active:opacity-85"
                   >
-                    Join the beta
+                    Open App
                   </Link>
                 </li>
               </ul>

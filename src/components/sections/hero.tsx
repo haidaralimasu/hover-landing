@@ -1,7 +1,9 @@
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { NotifyForm } from "@/components/notify-form";
+import { ButtonLink } from "@/components/ui/button";
 import { HeroFlagBackdrop } from "@/components/ui/app-hero-visual";
+import { siteConfig } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -34,8 +36,14 @@ export function Hero() {
             secure, and refreshingly simple.
           </Reveal>
 
-          <Reveal delay={0.18} className="w-full max-w-md">
-            <NotifyForm />
+          <Reveal delay={0.18} className="flex flex-col items-center gap-4 sm:flex-row">
+            <ButtonLink href={siteConfig.appUrl} size="lg" className="px-8">
+              Open App
+              <ArrowRight className="h-4 w-4" />
+            </ButtonLink>
+            <ButtonLink href="/#how-it-works" variant="ghost" size="lg">
+              See how it works
+            </ButtonLink>
           </Reveal>
         </div>
       </Container>

@@ -1,11 +1,13 @@
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { HoverMark } from "@/components/ui/logo";
-import { NotifyForm } from "@/components/notify-form";
+import { ButtonLink } from "@/components/ui/button";
+import { siteConfig } from "@/lib/site";
 
 export function Cta() {
   return (
-    <section id="notify" className="scroll-mt-24 py-24 md:py-32">
+    <section id="open-app" className="scroll-mt-24 py-24 md:py-32">
       <Container>
         <Reveal className="relative overflow-hidden rounded-[24px] border border-line bg-bg-2 px-6 py-16 text-center sm:px-12 md:py-24">
           {/* backdrop */}
@@ -21,15 +23,18 @@ export function Cta() {
           <div className="relative mx-auto flex max-w-xl flex-col items-center">
             <HoverMark className="h-12 w-12" />
             <h2 className="mt-8 text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.02em] text-ink sm:text-4xl sm:tracking-[-0.022em] md:text-[2.75rem] md:tracking-[-0.025em]">
-              Be first to send with Hover.
+              Ready to send with Hover?
             </h2>
             <p className="mt-4 max-w-md text-pretty text-lg leading-relaxed text-ink-2">
-              Join our private beta and we&apos;ll email you an invite as soon
-              as a spot opens up. No spam, just your invite.
+              No download, no waitlist. Sign in with Google and your money is
+              on its way in seconds.
             </p>
 
-            <div className="mt-8 w-full max-w-md">
-              <NotifyForm />
+            <div className="mt-8">
+              <ButtonLink href={siteConfig.appUrl} size="lg" className="px-8">
+                Open App
+                <ArrowRight className="h-4 w-4" />
+              </ButtonLink>
             </div>
           </div>
         </Reveal>

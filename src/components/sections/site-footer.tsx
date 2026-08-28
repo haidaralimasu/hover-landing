@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Wordmark } from "@/components/ui/logo";
 import { CookiePrefsLink } from "@/components/cookie-prefs-link";
+import { siteConfig } from "@/lib/site";
 
 function XGlyph() {
   return (
@@ -41,7 +42,7 @@ const columns: { title: string; links: { label: string; href: string; external?:
     title: "Company",
     links: [
       { label: "Help center", href: "/help" },
-      { label: "Join the beta", href: "/#notify" },
+      { label: "Open App", href: siteConfig.appUrl },
     ],
   },
   {

@@ -23,10 +23,10 @@ export const faqs: Faq[] = [
   },
   {
     q: "Is Hover available yet?",
-    a: "We are in private beta on iOS via TestFlight, with Android coming soon. Join the beta and we will email you an invite as soon as a spot opens up.",
+    a: "Yes. Hover is live now at app.hover.money, and iOS and Android apps are also available.",
   },
   {
-    q: "How do I join the private beta?",
-    a: "Enter your email above and tap \"Join the beta.\" When a spot opens up, we will email you a TestFlight invite link to install the iOS app.",
+    q: "Do I need to download anything?",
+    a: "No. Sign in at app.hover.money with your Google account and you can send money right away, no install required. iOS and Android apps are also available if you prefer.",
   },
 ];
