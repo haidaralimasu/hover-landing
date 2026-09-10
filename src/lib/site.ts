@@ -28,7 +28,7 @@ export const siteConfig = {
   // Set to null to hide the "get the beta" line. iOS = public TestFlight link,
   // android = direct .apk (Cloudflare) or Play internal-testing opt-in URL.
   betaLinks: {
-    ios: null as string | null,
+    ios: "https://testflight.apple.com/join/yfPNFGFC" as string | null,
     android: null as string | null,
   },
 } as const;
