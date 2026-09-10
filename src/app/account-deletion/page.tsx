@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Account Deletion",
   description: `How to request deletion of your ${siteConfig.name} account and data.`,
   alternates: { canonical: "/account-deletion" },
+  // App-store-compliance page — real users reach it via a direct link, it
+  // has no search value and would only dilute the site's topical focus.
+  robots: { index: false, follow: false },
 };
 
 export default function AccountDeletionPage() {

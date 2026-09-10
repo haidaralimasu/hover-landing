@@ -1,36 +1,51 @@
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/hero";
-import { ProductTour } from "@/components/sections/product-tour";
-import { Stats } from "@/components/sections/stats";
 import { Foundations } from "@/components/sections/foundations";
 import { HowItWorks } from "@/components/sections/how-it-works";
-import { GlobalCoverage } from "@/components/sections/global-coverage";
 import { Features } from "@/components/sections/features";
 import { BeforeAfter } from "@/components/sections/before-after";
-import { Security } from "@/components/sections/security";
-import { Faq } from "@/components/sections/faq";
-import { Cta } from "@/components/sections/cta";
 import { siteConfig } from "@/lib/site";
-import { faqs } from "@/lib/faq";
+
+// Below-the-fold client sections — code-split so their JS (and the
+// framer-motion runtime several of them pull) loads as a lazy chunk after
+// the initial bundle, instead of blocking Time-to-Interactive / the
+// simulated LCP estimate. SSR stays on (default) so the content is still
+// in the crawlable HTML.
+const ProductTour = dynamic(() =>
+  import("@/components/sections/product-tour").then((m) => m.ProductTour)
+);
+const Stats = dynamic(() =>
+  import("@/components/sections/stats").then((m) => m.Stats)
+);
+const GlobalCoverage = dynamic(() =>
+  import("@/components/sections/global-coverage").then((m) => m.GlobalCoverage)
+);
+const Security = dynamic(() =>
+  import("@/components/sections/security").then((m) => m.Security)
+);
+const Faq = dynamic(() => import("@/components/sections/faq").then((m) => m.Faq));
+const Cta = dynamic(() => import("@/components/sections/cta").then((m) => m.Cta));
 
 const softwareLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: siteConfig.name,
   applicationCategory: "FinanceApplication",
-  operatingSystem: "iOS, Android",
+  operatingSystem: "iOS, Android, Web",
   description: siteConfig.description,
   url: siteConfig.url,
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
 };
 
-const faqLd = {
+// FAQPage JSON-LD lives with the FAQ section (single source). WebSite adds a
+// stable entity for search + AI answer engines to anchor to.
+const webSiteLd = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
 };
 
 export default function Home() {
@@ -45,7 +60,7 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqLd).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(webSiteLd).replace(/</g, "\\u003c"),
         }}
       />
       <Hero />

@@ -53,6 +53,10 @@ export function ProductTour() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const [time, setTime] = useState(0);
+  // The walkthrough clip is ~1.5 MB. Don't put it on the initial-load
+  // critical path (it saturates a slow connection during LCP) — only mount
+  // the <video> once the section is near the viewport.
+  const [nearViewport, setNearViewport] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -60,23 +64,25 @@ export function ProductTour() {
     const onTimeUpdate = () => setTime(video.currentTime);
     video.addEventListener("timeupdate", onTimeUpdate);
     return () => video.removeEventListener("timeupdate", onTimeUpdate);
-  }, []);
+  }, [nearViewport]);
 
-  // Only run the loop while it's actually on screen.
+  // Preload the clip when it's ~1 screen away; play/pause it while visible.
   useEffect(() => {
-    const video = videoRef.current;
     const frame = frameRef.current;
-    if (!video || !frame) return;
+    if (!frame) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) video.play().catch(() => {});
+        if (entry.isIntersecting) setNearViewport(true);
+        const video = videoRef.current;
+        if (!video) return;
+        if (entry.intersectionRatio >= 0.35) video.play().catch(() => {});
         else video.pause();
       },
-      { threshold: 0.35 }
+      { threshold: [0, 0.35], rootMargin: "800px 0px" }
     );
     io.observe(frame);
     return () => io.disconnect();
-  }, []);
+  }, [nearViewport]);
 
   const activeIndex = steps.reduce(
     (acc, step, i) => (time >= step.time ? i : acc),
@@ -160,16 +166,18 @@ export function ProductTour() {
               className="relative rounded-[54px] bg-gradient-to-b from-[#2a2a2a] to-[#0a0a0a] p-[11px] shadow-[0_50px_90px_-34px_rgba(0,0,0,0.45),0_8px_24px_-12px_rgba(0,0,0,0.3)]"
             >
               <div className="relative aspect-[300/620] overflow-hidden rounded-[44px] bg-black">
-                <video
-                  ref={videoRef}
-                  src="/hover-flow.mp4"
-                  className="h-full w-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                />
+                {nearViewport && (
+                  <video
+                    ref={videoRef}
+                    src="/hover-flow.mp4"
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  />
+                )}
                 {/* Dynamic Island */}
                 <div className="pointer-events-none absolute left-1/2 top-[9px] z-20 h-[26px] w-[84px] -translate-x-1/2 rounded-full bg-black" />
                 {/* Home indicator */}

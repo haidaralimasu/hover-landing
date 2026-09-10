@@ -1,7 +1,11 @@
 export const siteConfig = {
   name: "Hover",
   domain: "hover.money",
-  url: "https://hover.money",
+  // Canonical origin. The deployment serves from www (apex 308-redirects to
+  // www), so every canonical / OG url / sitemap loc / robots Host must be www
+  // too — a canonical pointing at a URL that redirects is a self-inflicted
+  // indexation bug.
+  url: "https://www.hover.money",
   tagline: "Send money across borders in seconds",
   // 150-160 chars, keyword-forward, for <meta name="description">
   description:

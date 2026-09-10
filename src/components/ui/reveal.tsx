@@ -27,15 +27,24 @@ export function Reveal({
   className,
   delay = 0,
   as: Tag = "div",
+  immediate = false,
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   as?: RevealTag;
+  /**
+   * Above-the-fold content (hero headline/subhead/CTA). Skips the
+   * opacity-from-0 gate so the element paints at full opacity on first
+   * frame — an opacity-gated LCP element delays Largest Contentful Paint
+   * by the full transition duration + delay. Only a tiny translate settles.
+   */
+  immediate?: boolean;
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    if (immediate) return;
     const el = ref.current;
     if (!el) return;
     if (el.classList.contains("is-visible")) return;
@@ -53,7 +62,7 @@ export function Reveal({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [immediate]);
 
   const style = delay
     ? ({ "--reveal-delay": `${delay}s` } as React.CSSProperties)
@@ -64,6 +73,7 @@ export function Reveal({
       // @ts-expect-error — ref type varies per intrinsic tag; runtime is correct.
       ref={ref}
       data-reveal=""
+      {...(immediate ? { "data-reveal-immediate": "" } : {})}
       style={style}
       className={className}
     >

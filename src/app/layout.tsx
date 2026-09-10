@@ -10,14 +10,26 @@ import { Analytics } from "@/components/analytics";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
+  // Only 400/500/600 appear anywhere in the site (700/800 were loaded but
+  // never used) — every extra weight is another font file competing on the
+  // LCP path.
+  weight: ["400", "500", "600"],
+  // `optional`: if Poppins isn't cached and ready within ~100ms, this page
+  // load renders in the metric-matched system fallback and never repaints —
+  // which is what was pushing mobile LCP to ~3s (the H1 re-rendering when
+  // the webfont finally arrived on a slow link). Poppins still loads in the
+  // background and is used for every subsequent navigation.
+  display: "optional",
+  preload: true,
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+  adjustFontFallback: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {

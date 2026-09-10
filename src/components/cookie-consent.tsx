@@ -2,14 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
 import {
   getConsent,
   setConsent,
   CONSENT_OPEN_EVENT,
   type Consent,
 } from "@/lib/consent";
-import { useReducedMotionSafe } from "@/lib/use-reduced-motion-safe";
 
 /**
  * Cookie consent banner. Shows on first visit (no stored decision) and can be
@@ -17,7 +15,6 @@ import { useReducedMotionSafe } from "@/lib/use-reduced-motion-safe";
  * regardless of the choice made here — see @/components/analytics.
  */
 export function CookieConsent() {
-  const reduce = useReducedMotionSafe();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -34,22 +31,16 @@ export function CookieConsent() {
     setOpen(false);
   }
 
-  if (!mounted) return null;
+  if (!mounted || !open) return null;
 
   return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          role="dialog"
-          aria-label="Cookie consent"
-          aria-live="polite"
-          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-x-0 bottom-0 z-[var(--z-overlay)] px-4 pb-4 sm:px-6 sm:pb-6"
-        >
-          <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 rounded-[var(--radius-card)] border border-line-2 bg-bg/90 p-5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-6">
+    <div
+      role="dialog"
+      aria-label="Cookie consent"
+      aria-live="polite"
+      className="fixed inset-x-0 bottom-0 z-[var(--z-overlay)] animate-[slide-up-in_0.35s_var(--ease-out-expo)_both] px-4 pb-4 sm:px-6 sm:pb-6"
+    >
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 rounded-[var(--radius-card)] border border-line-2 bg-bg/90 p-5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-6">
             <p className="text-[13.5px] leading-relaxed text-ink-2">
               We use cookies to understand how the site is used. See our{" "}
               <Link
@@ -76,9 +67,7 @@ export function CookieConsent() {
                 Accept
               </button>
             </div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      </div>
+    </div>
   );
 }

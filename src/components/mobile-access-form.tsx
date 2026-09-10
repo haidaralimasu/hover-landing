@@ -1,17 +1,14 @@
 "use client";
 
 import { useId, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useReducedMotionSafe } from "@/lib/use-reduced-motion-safe";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function MobileAccessForm({ className }: { className?: string }) {
-  const reduce = useReducedMotionSafe();
   const inputId = useId();
   const errorId = useId();
   const [email, setEmail] = useState("");
@@ -37,9 +34,7 @@ export function MobileAccessForm({ className }: { className?: string }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-      const data = (await res.json().catch(() => ({}))) as {
-        error?: string;
-      };
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
 
       if (!res.ok) {
         setStatus("error");
@@ -57,13 +52,10 @@ export function MobileAccessForm({ className }: { className?: string }) {
 
   if (status === "success") {
     return (
-      <motion.div
+      <div
         role="status"
-        initial={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "flex items-center gap-3 rounded-[var(--radius-input)] border border-line-2 bg-surface px-4 py-3.5",
+          "flex animate-[fade-in_0.4s_var(--ease-out-expo)_both] items-center gap-3 rounded-[var(--radius-input)] border border-line-2 bg-surface px-4 py-3.5",
           className
         )}
       >
@@ -71,7 +63,7 @@ export function MobileAccessForm({ className }: { className?: string }) {
           <Check className="h-3.5 w-3.5" strokeWidth={3} />
         </span>
         <p className="text-sm text-ink">{message}</p>
-      </motion.div>
+      </div>
     );
   }
 
@@ -127,22 +119,15 @@ export function MobileAccessForm({ className }: { className?: string }) {
         </button>
       </div>
 
-      <AnimatePresence mode="wait">
-        {status === "error" && (
-          <motion.p
-            key="err"
-            id={errorId}
-            role="alert"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="mt-2.5 text-sm text-[var(--color-danger)]"
-          >
-            {message}
-          </motion.p>
-        )}
-      </AnimatePresence>
+      {status === "error" && (
+        <p
+          id={errorId}
+          role="alert"
+          className="mt-2.5 animate-[fade-in_0.2s_ease-out_both] text-sm text-[var(--color-danger)]"
+        >
+          {message}
+        </p>
+      )}
     </form>
   );
 }

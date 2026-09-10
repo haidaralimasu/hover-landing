@@ -16,9 +16,9 @@
 
   /* Ink ramp (dark text on light) */
   --color-ink: #0a0a0a; /* app black — primary text */
-  --color-ink-2: #5c5c5c; /* secondary text (near app gray700, AA on white) */
-  --color-ink-3: #8a8a8a; /* muted / large-text only */
-  --color-ink-4: #b0b0b0; /* faint labels */
+  --color-ink-2: #5c5c5c; /* secondary text — 6.4:1 on white, AA */
+  --color-ink-3: #6f6f6f; /* muted body — 4.8:1 on white, AA */
+  --color-ink-4: #767676; /* faint labels — 4.54:1 on white, AA (min) */
 
   /* Hairlines (dark, on light) */
   --color-line: rgba(0, 0, 0, 0.08);
@@ -245,5 +245,46 @@
   .js [data-reveal].is-visible {
     opacity: 1;
     transform: none;
+  }
+
+  /* Above-the-fold reveal: fully painted, no entrance transform/animation.
+     Any opacity gate or transform animation on the LCP element (the hero
+     H1) pushes Largest Contentful Paint out by the animation's duration.
+     Below-the-fold content still gets the scroll reveal above. */
+  .js [data-reveal][data-reveal-immediate] {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* Lightweight entrance for small UI state changes (form success/error,
+   cookie banner) — replaces per-component framer-motion, which was ~40 KB
+   of JS on the critical path just for a fade. */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-\\["] {
+    animation-duration: 0.01ms !important;
   }
 }
