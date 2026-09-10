@@ -24,6 +24,13 @@ export const siteConfig = {
   // The live web app - no beta gate, no invite, no install. This is the
   // primary conversion action everywhere on the site now.
   appUrl: "https://app.hover.money",
+  // Beta builds for people who want the native app before the public launch.
+  // Set to null to hide the "get the beta" line. iOS = public TestFlight link,
+  // android = direct .apk (Cloudflare) or Play internal-testing opt-in URL.
+  betaLinks: {
+    ios: null as string | null,
+    android: null as string | null,
+  },
 } as const;
 
 export type NavItem = { label: string; href: string };
