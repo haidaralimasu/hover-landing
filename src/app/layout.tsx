@@ -11,15 +11,15 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   // Only 400/500/600 appear anywhere in the site (700/800 were loaded but
-  // never used) — every extra weight is another font file competing on the
-  // LCP path.
+  // never used).
   weight: ["400", "500", "600"],
-  // `optional`: if Poppins isn't cached and ready within ~100ms, this page
-  // load renders in the metric-matched system fallback and never repaints —
-  // which is what was pushing mobile LCP to ~3s (the H1 re-rendering when
-  // the webfont finally arrived on a slow link). Poppins still loads in the
-  // background and is used for every subsequent navigation.
-  display: "optional",
+  // `swap`: paint text immediately in the metric-matched system fallback
+  // (so FCP is never gated on the webfont), then swap Poppins in. `optional`
+  // was tried and made it worse — its ~100ms block window plus font-decision
+  // latency pushed the LIVE FCP to ~2.4s because every text node on the page
+  // is Poppins. With adjustFontFallback the fallback is the same size, so
+  // the swap doesn't shift layout or re-fire LCP.
+  display: "swap",
   preload: true,
   fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
   adjustFontFallback: true,

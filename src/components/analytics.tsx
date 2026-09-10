@@ -13,11 +13,14 @@ export function Analytics() {
 
   return (
     <>
+      {/* lazyOnload: the GA script is ~170 KB of third-party JS and this is
+          a marketing page — it must not compete with hydration or the LCP
+          paint. It loads once the page is idle. */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="ga-init" strategy="afterInteractive">
+      <Script id="ga-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
