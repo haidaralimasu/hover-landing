@@ -23,10 +23,14 @@ export const faqs: Faq[] = [
   },
   {
     q: "Is Hover available yet?",
-    a: "Yes. Hover is live now at app.hover.money, and iOS and Android apps are also available.",
+    a: "Yes. Hover is live now in your browser at app.hover.money. The iOS and Android apps are on the way, and the early-access list is how you find out the day they land.",
   },
   {
     q: "Do I need to download anything?",
-    a: "No. Sign in at app.hover.money with your Google account and you can send money right away, no install required. iOS and Android apps are also available if you prefer.",
+    a: "No. Sign in at app.hover.money with your Google or Apple account and you can send money right away, nothing to install. Leave your email if you want the native app the moment it ships.",
+  },
+  {
+    q: "What do I get by joining the early-access list?",
+    a: "One email when the iOS and Android app is ready to download. No newsletter, no spam, unsubscribe in one click.",
   },
 ];

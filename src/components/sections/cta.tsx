@@ -1,17 +1,13 @@
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { Reveal } from "@/components/ui/reveal";
 import { HoverMark } from "@/components/ui/logo";
-import { ButtonLink } from "@/components/ui/button";
 import { MobileAccessForm } from "@/components/mobile-access-form";
 import { siteConfig } from "@/lib/site";
 
 export function Cta() {
   return (
-    <section id="open-app" className="scroll-mt-24 py-24 md:py-32">
+    <section id="early-access" className="scroll-mt-24 py-24 md:py-32">
       <Container>
-        <Reveal className="relative overflow-hidden rounded-[24px] border border-line bg-bg-2 px-6 py-16 text-center sm:px-12 md:py-24">
-          {/* backdrop */}
+        <div className="relative overflow-hidden rounded-[24px] border border-line bg-bg-2 px-6 py-16 text-center sm:px-12 md:py-24">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-grid opacity-20 mask-radial-faded"
@@ -24,31 +20,30 @@ export function Cta() {
           <div className="relative mx-auto flex max-w-xl flex-col items-center">
             <HoverMark className="h-12 w-12" />
             <h2 className="mt-8 text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.02em] text-ink sm:text-4xl sm:tracking-[-0.022em] md:text-[2.75rem] md:tracking-[-0.025em]">
-              Ready to send with Hover?
+              Get Hover on your phone first.
             </h2>
             <p className="mt-4 max-w-md text-pretty text-lg leading-relaxed text-ink-2">
-              No download, no waitlist. Sign in with Google and your money is
-              on its way in seconds.
+              Leave your email and we&apos;ll send you the app the day it lands
+              on iOS and Android.
             </p>
 
-            <div className="mt-8">
-              <ButtonLink href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" size="lg" className="px-8">
-                Open App
-                <ArrowRight className="h-4 w-4" />
-              </ButtonLink>
+            <div className="mt-8 w-full max-w-md">
+              <MobileAccessForm cta="Join the list" />
             </div>
 
-            <div id="mobile-access" className="scroll-mt-24 mt-10 w-full max-w-sm border-t border-line pt-8">
-              <p className="text-sm text-ink-2">
-                Prefer a native app? Leave your email and we&apos;ll notify you
-                the moment iOS and Android are ready.
-              </p>
-              <div className="mt-4">
-                <MobileAccessForm />
-              </div>
-            </div>
+            <p className="mt-6 text-sm text-ink-3">
+              You don&apos;t have to wait to try it.{" "}
+              <a
+                href={siteConfig.appUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
+              >
+                Send money now in your browser
+              </a>
+            </p>
           </div>
-        </Reveal>
+        </div>
       </Container>
     </section>
   );

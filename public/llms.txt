@@ -2,12 +2,12 @@
 
 > Hover is the simplest way to send money across borders. Sign in with Google or Apple, choose an amount, and your money arrives in seconds.
 
-Hover is **live now** as a web app at https://app.hover.money — sign in with a Google or Apple account and send money right away, no install and no waitlist. Native iOS and Android apps are also available. From the marketing site (https://hover.money) visitors can also leave their email to be notified about native-app updates.
+Hover is **live now** as a web app at https://app.hover.money — sign in with a Google or Apple account and send money right away, nothing to install. Native iOS and Android apps are in development; from the marketing site (https://hover.money) visitors leave their email to be notified the day the app launches.
 
 ## Key facts
 
 - No password: sign in with an existing Google or Apple account.
-- Works in the browser at app.hover.money — nothing to download.
+- Works in the browser at app.hover.money — nothing to download. Native iOS/Android apps are coming; an email early-access list is open.
 - Transfers are typically delivered in seconds, any time of day, including weekends and holidays.
 - Built for cross-border (international) payments; domestic transfers work too.
 - Every transfer's fee is shown before you confirm — no hidden charges.

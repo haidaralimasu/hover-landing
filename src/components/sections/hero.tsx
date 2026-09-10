@@ -1,14 +1,10 @@
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { ButtonLink } from "@/components/ui/button";
 import { MobileAccessForm } from "@/components/mobile-access-form";
 import { siteConfig } from "@/lib/site";
 
 /**
- * Hero. Everything above the fold is plain server-rendered markup — no
- * scroll-reveal wrappers (they hydrate as client components for zero visual
- * payoff here and inflate Time-to-Interactive). Only the email form, which
- * genuinely needs interactivity, is a client island.
+ * Hero. The one job: get the email. Plain server markup above the fold — the
+ * form is the only client island.
  */
 export function Hero() {
   return (
@@ -19,38 +15,32 @@ export function Hero() {
       />
 
       <Container className="relative">
-        <div className="flex min-h-[100dvh] flex-col items-center justify-center gap-12 pb-16 pt-28 text-center md:pt-24">
-          {/* Sole H1 — primary keyword, and the LCP element. */}
-          <h1 className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.025em] text-ink sm:text-5xl sm:tracking-[-0.028em] lg:text-6xl lg:tracking-[-0.032em]">
+        <div className="flex min-h-[100dvh] flex-col items-center justify-center gap-8 pb-16 pt-28 text-center md:pt-24">
+          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.03] tracking-[-0.025em] text-ink sm:text-5xl sm:tracking-[-0.028em] lg:text-6xl lg:tracking-[-0.032em]">
             Send money across borders in seconds.
           </h1>
 
-          <p className="max-w-md text-pretty text-lg leading-relaxed text-ink-2">
-            Sign in, choose an amount, and your money is on its way. Fast,
-            secure, and refreshingly simple.
+          <p className="max-w-md text-lg leading-relaxed text-ink-2">
+            No seed phrases, no bank hours, no waiting days. Hover is live in
+            your browser today. The app for iOS and Android is next.
           </p>
 
-          <div className="flex flex-col items-center gap-4 sm:flex-row">
-            <ButtonLink
-              href={siteConfig.appUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              size="lg"
-              className="px-8"
-            >
-              Open App
-              <ArrowRight className="h-4 w-4" />
-            </ButtonLink>
-            <ButtonLink href="/#how-it-works" variant="ghost" size="lg">
-              See how it works
-            </ButtonLink>
-          </div>
-
-          <div className="flex w-full max-w-sm flex-col items-center gap-3">
+          <div className="mt-2 flex w-full max-w-md flex-col items-center gap-3">
+            <MobileAccessForm
+              cta="Get early access"
+              note="Be first when the app launches. One email, no spam."
+            />
             <p className="text-sm text-ink-3">
-              Prefer a native app? Get notified when iOS and Android are ready.
+              Already can&apos;t wait?{" "}
+              <a
+                href={siteConfig.appUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
+              >
+                Send money now in your browser
+              </a>
             </p>
-            <MobileAccessForm />
           </div>
         </div>
       </Container>

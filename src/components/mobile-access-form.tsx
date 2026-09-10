@@ -8,7 +8,20 @@ type Status = "idle" | "loading" | "success" | "error";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function MobileAccessForm({ className }: { className?: string }) {
+/**
+ * The site's single conversion action: capture an email for the launch list.
+ * `cta` sets the button label ("Get early access" in the hero, "Join the
+ * list" lower down); `note` is the one-line value/assurance under the field.
+ */
+export function MobileAccessForm({
+  className,
+  cta = "Get early access",
+  note = "One email when the app lands. No spam, unsubscribe anytime.",
+}: {
+  className?: string;
+  cta?: string;
+  note?: string;
+}) {
   const inputId = useId();
   const errorId = useId();
   const [email, setEmail] = useState("");
@@ -43,7 +56,7 @@ export function MobileAccessForm({ className }: { className?: string }) {
       }
 
       setStatus("success");
-      setMessage("You're on the list. We'll email you the moment the app is ready.");
+      setMessage("You're on the list.");
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");
@@ -55,14 +68,29 @@ export function MobileAccessForm({ className }: { className?: string }) {
       <div
         role="status"
         className={cn(
-          "flex animate-[fade-in_0.4s_var(--ease-out-expo)_both] items-center gap-3 rounded-[var(--radius-input)] border border-line-2 bg-surface px-4 py-3.5",
+          "animate-[fade-in_0.4s_var(--ease-out-expo)_both] rounded-[var(--radius-input)] border border-line-2 bg-surface px-4 py-3.5",
           className
         )}
       >
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-white">
-          <Check className="h-3.5 w-3.5" strokeWidth={3} />
-        </span>
-        <p className="text-sm text-ink">{message}</p>
+        <div className="flex items-center gap-3">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+            <Check className="h-3.5 w-3.5" strokeWidth={3} />
+          </span>
+          <p className="text-sm font-medium text-ink">{message}</p>
+        </div>
+        <p className="mt-2 pl-9 text-sm text-ink-3">
+          We&apos;ll email you the moment the app is ready. In the meantime you can
+          send money now at{" "}
+          <a
+            href="https://app.hover.money"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
+          >
+            app.hover.money
+          </a>
+          .
+        </p>
       </div>
     );
   }
@@ -112,14 +140,14 @@ export function MobileAccessForm({ className }: { className?: string }) {
             </>
           ) : (
             <>
-              Notify Me
+              {cta}
               <ArrowRight className="h-4 w-4" />
             </>
           )}
         </button>
       </div>
 
-      {status === "error" && (
+      {status === "error" ? (
         <p
           id={errorId}
           role="alert"
@@ -127,7 +155,9 @@ export function MobileAccessForm({ className }: { className?: string }) {
         >
           {message}
         </p>
-      )}
+      ) : note ? (
+        <p className="mt-2.5 text-[13px] leading-relaxed text-ink-3">{note}</p>
+      ) : null}
     </form>
   );
 }

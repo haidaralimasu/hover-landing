@@ -1,9 +1,7 @@
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/hero";
-import { Foundations } from "@/components/sections/foundations";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { Features } from "@/components/sections/features";
-import { BeforeAfter } from "@/components/sections/before-after";
 import { siteConfig } from "@/lib/site";
 
 // Below-the-fold client sections — code-split so their JS (and the
@@ -65,12 +63,10 @@ export default function Home() {
       />
       <Hero />
       <ProductTour />
-      <Stats />
-      <Foundations />
       <HowItWorks />
+      <Stats />
       <GlobalCoverage />
       <Features />
-      <BeforeAfter />
       <Security />
       <Faq />
       <Cta />
