@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { MobileAccessForm } from "@/components/mobile-access-form";
+import { StoreBadges } from "@/components/store-badges";
 import { siteConfig } from "@/lib/site";
 
 /**
@@ -41,6 +42,7 @@ export function Hero() {
                 Send money now in your browser
               </a>
             </p>
+            <StoreBadges className="mt-1" />
           </div>
         </div>
       </Container>

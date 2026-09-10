@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/container";
 import { HoverMark } from "@/components/ui/logo";
 import { MobileAccessForm } from "@/components/mobile-access-form";
+import { StoreBadges } from "@/components/store-badges";
 import { siteConfig } from "@/lib/site";
 
 export function Cta() {
@@ -43,32 +44,7 @@ export function Cta() {
               </a>
             </p>
 
-            {(siteConfig.betaLinks.ios || siteConfig.betaLinks.android) && (
-              <p className="mt-2 text-sm text-ink-3">
-                Or grab the beta build:{" "}
-                {siteConfig.betaLinks.ios && (
-                  <a
-                    href={siteConfig.betaLinks.ios}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
-                  >
-                    iOS (TestFlight)
-                  </a>
-                )}
-                {siteConfig.betaLinks.ios && siteConfig.betaLinks.android && " · "}
-                {siteConfig.betaLinks.android && (
-                  <a
-                    href={siteConfig.betaLinks.android}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
-                  >
-                    Android (APK)
-                  </a>
-                )}
-              </p>
-            )}
+            <StoreBadges className="mt-5" />
           </div>
         </div>
       </Container>
