@@ -101,12 +101,10 @@
     color: #ffffff;
   }
 
-  h1,
-  h2,
-  h3 {
-    text-wrap: balance;
-  }
-
+  /* `text-wrap: balance` is an iterative multi-pass layout. Applied to every
+     heading on a ~15-heading page it cost ~0.6 s of Style & Layout on a
+     throttled CPU (inflating the simulated LCP). Opt in per-heading via the
+     `text-balance` utility only where the ragged line genuinely hurts. */
   p {
     text-wrap: pretty;
   }
