@@ -29,7 +29,7 @@ export const siteConfig = {
   // android = direct .apk (Cloudflare) or Play internal-testing opt-in URL.
   betaLinks: {
     ios: "https://testflight.apple.com/join/yfPNFGFC" as string | null,
-    android: null as string | null,
+    android: "https://media.hover.money/18.apk" as string | null,
   },
 } as const;
 

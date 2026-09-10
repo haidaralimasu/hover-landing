@@ -11,11 +11,12 @@ export function StoreBadges({ className }: { className?: string }) {
   if (!ios && !android) return null;
 
   return (
-    <div className={cn("flex flex-wrap items-center justify-center gap-3", className)}>
+    <div className={cn("flex flex-col items-center gap-2.5", className)}>
+      <div className="flex flex-wrap items-center justify-center gap-3">
       {ios && (
         <Badge
           href={ios}
-          top="Test on"
+          top="iOS beta"
           bottom="TestFlight"
           icon={
             <svg viewBox="0 0 384 512" className="h-6 w-6" fill="currentColor" aria-hidden="true">
@@ -27,8 +28,8 @@ export function StoreBadges({ className }: { className?: string }) {
       {android && (
         <Badge
           href={android}
-          top="Download the"
-          bottom="Android APK"
+          top="Android beta"
+          bottom="Download APK"
           icon={
             <svg viewBox="0 0 576 512" className="h-6 w-6" fill="currentColor" aria-hidden="true">
               <path d="M420.6 301.9a24 24 0 1 1 24-24 24 24 0 0 1-24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1-24 24m273.7-144.5 47.9-83a10 10 0 1 0-17.3-10l-48.5 84.1a301.3 301.3 0 0 0-246.6 0l-48.5-84.1a10 10 0 1 0-17.3 10l47.9 83C34.3 202.8 5.3 254.7 0 312h576c-5.3-57.3-34.3-109.2-146.8-154.6" />
@@ -36,6 +37,10 @@ export function StoreBadges({ className }: { className?: string }) {
           }
         />
       )}
+      </div>
+      <p className="text-xs text-ink-3">
+        Early beta builds. The browser app at app.hover.money is the full release.
+      </p>
     </div>
   );
 }
