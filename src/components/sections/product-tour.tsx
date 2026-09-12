@@ -18,7 +18,7 @@ const steps: Step[] = [
   {
     time: 0,
     title: "Open the app",
-    body: "Land straight on your Hover home screen — balance and recent activity, all in view.",
+    body: "Land straight on your Hover home screen, balance and recent activity, all in view.",
   },
   {
     time: 1,
@@ -38,7 +38,7 @@ const steps: Step[] = [
   {
     time: 8,
     title: "Authenticate",
-    body: "Confirm with Face ID or your passcode — every transfer is verified before it moves.",
+    body: "Confirm with Face ID or your passcode. Every transfer is verified before it moves.",
   },
   {
     time: 12,
@@ -96,7 +96,7 @@ export function ProductTour() {
           id="how-it-works"
           eyebrow="See it in action"
           title="From open app to money sent, in seconds"
-          intro="A real walk-through of sending an international money transfer with Hover — choose a recipient, enter an amount, confirm, done."
+          intro="Choose a recipient, enter an amount, confirm, done."
           align="center"
           className="mx-auto"
         />

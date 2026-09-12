@@ -24,11 +24,7 @@ export function HowItWorks() {
   return (
     <section className="py-24 md:py-32">
       <Container>
-        <SectionHeading
-          id="how-it-works"
-          title="Three steps. That's the whole thing."
-          intro="Sending money should feel as easy as sending a message. With Hover, it does."
-        />
+        <SectionHeading id="how-it-works" title="Three steps. That's the whole thing." />
 
         <div className="relative mt-16 grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line md:grid-cols-3">
           {steps.map((step, i) => (

@@ -35,7 +35,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Hover | Send money across borders in seconds",
+    default: "Hover | The fastest and cheapest way to get paid from abroad",
     template: "%s | Hover",
   },
   description: siteConfig.description,
@@ -47,14 +47,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "Hover: send money across borders in seconds",
+    title: "Hover: the fastest and cheapest way to get paid from abroad",
     description: siteConfig.description,
     url: siteConfig.url,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hover: send money across borders in seconds",
+    title: "Hover: the fastest and cheapest way to get paid from abroad",
     description: siteConfig.description,
     creator: siteConfig.twitter,
   },

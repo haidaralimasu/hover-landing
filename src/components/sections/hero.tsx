@@ -18,13 +18,8 @@ export function Hero() {
       <Container className="relative">
         <div className="flex min-h-[100dvh] flex-col items-center justify-center gap-8 pb-16 pt-28 text-center md:pt-24">
           <h1 className="max-w-3xl text-4xl font-semibold leading-[1.03] tracking-[-0.025em] text-ink sm:text-5xl sm:tracking-[-0.028em] lg:text-6xl lg:tracking-[-0.032em]">
-            Send money across borders in seconds.
+            The fastest and cheapest way to get paid from abroad.
           </h1>
-
-          <p className="max-w-md text-lg leading-relaxed text-ink-2">
-            No seed phrases, no bank hours, no waiting days. Hover is live in
-            your browser today. The app for iOS and Android is next.
-          </p>
 
           <div className="mt-2 flex w-full max-w-md flex-col items-center gap-3">
             <MobileAccessForm

@@ -14,8 +14,8 @@ export function GlobalCoverage() {
         <SectionHeading
           id="coverage"
           align="center"
-          title={`Send to ${SUPPORTED_COUNTRIES_COUNT}+ countries, not just a few corridors.`}
-          intro="Wherever they bank, wherever they live — if they can receive money, Hover can get it there."
+          title={`Get paid from ${SUPPORTED_COUNTRIES_COUNT}+ countries.`}
+          intro="Wherever they bank, wherever they live, if they can send money, Hover can get it to you."
         />
       </Container>
 

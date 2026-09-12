@@ -45,10 +45,12 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   /* Radius scale — SHAPE LOCK: matches mobile app tokens
-     (radius.lg 20 = cards, radius.input 20 = inputs, radius.md 16 = chips,
-     pill 999 = buttons). */
+     (radius.lg 20 = cards, radius.md 16 = chips, pill 999 = buttons).
+     radius-input is a deliberate web-only divergence from the app's
+     radius.input (20): every input/textarea on the site is fully pill
+     shaped, per direct feedback. */
   --radius-card: 20px;
-  --radius-input: 20px;
+  --radius-input: 999px;
   --radius-chip: 16px;
 
   /* Easings (from emil-design-eng — stronger than CSS defaults) */

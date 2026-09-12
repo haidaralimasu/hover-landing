@@ -6,7 +6,7 @@ export const siteConfig = {
   // too — a canonical pointing at a URL that redirects is a self-inflicted
   // indexation bug.
   url: "https://www.hover.money",
-  tagline: "Send money across borders in seconds",
+  tagline: "The fastest and cheapest way to get paid from abroad",
   // 150-160 chars, keyword-forward, for <meta name="description">
   description:
     "Hover is the simplest way to send money across borders. Sign in, choose an amount, and your money arrives in seconds. Fast, secure, and simple to use.",

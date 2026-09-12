@@ -3,6 +3,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { Resend } from "resend";
 import { unsubscribeUrl } from "@/lib/unsubscribe";
+import { siteConfig } from "@/lib/site";
 
 // Runs on the Node.js runtime so the local-file log below works in dev.
 export const runtime = "nodejs";
@@ -103,7 +104,7 @@ export async function POST(request: Request) {
 }
 
 const PREHEADER =
-  "You're on the list — we'll email you the moment the Hover app is ready on your phone.";
+  "Thanks for your interest in Hover. Here are the early-access links for iOS and Android.";
 
 function confirmationHtml(unsub: string) {
   return `<!doctype html>
@@ -113,7 +114,7 @@ function confirmationHtml(unsub: string) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <meta name="x-apple-disable-message-reformatting" />
-    <title>You're on the Hover mobile access list</title>
+    <title>Thanks for your interest in Hover</title>
   </head>
   <body style="margin:0;padding:0;background:#f2f2f2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#0a0a0a;-webkit-font-smoothing:antialiased;">
     <!-- Preheader: shown as the inbox preview, hidden in the body -->
@@ -134,13 +135,26 @@ function confirmationHtml(unsub: string) {
             <tr>
               <td style="background:#ffffff;border:1px solid rgba(0,0,0,0.08);border-radius:20px;padding:40px;">
                 <h1 style="margin:0 0 12px;font-size:24px;line-height:1.25;font-weight:700;letter-spacing:-0.02em;color:#0a0a0a;">
-                  You're on the list.
+                  Thanks for your interest.
                 </h1>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
-                  We'll email you the moment the native iOS and Android apps
-                  are ready to install. In the meantime, Hover works right now
-                  in your browser at app.hover.money.
+                  The iOS and Android apps are in early beta. Here are both links,
+                  and Hover also works right now in your browser at app.hover.money.
                 </p>
+                ${
+                  siteConfig.betaLinks.ios
+                    ? `<p style="margin:0 0 10px;">
+                  <a href="${siteConfig.betaLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iOS (TestFlight)</a>
+                </p>`
+                    : ""
+                }
+                ${
+                  siteConfig.betaLinks.android
+                    ? `<p style="margin:0;">
+                  <a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Android (APK)</a>
+                </p>`
+                    : ""
+                }
               </td>
             </tr>
             <!-- Footer -->
@@ -166,11 +180,14 @@ function confirmationHtml(unsub: string) {
 
 function confirmationText(unsub: string) {
   return [
-    "You're on the list.",
+    "Thanks for your interest.",
     "",
-    "We'll email you the moment the native iOS and Android apps are ready to install. In the meantime, Hover works right now in your browser at app.hover.money.",
+    "The iOS and Android apps are in early beta. Here are both links, and Hover also works right now in your browser at app.hover.money.",
     "",
-    "—",
+    ...(siteConfig.betaLinks.ios ? [`iOS (TestFlight): ${siteConfig.betaLinks.ios}`] : []),
+    ...(siteConfig.betaLinks.android ? [`Android (APK): ${siteConfig.betaLinks.android}`] : []),
+    "",
+    "-----",
     "You received this because you asked for mobile app access at hover.money.",
     `Unsubscribe: ${unsub}`,
     COMPANY_ADDRESS,
