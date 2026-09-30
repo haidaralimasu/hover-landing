@@ -7,11 +7,14 @@ import { cookies } from "next/headers";
  * session cookie is a signed, self-expiring token (no server-side session
  * store needed): `${expiresAt}.${hmac(expiresAt)}`.
  *
- * Fails loud at boot if the secret is missing (see unsubscribe.ts's own
- * comment for why a silent fallback here is a real security bug, not a
- * convenience).
+ * Fails loud if the secret is missing (see unsubscribe.ts's own comment for
+ * why a silent fallback here is a real security bug, not a convenience) —
+ * but lazily, inside the functions that need it, not at module load. Next.js
+ * evaluates this module at build time to collect route data for every API
+ * route that imports it; a module-scope throw here crashes the whole build
+ * even when no admin route is actually invoked (found in prod, 2026-09-30).
  */
-const SECRET = (() => {
+function secret(): string {
   const value = process.env.ADMIN_SESSION_SECRET;
   if (!value) {
     throw new Error(
@@ -19,13 +22,13 @@ const SECRET = (() => {
     );
   }
   return value;
-})();
+}
 
 const COOKIE_NAME = "hover_admin_session";
 const SESSION_LIFETIME_MS = 1000 * 60 * 60 * 24 * 30; // 30 days
 
 function sign(payload: string): string {
-  return createHmac("sha256", SECRET).update(payload).digest("base64url");
+  return createHmac("sha256", secret()).update(payload).digest("base64url");
 }
 
 export function checkAdminPassword(password: string): boolean {
