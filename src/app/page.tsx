@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/hero";
-import { HowItWorks } from "@/components/sections/how-it-works";
 import { Features } from "@/components/sections/features";
 import { siteConfig } from "@/lib/site";
 
@@ -63,7 +62,6 @@ export default function Home() {
       />
       <Hero />
       <ProductTour />
-      <HowItWorks />
       <Stats />
       <GlobalCoverage />
       <Features />

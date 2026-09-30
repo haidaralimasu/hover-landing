@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Wordmark } from "@/components/ui/logo";
 import { CookiePrefsLink } from "@/components/cookie-prefs-link";
-import { siteConfig } from "@/lib/site";
 
 function XGlyph() {
   return (
@@ -42,7 +41,7 @@ const columns: { title: string; links: { label: string; href: string; external?:
     title: "Company",
     links: [
       { label: "Help center", href: "/help" },
-      { label: "Open App", href: siteConfig.appUrl, external: true },
+      { label: "Get early access", href: "/waitlist" },
     ],
   },
   {
@@ -129,7 +128,7 @@ export function SiteFooter() {
           <p>&copy; {new Date().getFullYear()} Hover. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <CookiePrefsLink className="transition-colors hover:text-ink-2" />
-            <p>Money across borders, in seconds.</p>
+            <p>Get paid from abroad, without the fees.</p>
           </div>
         </div>
       </Container>

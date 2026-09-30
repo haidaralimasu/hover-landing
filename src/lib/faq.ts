@@ -7,7 +7,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "How fast do transfers arrive?",
-    a: "Most transfers are delivered in seconds, at any time of day, including weekends and holidays.",
+    a: "Sending to another Hover user settles in seconds, any time of day, including weekends and holidays. Cash-out to a bank account is coming soon and will depend on local rails.",
   },
   {
     q: "Where can I send money?",
@@ -23,10 +23,10 @@ export const faqs: Faq[] = [
   },
   {
     q: "Is Hover available yet?",
-    a: "Yes. Hover is live now in your browser at app.hover.money. The iOS and Android apps are in early beta, and the early-access list is how you find out the day they're ready for everyone.",
+    a: "Hover is in closed beta. Register your email for early access and we'll let you know the moment a spot opens up.",
   },
   {
     q: "What do I get by joining the early-access list?",
-    a: "One email when the iOS and Android app is ready to download. No newsletter, no spam, unsubscribe in one click.",
+    a: "Early access to the beta the moment a spot opens, plus occasional updates on new features and launches. Unsubscribe anytime, one click.",
   },
 ];

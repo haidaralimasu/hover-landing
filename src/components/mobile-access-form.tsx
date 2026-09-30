@@ -16,7 +16,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export function MobileAccessForm({
   className,
   cta = "Get early access",
-  note = "One email when the app lands. No spam, unsubscribe anytime.",
+  note = "Be first when the app launches.",
 }: {
   className?: string;
   cta?: string;
@@ -56,7 +56,7 @@ export function MobileAccessForm({
       }
 
       setStatus("success");
-      setMessage("You're on the list.");
+      setMessage("You are registered for early access.");
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");

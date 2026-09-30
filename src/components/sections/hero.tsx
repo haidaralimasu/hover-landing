@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { MobileAccessForm } from "@/components/mobile-access-form";
 import { StoreBadges } from "@/components/store-badges";
-import { siteConfig } from "@/lib/site";
 
 /**
  * Hero. The one job: get the email. Plain server markup above the fold — the
@@ -24,19 +23,9 @@ export function Hero() {
           <div className="mt-2 flex w-full max-w-md flex-col items-center gap-3">
             <MobileAccessForm
               cta="Get early access"
-              note="Be first when the app launches. One email, no spam."
+              note="Be first when the app launches."
             />
-            <p className="text-sm text-ink-3">
-              Already can&apos;t wait?{" "}
-              <a
-                href={siteConfig.appUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
-              >
-                Send money now in your browser
-              </a>
-            </p>
+            <p className="text-sm text-ink-3">Download our early beta</p>
             <StoreBadges className="mt-1" />
           </div>
         </div>

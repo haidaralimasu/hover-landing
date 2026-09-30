@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/container";
 import { HoverMark } from "@/components/ui/logo";
 import { MobileAccessForm } from "@/components/mobile-access-form";
 import { StoreBadges } from "@/components/store-badges";
-import { siteConfig } from "@/lib/site";
 
 export function Cta() {
   return (
@@ -31,18 +30,6 @@ export function Cta() {
             <div className="mt-8 w-full max-w-md">
               <MobileAccessForm cta="Join the list" />
             </div>
-
-            <p className="mt-6 text-sm text-ink-3">
-              You don&apos;t have to wait to try it.{" "}
-              <a
-                href={siteConfig.appUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
-              >
-                Send money now in your browser
-              </a>
-            </p>
 
             <StoreBadges className="mt-5" />
           </div>

@@ -4,90 +4,62 @@ import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { cn } from "@/lib/utils";
 
 type Step = {
-  time: number;
   title: string;
   body: string;
 };
 
-// Timestamps (seconds) into /hover-flow.mp4, a ~15s screen recording of a
-// single international transfer, start to finish.
 const steps: Step[] = [
   {
-    time: 0,
     title: "Open the app",
     body: "Land straight on your Hover home screen, balance and recent activity, all in view.",
   },
   {
-    time: 1,
     title: "Tap Send",
     body: "Start an international money transfer in one tap, no menus to hunt through.",
   },
   {
-    time: 3,
     title: "Choose who gets paid",
     body: "Pick a saved recipient or add someone new in a few taps.",
   },
   {
-    time: 5,
     title: "Enter the amount",
     body: "Type how much to send and see the live exchange rate and fee before you confirm anything.",
   },
   {
-    time: 8,
     title: "Authenticate",
     body: "Confirm with Face ID or your passcode. Every transfer is verified before it moves.",
   },
   {
-    time: 12,
-    title: "Transaction done",
-    body: "Your transfer is on its way, trackable from the moment you send it to the moment it lands.",
+    title: "Sent",
+    body: "Your transfer is trackable from the moment you send it to the moment it lands.",
   },
 ];
 
-/** Product walkthrough: live-recorded app footage on the right, synced,
- * SEO-readable step copy on the left. Loops with the video, indefinitely. */
+/** Product walkthrough: a looping GIF of the real app on the right,
+ * SEO-readable step copy on the left. Steps are static — the GIF isn't
+ * scrubbable the way the old synced video was (ponytail: static steps,
+ * upgrade to a synced video again if the walkthrough gets re-recorded). */
 export function ProductTour() {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
-  const [time, setTime] = useState(0);
-  // The walkthrough clip is ~1.5 MB. Don't put it on the initial-load
-  // critical path (it saturates a slow connection during LCP) — only mount
-  // the <video> once the section is near the viewport.
+  // The GIF is ~1 MB. Don't put it on the initial-load critical path (it
+  // saturates a slow connection during LCP) — only mount it once the
+  // section is near the viewport.
   const [nearViewport, setNearViewport] = useState(false);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const onTimeUpdate = () => setTime(video.currentTime);
-    video.addEventListener("timeupdate", onTimeUpdate);
-    return () => video.removeEventListener("timeupdate", onTimeUpdate);
-  }, [nearViewport]);
-
-  // Preload the clip when it's ~1 screen away; play/pause it while visible.
   useEffect(() => {
     const frame = frameRef.current;
     if (!frame) return;
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) setNearViewport(true);
-        const video = videoRef.current;
-        if (!video) return;
-        if (entry.intersectionRatio >= 0.35) video.play().catch(() => {});
-        else video.pause();
       },
-      { threshold: [0, 0.35], rootMargin: "800px 0px" }
+      { rootMargin: "800px 0px" }
     );
     io.observe(frame);
     return () => io.disconnect();
-  }, [nearViewport]);
-
-  const activeIndex = steps.reduce(
-    (acc, step, i) => (time >= step.time ? i : acc),
-    0
-  );
+  }, []);
 
   return (
     <section className="py-24 md:py-32">
@@ -95,64 +67,31 @@ export function ProductTour() {
         <SectionHeading
           id="how-it-works"
           eyebrow="See it in action"
-          title="From open app to money sent, in seconds"
-          intro="Choose a recipient, enter an amount, confirm, done."
+          title="Select payee, enter amount, pay"
           align="center"
           className="mx-auto"
         />
 
         <div className="mt-16 grid items-center gap-12 md:grid-cols-2 md:gap-16">
-          {/* Left: synced, fully-readable step copy */}
+          {/* Left: fully-readable step copy */}
           <ol className="flex flex-col gap-1">
-            {steps.map((step, i) => {
-              const active = i === activeIndex;
-              return (
-                <li key={step.title}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const video = videoRef.current;
-                      if (video) video.currentTime = step.time;
-                    }}
-                    className={cn(
-                      "w-full rounded-[var(--radius-card)] border p-5 text-left transition-colors duration-500 motion-reduce:transition-none",
-                      active
-                        ? "border-line-2 bg-bg-2"
-                        : "border-transparent hover:bg-bg-2/60"
-                    )}
-                  >
-                    <div className="flex items-baseline gap-3">
-                      <span
-                        className={cn(
-                          "font-mono text-xs transition-colors duration-500 motion-reduce:transition-none",
-                          active ? "text-ink" : "text-ink-4"
-                        )}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3
-                        className={cn(
-                          "text-lg font-medium tracking-[-0.006em] transition-colors duration-500 motion-reduce:transition-none",
-                          active ? "text-ink" : "text-ink-3"
-                        )}
-                      >
-                        {step.title}
-                      </h3>
-                    </div>
-                    <div
-                      className={cn(
-                        "grid transition-[grid-template-rows] duration-500 motion-reduce:transition-none",
-                        active ? "mt-2 grid-rows-[1fr]" : "grid-rows-[0fr]"
-                      )}
-                    >
-                      <p className="overflow-hidden text-pretty text-[15px] leading-relaxed text-ink-2">
-                        {step.body}
-                      </p>
-                    </div>
-                  </button>
-                </li>
-              );
-            })}
+            {steps.map((step, i) => (
+              <li key={step.title}>
+                <div className="w-full rounded-[var(--radius-card)] border border-transparent p-5">
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-mono text-xs text-ink-4">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-lg font-medium tracking-[-0.006em] text-ink">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <p className="mt-2 text-pretty text-[15px] leading-relaxed text-ink-2">
+                    {step.body}
+                  </p>
+                </div>
+              </li>
+            ))}
           </ol>
 
           {/* Right: the actual product, in the same phone frame as the hero */}
@@ -167,15 +106,11 @@ export function ProductTour() {
             >
               <div className="relative aspect-[300/620] overflow-hidden rounded-[44px] bg-black">
                 {nearViewport && (
-                  <video
-                    ref={videoRef}
-                    src="/hover-flow.mp4"
+                  // eslint-disable-next-line @next/next/no-img-element -- animated GIF, next/image can't loop it
+                  <img
+                    src="/hover-flow.gif"
+                    alt="Hover app demo: selecting a payee, entering an amount, and sending a payment"
                     className="h-full w-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
                   />
                 )}
                 {/* Dynamic Island */}

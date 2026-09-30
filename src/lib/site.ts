@@ -9,7 +9,7 @@ export const siteConfig = {
   tagline: "Fastest way to get paid abroad",
   // 150-160 chars, keyword-forward, for <meta name="description">
   description:
-    "Hover is the simplest way to send money across borders. Sign in, choose an amount, and your money arrives in seconds. Fast, secure, and simple to use.",
+    "Hover is the simplest way to send money across borders. Sign in, choose an amount, and send. Fast, secure, and simple to use.",
   keywords: [
     "send money",
     "cross-border payments",
@@ -21,8 +21,9 @@ export const siteConfig = {
     "sign in with Google",
   ],
   twitter: "@hover_money",
-  // The live web app - no beta gate, no invite, no install. This is the
-  // primary conversion action everywhere on the site now.
+  // The live web app - existing account holders can sign in here directly.
+  // Not the primary conversion path anymore: the site is closed-beta,
+  // register-for-access first (see /waitlist).
   appUrl: "https://app.hover.money",
   // Beta builds for people who want the native app before the public launch.
   // Set to null to hide the "get the beta" line. iOS = public TestFlight link,

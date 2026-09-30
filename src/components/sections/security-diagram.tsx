@@ -7,7 +7,7 @@ import { useReducedMotionSafe } from "@/lib/use-reduced-motion-safe";
 const nodes: { icon: LucideIcon; title: string; sub: string }[] = [
   { icon: Fingerprint, title: "Sign in securely", sub: "With Google or Apple" },
   { icon: BadgeCheck, title: "Confirm your payment", sub: "You approve every send" },
-  { icon: Send, title: "Recipient gets paid", sub: "Delivered in seconds" },
+  { icon: Send, title: "Recipient gets paid", sub: "Balance updates in seconds" },
 ];
 
 export function SecurityDiagram() {
