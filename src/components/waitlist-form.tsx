@@ -277,7 +277,7 @@ export function WaitlistForm({ className }: { className?: string }) {
             className={selectBase}
           >
             <option value="ios">iPhone (TestFlight)</option>
-            <option value="android">Android (APK download)</option>
+            <option value="android">Android (Google Play)</option>
             <option value="other">Not sure yet</option>
           </select>
         </div>

@@ -30,7 +30,7 @@ export const siteConfig = {
   // android = direct .apk (Cloudflare) or Play internal-testing opt-in URL.
   betaLinks: {
     ios: "https://testflight.apple.com/join/yfPNFGFC" as string | null,
-    android: "https://media.hover.money/18.apk" as string | null,
+    android: "https://play.google.com/apps/test/RQIfI2CBrr8/ahAO29uNSqpkKFLStFN8OfAVgq1HXYGtDqfJ2h6NfzSMexLbx-7wfK4-dmLDWdGQq9Zhbiiolf-JZZF3192SX6HhfR" as string | null,
   },
 } as const;
 

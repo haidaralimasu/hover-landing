@@ -151,7 +151,7 @@ function confirmationHtml(unsub: string) {
                 ${
                   siteConfig.betaLinks.android
                     ? `<p style="margin:0;">
-                  <a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Android (APK)</a>
+                  <a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Android (Google Play)</a>
                 </p>`
                     : ""
                 }
@@ -185,7 +185,7 @@ function confirmationText(unsub: string) {
     "The iOS and Android apps are in early beta. Here are both links, and Hover also works right now in your browser at app.hover.money.",
     "",
     ...(siteConfig.betaLinks.ios ? [`iOS (TestFlight): ${siteConfig.betaLinks.ios}`] : []),
-    ...(siteConfig.betaLinks.android ? [`Android (APK): ${siteConfig.betaLinks.android}`] : []),
+    ...(siteConfig.betaLinks.android ? [`Android (Google Play): ${siteConfig.betaLinks.android}`] : []),
     "",
     "-----",
     "You received this because you asked for mobile app access at hover.money.",

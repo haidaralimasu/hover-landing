@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site";
  * Apple's and Google's own badge asset URLs, not hand-drawn) - both
  * rendered at the same fixed box size so neither reads as more "official"
  * than the other. iOS points at the public TestFlight link, Android at the
- * direct .apk.
+ * Play testing opt-in link.
  */
 export function StoreBadges({ className }: { className?: string }) {
   const { ios, android } = siteConfig.betaLinks;
