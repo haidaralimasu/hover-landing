@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "node:fs";
-import path from "node:path";
 import { verifyToken } from "@/lib/unsubscribe";
+import { getResend, setNewsletterSubscribed } from "@/lib/waitlist";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -38,21 +37,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    await record(email);
+    await setNewsletterSubscribed(getResend(), email, false);
   } catch (err) {
     console.error("[unsubscribe] failed to record", err);
     return NextResponse.json({ error: "Could not process." }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true }, { status: 200 });
-}
-
-async function record(email: string) {
-  const dir = path.join(process.cwd(), ".data");
-  await fs.mkdir(dir, { recursive: true });
-  await fs.appendFile(
-    path.join(dir, "unsubscribes.jsonl"),
-    JSON.stringify({ email, ts: new Date().toISOString() }) + "\n",
-    "utf8"
-  );
 }

@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "node:fs";
-import path from "node:path";
 import { Resend } from "resend";
 import { unsubscribeUrl } from "@/lib/unsubscribe";
 import { siteConfig } from "@/lib/site";
+import { setNewsletterSubscribed } from "@/lib/waitlist";
 
 // Runs on the Node.js runtime so the local-file log below works in dev.
 export const runtime = "nodejs";
@@ -49,6 +48,17 @@ export async function POST(request: Request) {
 
   const unsub = unsubscribeUrl(email);
 
+  // Save the subscriber first - without this there is no list to send to.
+  try {
+    await setNewsletterSubscribed(new Resend(apiKey), email, true);
+  } catch (err) {
+    console.error("[mobile-access] failed to save subscriber", err);
+    return NextResponse.json(
+      { error: "We couldn't sign you up right now. Please try again." },
+      { status: 502 }
+    );
+  }
+
   // Send the confirmation email — this is the action the user is waiting on.
   try {
     const resend = new Resend(apiKey);
@@ -82,11 +92,6 @@ export async function POST(request: Request) {
     );
   }
 
-  // Best-effort local log of who signed up (never blocks the response).
-  logSignup({ email, ts: new Date().toISOString(), source: "landing" }).catch(
-    (err) => console.error("[mobile-access] failed to log signup", err)
-  );
-
   // Best-effort internal notification — never blocks the response the
   // visitor is already waiting on.
   new Resend(apiKey).emails
@@ -104,7 +109,7 @@ export async function POST(request: Request) {
 }
 
 const PREHEADER =
-  "Thanks for subscribing. Product updates and launch news, plus how to get the app.";
+  "Thanks for subscribing. Product updates and product news, plus how to get the app.";
 
 function confirmationHtml(unsub: string) {
   return `<!doctype html>
@@ -139,7 +144,7 @@ function confirmationHtml(unsub: string) {
                 </h1>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
                   Thanks for joining the Hover newsletter. We&rsquo;ll send you occasional
-                  product updates, new features and launch news.
+                  product updates, new features and product news.
                 </p>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
                   Get Hover on Google Play for Android, or on iPhone through
@@ -186,7 +191,7 @@ function confirmationText(unsub: string) {
   return [
     "You're subscribed.",
     "",
-    "Thanks for joining the Hover newsletter. We'll send you occasional product updates, new features and launch news.",
+    "Thanks for joining the Hover newsletter. We'll send you occasional product updates, new features and product news.",
     "",
     "Get Hover on Google Play for Android, or on iPhone through TestFlight.",
     "",
@@ -205,12 +210,3 @@ function confirmationText(unsub: string) {
  * Serverless read-only filesystems will throw here — that's fine, it's caught
  * by the caller and never affects the user-facing response.
  */
-async function logSignup(record: { email: string; ts: string; source: string }) {
-  const dir = path.join(process.cwd(), ".data");
-  await fs.mkdir(dir, { recursive: true });
-  await fs.appendFile(
-    path.join(dir, "mobile-access.jsonl"),
-    JSON.stringify(record) + "\n",
-    "utf8"
-  );
-}

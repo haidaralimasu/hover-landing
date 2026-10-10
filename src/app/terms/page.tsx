@@ -22,10 +22,10 @@ export default function TermsPage() {
       <section>
         <h2>The service</h2>
         <p>
-          {siteConfig.name} lets you send and receive money using a wallet
+          {siteConfig.name} lets you send and receive money from an account
           secured by your device&rsquo;s own biometric authentication — there
-          is no password or seed phrase to remember. You sign in with your
-          existing Google or Apple account, and every transfer is confirmed
+          is no password to remember. You sign in with your Google or Apple
+          account or a one-time email code, and every transfer is confirmed
           with Face ID, Touch ID, or your device&rsquo;s equivalent. Features
           are subject to change, and nothing in the app or on this site
           constitutes financial, investment, or tax advice.

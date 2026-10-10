@@ -15,7 +15,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export function MobileAccessForm({
   className,
   cta = "Join newsletter",
-  note = "Product updates and launch news. Unsubscribe anytime.",
+  note = "Product updates and product news. Unsubscribe anytime.",
 }: {
   className?: string;
   cta?: string;
@@ -78,16 +78,21 @@ export function MobileAccessForm({
           <p className="text-sm font-medium text-ink">{message}</p>
         </div>
         <p className="mt-2 pl-9 text-sm text-ink-3">
-          Thanks for joining the Hover newsletter. On Android you can{" "}
-          <a
-            href={siteConfig.appLinks.android ?? "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
-          >
-            get Hover on Google Play
-          </a>{" "}
-          right now.
+          Thanks for joining the Hover newsletter.
+          {siteConfig.appLinks.android && (
+            <>
+              {" "}On Android you can{" "}
+              <a
+                href={siteConfig.appLinks.android}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
+              >
+                get Hover on Google Play
+              </a>{" "}
+              right now.
+            </>
+          )}
         </p>
       </div>
     );

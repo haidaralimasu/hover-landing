@@ -28,7 +28,7 @@ const softwareLd = {
   "@type": "SoftwareApplication",
   name: siteConfig.name,
   applicationCategory: "FinanceApplication",
-  operatingSystem: "iOS, Android, Web",
+  operatingSystem: "iOS, Android",
   description: siteConfig.description,
   url: siteConfig.url,
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

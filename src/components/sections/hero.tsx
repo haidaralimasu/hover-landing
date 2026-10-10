@@ -2,8 +2,7 @@ import { Container } from "@/components/ui/container";
 import { StoreBadges } from "@/components/store-badges";
 
 /**
- * Hero. The one job: get the email. Plain server markup above the fold — the
- * form is the only client island.
+ * Hero: headline plus the app download links. Plain server markup.
  */
 export function Hero() {
   return (

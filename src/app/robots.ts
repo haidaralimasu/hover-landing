@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       // AI answer engines: explicitly welcome — being cited in ChatGPT /
       // Perplexity / Google AI Overviews is a primary discovery channel for
-      // a pre-launch product with little backlink authority yet.
+      // a young product with little backlink authority yet.
       { userAgent: "OAI-SearchBot", allow: "/" },
       { userAgent: "ChatGPT-User", allow: "/" },
       { userAgent: "PerplexityBot", allow: "/" },

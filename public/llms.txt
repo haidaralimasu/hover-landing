@@ -1,6 +1,6 @@
 # Hover
 
-> Hover is the simplest way to send money across borders. Sign in with Google or Apple, choose an amount, and your money arrives in seconds.
+> Hover is the simplest way to send money across borders. Sign in with Google, Apple or email, choose an amount, and your money arrives in seconds.
 
 Hover is available on Google Play for Android (https://play.google.com/store/apps/details?id=money.hover.app) and on iPhone through TestFlight. Sign in with Google, Apple, or email.
 

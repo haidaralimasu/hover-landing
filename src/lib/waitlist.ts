@@ -1,4 +1,3 @@
-import { randomBytes } from "node:crypto";
 import { Resend } from "resend";
 
 /**
@@ -107,10 +106,6 @@ export async function ensureContactProperties(resend: Resend): Promise<void> {
   );
 }
 
-export function generateReferralCode(): string {
-  return randomBytes(4).toString("hex"); // 8 chars, e.g. "a1b2c3d4"
-}
-
 type ContactRecord = {
   id: string;
   email: string;
@@ -149,6 +144,20 @@ export async function getContact(
       >
     ),
   };
+}
+
+/**
+ * Newsletter subscription lives on the Resend contact's `unsubscribed` flag
+ * (Resend broadcasts honour it). New addresses get `kind: "newsletter"`;
+ * existing contacts (waitlist/outreach) keep their kind.
+ */
+export async function setNewsletterSubscribed(resend: Resend, email: string, subscribed: boolean): Promise<void> {
+  await ensureContactProperties(resend);
+  const existing = await getContact(resend, email);
+  const { error } = existing
+    ? await resend.contacts.update({ email, unsubscribed: !subscribed })
+    : await resend.contacts.create({ email, unsubscribed: !subscribed, properties: { kind: "newsletter" } });
+  if (error) throw new Error(error.message);
 }
 
 /** Create the contact if the email is new, otherwise merge properties onto it. */
@@ -220,20 +229,4 @@ export async function listContactsByKind(
  * floor of 1. Recompute from scratch each time rather than storing a
  * cached rank, so it's always consistent with the current list.
  */
-export function computeWaitlistPosition(
-  sortedWaitlist: ContactRecord[],
-  email: string
-): { position: number; total: number; referralCount: number } | null {
-  const index = sortedWaitlist.findIndex(
-    (c) => c.email.toLowerCase() === email.toLowerCase()
-  );
-  if (index === -1) return null;
-
-  const referralCount = Number(sortedWaitlist[index].properties.referralCount ?? 0);
-  const rawPosition = index + 1;
-  const position = Math.max(1, rawPosition - referralCount * 3);
-
-  return { position, total: sortedWaitlist.length, referralCount };
-}
-
 export type { ContactRecord };

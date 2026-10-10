@@ -28,7 +28,7 @@ const rest: Feature[] = [
   {
     icon: Fingerprint,
     title: "Sign in, no password",
-    body: "Use the Google or Apple account you already have. Nothing new to remember, nothing to reset.",
+    body: "Use your Google or Apple account, or a one-time code sent to your email. Nothing new to remember, nothing to reset.",
   },
   {
     icon: Globe,
