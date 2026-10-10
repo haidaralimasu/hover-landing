@@ -80,7 +80,7 @@ export function MobileAccessForm({
         <p className="mt-2 pl-9 text-sm text-ink-3">
           Thanks for joining the Hover newsletter. On Android you can{" "}
           <a
-            href={siteConfig.betaLinks.android ?? "#"}
+            href={siteConfig.appLinks.android ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"

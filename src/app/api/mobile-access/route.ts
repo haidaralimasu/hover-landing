@@ -142,20 +142,20 @@ function confirmationHtml(unsub: string) {
                   product updates, new features and launch news.
                 </p>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
-                  Hover is live on Google Play for Android. On iPhone, join the
-                  beta through TestFlight.
+                  Get Hover on Google Play for Android, or on iPhone through
+                  TestFlight.
                 </p>
                 ${
-                  siteConfig.betaLinks.ios
+                  siteConfig.appLinks.ios
                     ? `<p style="margin:0 0 10px;">
-                  <a href="${siteConfig.betaLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iPhone (TestFlight beta)</a>
+                  <a href="${siteConfig.appLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iPhone (TestFlight)</a>
                 </p>`
                     : ""
                 }
                 ${
-                  siteConfig.betaLinks.android
+                  siteConfig.appLinks.android
                     ? `<p style="margin:0;">
-                  <a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Get it on Google Play</a>
+                  <a href="${siteConfig.appLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Get it on Google Play</a>
                 </p>`
                     : ""
                 }
@@ -188,10 +188,10 @@ function confirmationText(unsub: string) {
     "",
     "Thanks for joining the Hover newsletter. We'll send you occasional product updates, new features and launch news.",
     "",
-    "Hover is live on Google Play for Android. On iPhone, join the beta through TestFlight.",
+    "Get Hover on Google Play for Android, or on iPhone through TestFlight.",
     "",
-    ...(siteConfig.betaLinks.ios ? [`iPhone (TestFlight beta): ${siteConfig.betaLinks.ios}`] : []),
-    ...(siteConfig.betaLinks.android ? [`Android (Google Play): ${siteConfig.betaLinks.android}`] : []),
+    ...(siteConfig.appLinks.ios ? [`iPhone (TestFlight): ${siteConfig.appLinks.ios}`] : []),
+    ...(siteConfig.appLinks.android ? [`Android (Google Play): ${siteConfig.appLinks.android}`] : []),
     "",
     "-----",
     "You received this because you subscribed to the Hover newsletter at hover.money.",

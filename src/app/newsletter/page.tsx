@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   title: "Join the newsletter",
   description:
     "Get Hover product updates, new features and launch news in your inbox.",
-  alternates: { canonical: "/waitlist" },
+  alternates: { canonical: "/newsletter" },
 };
 
-export default function WaitlistPage() {
+export default function NewsletterPage() {
   return (
     <main className="pb-24 pt-32 md:pt-40">
       <Container>

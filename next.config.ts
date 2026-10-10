@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // The pre-launch waitlist became the newsletter; keep old links working.
+  async redirects() {
+    return [{ source: "/waitlist", destination: "/newsletter", permanent: true }];
+  },
 };
 
 export default nextConfig;

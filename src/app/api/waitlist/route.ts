@@ -200,8 +200,8 @@ function confirmationHtml(params: {
         </p>
         ${
           device === "android"
-            ? `<p style="margin:0 0 10px;"><a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Get it on Google Play</a></p>`
-            : `<p style="margin:0 0 10px;"><a href="${siteConfig.betaLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iPhone (TestFlight beta)</a></p>`
+            ? `<p style="margin:0 0 10px;"><a href="${siteConfig.appLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Get it on Google Play</a></p>`
+            : `<p style="margin:0 0 10px;"><a href="${siteConfig.appLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iPhone (TestFlight beta)</a></p>`
         }
         <p style="margin:0 0 20px;font-size:13px;line-height:1.6;color:#8a8a8a;">
           Heads up: cash-out to your bank account is coming soon. For now you
@@ -270,8 +270,8 @@ function confirmationText(params: {
     lines.push("Hover is ready to download. Here's your link:");
     lines.push(
       device === "android"
-        ? `Android (Google Play): ${siteConfig.betaLinks.android}`
-        : `iPhone (TestFlight beta): ${siteConfig.betaLinks.ios}`
+        ? `Android (Google Play): ${siteConfig.appLinks.android}`
+        : `iPhone (TestFlight beta): ${siteConfig.appLinks.ios}`
     );
     lines.push(
       "",

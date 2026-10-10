@@ -41,7 +41,7 @@ const columns: { title: string; links: { label: string; href: string; external?:
     title: "Company",
     links: [
       { label: "Help center", href: "/help" },
-      { label: "Newsletter", href: "/waitlist" },
+      { label: "Newsletter", href: "/newsletter" },
     ],
   },
   {

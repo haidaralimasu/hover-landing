@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site";
  * Play testing opt-in link.
  */
 export function StoreBadges({ className }: { className?: string }) {
-  const { ios, android } = siteConfig.betaLinks;
+  const { ios, android } = siteConfig.appLinks;
   if (!ios && !android) return null;
 
   return (

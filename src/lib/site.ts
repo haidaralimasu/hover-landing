@@ -22,8 +22,8 @@ export const siteConfig = {
   ],
   twitter: "@hover_money",
   // App download links. Set to null to hide. iOS = public TestFlight link
-  // (beta), android = the live Google Play listing.
-  betaLinks: {
+  // (until the App Store listing is live), android = Google Play listing.
+  appLinks: {
     ios: "https://testflight.apple.com/join/yfPNFGFC" as string | null,
     android: "https://play.google.com/store/apps/details?id=money.hover.app" as string | null,
   },
