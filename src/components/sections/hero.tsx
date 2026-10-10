@@ -9,13 +9,13 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div
         aria-hidden="true"
-        className="hero-grid-pan pointer-events-none absolute inset-0 bg-grid opacity-[0.25] mask-radial-faded"
+        className="pointer-events-none absolute inset-0 bg-grid opacity-[0.25] mask-radial-faded"
       />
-      {/* Two slow-drifting soft glows - monochrome, decorative only */}
+      {/* Two slow-drifting soft glows at the edges, kept off the centred text
+          (smaller on mobile) - monochrome, decorative only */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="hero-blob absolute -left-24 top-[14%] h-[28rem] w-[28rem] rounded-full bg-black/[0.14] blur-[90px]" />
-        <div className="hero-blob hero-blob-2 absolute -right-24 bottom-[10%] h-[24rem] w-[24rem] rounded-full bg-black/[0.12] blur-[90px]" />
-        <div className="hero-blob hero-blob-3 absolute left-1/2 top-[55%] h-[18rem] w-[18rem] -translate-x-1/2 rounded-full bg-black/[0.08] blur-[80px]" />
+        <div className="hero-blob absolute -left-32 top-[8%] h-[16rem] w-[16rem] rounded-full bg-black/[0.12] blur-[80px] sm:h-[28rem] sm:w-[28rem]" />
+        <div className="hero-blob hero-blob-2 absolute -right-32 bottom-[6%] h-[14rem] w-[14rem] rounded-full bg-black/[0.10] blur-[80px] sm:h-[24rem] sm:w-[24rem]" />
       </div>
 
       <Container className="relative">
@@ -26,7 +26,7 @@ export function Hero() {
             </h1>
             <p className="max-w-xl text-pretty text-lg leading-relaxed text-ink-2 sm:text-xl">
               Send and receive money instantly with no hidden charges. Supports
-              150+ currencies.
+              90+ currencies.
             </p>
           </div>
 

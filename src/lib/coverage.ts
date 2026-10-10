@@ -5,7 +5,7 @@
  * flag art, not the full lookup table.
  */
 export const SUPPORTED_COUNTRIES_COUNT = 100;
-export const SUPPORTED_CURRENCIES_COUNT = 74;
+export const SUPPORTED_CURRENCIES_COUNT = 90; // app/src/utils/currency.ts lists 92
 
 /** Names for the flag set in `flags.ts` FLAG_XMLS, same order. */
 export const FLAG_NAMES: string[] = [
