@@ -56,7 +56,7 @@ export async function POST(request: Request) {
       from: FROM,
       to: email,
       replyTo: REPLY_TO,
-      subject: "You're on the list for the Hover mobile app",
+      subject: "Welcome to the Hover newsletter",
       html: confirmationHtml(unsub),
       text: confirmationText(unsub),
       headers: {
@@ -94,9 +94,9 @@ export async function POST(request: Request) {
       from: FROM,
       to: NOTIFY_TO,
       replyTo: email,
-      subject: `New mobile access signup: ${email}`,
-      html: `<p>New mobile access signup: <strong>${email}</strong></p>`,
-      text: `New mobile access signup: ${email}`,
+      subject: `New newsletter signup: ${email}`,
+      html: `<p>New newsletter signup: <strong>${email}</strong></p>`,
+      text: `New newsletter signup: ${email}`,
     })
     .catch((err) => console.error("[mobile-access] team notification failed", err));
 
@@ -104,7 +104,7 @@ export async function POST(request: Request) {
 }
 
 const PREHEADER =
-  "Thanks for your interest in Hover. Here's how to get the app on Android and iOS.";
+  "Thanks for subscribing. Product updates and launch news, plus how to get the app.";
 
 function confirmationHtml(unsub: string) {
   return `<!doctype html>
@@ -114,7 +114,7 @@ function confirmationHtml(unsub: string) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <meta name="x-apple-disable-message-reformatting" />
-    <title>Thanks for your interest in Hover</title>
+    <title>Welcome to the Hover newsletter</title>
   </head>
   <body style="margin:0;padding:0;background:#f2f2f2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#0a0a0a;-webkit-font-smoothing:antialiased;">
     <!-- Preheader: shown as the inbox preview, hidden in the body -->
@@ -135,8 +135,12 @@ function confirmationHtml(unsub: string) {
             <tr>
               <td style="background:#ffffff;border:1px solid rgba(0,0,0,0.08);border-radius:20px;padding:40px;">
                 <h1 style="margin:0 0 12px;font-size:24px;line-height:1.25;font-weight:700;letter-spacing:-0.02em;color:#0a0a0a;">
-                  Thanks for your interest.
+                  You&rsquo;re subscribed.
                 </h1>
+                <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
+                  Thanks for joining the Hover newsletter. We&rsquo;ll send you occasional
+                  product updates, new features and launch news.
+                </p>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
                   Hover is live on Google Play for Android. On iPhone, join the
                   beta through TestFlight.
@@ -161,7 +165,7 @@ function confirmationHtml(unsub: string) {
             <tr>
               <td style="padding:24px 8px 0;">
                 <p style="margin:0 0 8px;font-size:12px;line-height:1.6;color:#8a8a8a;">
-                  You received this because you asked for mobile app access at hover.money.
+                  You received this because you subscribed to the Hover newsletter at hover.money.
                   If this wasn't you, you can safely
                   <a href="${unsub}" style="color:#5c5c5c;text-decoration:underline;">unsubscribe</a>.
                 </p>
@@ -180,7 +184,9 @@ function confirmationHtml(unsub: string) {
 
 function confirmationText(unsub: string) {
   return [
-    "Thanks for your interest.",
+    "You're subscribed.",
+    "",
+    "Thanks for joining the Hover newsletter. We'll send you occasional product updates, new features and launch news.",
     "",
     "Hover is live on Google Play for Android. On iPhone, join the beta through TestFlight.",
     "",
@@ -188,7 +194,7 @@ function confirmationText(unsub: string) {
     ...(siteConfig.betaLinks.android ? [`Android (Google Play): ${siteConfig.betaLinks.android}`] : []),
     "",
     "-----",
-    "You received this because you asked for mobile app access at hover.money.",
+    "You received this because you subscribed to the Hover newsletter at hover.money.",
     `Unsubscribe: ${unsub}`,
     COMPANY_ADDRESS,
   ].join("\n");

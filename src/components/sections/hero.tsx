@@ -1,5 +1,4 @@
 import { Container } from "@/components/ui/container";
-import { MobileAccessForm } from "@/components/mobile-access-form";
 import { StoreBadges } from "@/components/store-badges";
 
 /**
@@ -21,10 +20,6 @@ export function Hero() {
           </h1>
 
           <div className="mt-2 flex w-full max-w-md flex-col items-center gap-3">
-            <MobileAccessForm
-              cta="Get early access"
-              note="Be first when the app launches."
-            />
             <p className="text-sm text-ink-3">Download the app</p>
             <StoreBadges className="mt-1" />
           </div>

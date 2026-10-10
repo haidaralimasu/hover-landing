@@ -23,10 +23,10 @@ export const faqs: Faq[] = [
   },
   {
     q: "Is Hover available yet?",
-    a: "Yes. Hover is available on Google Play for Android, and the iPhone app is in beta on TestFlight. Leave your email and we'll send you the links.",
+    a: "Yes. Hover is available on Google Play for Android, and the iPhone app is in beta on TestFlight. Tap the Google Play badge to download.",
   },
   {
-    q: "What do I get by joining the early-access list?",
-    a: "Early access to the beta the moment a spot opens, plus occasional updates on new features and launches. Unsubscribe anytime, one click.",
+    q: "What's in the newsletter?",
+    a: "Occasional product updates, new features and launch news. Unsubscribe anytime, one click.",
   },
 ];

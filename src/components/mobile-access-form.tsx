@@ -10,14 +10,12 @@ type Status = "idle" | "loading" | "success" | "error";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
- * The site's single conversion action: capture an email for the launch list.
- * `cta` sets the button label ("Get early access" in the hero, "Join the
- * list" lower down); `note` is the one-line value/assurance under the field.
+ * Newsletter signup. `note` is the one-line assurance under the field.
  */
 export function MobileAccessForm({
   className,
-  cta = "Get early access",
-  note = "Be first when the app launches.",
+  cta = "Join newsletter",
+  note = "Product updates and launch news. Unsubscribe anytime.",
 }: {
   className?: string;
   cta?: string;
@@ -57,7 +55,7 @@ export function MobileAccessForm({
       }
 
       setStatus("success");
-      setMessage("You are registered for early access.");
+      setMessage("You're subscribed.");
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");
@@ -80,7 +78,7 @@ export function MobileAccessForm({
           <p className="text-sm font-medium text-ink">{message}</p>
         </div>
         <p className="mt-2 pl-9 text-sm text-ink-3">
-          Check your inbox for the download links. On Android you can{" "}
+          Thanks for joining the Hover newsletter. On Android you can{" "}
           <a
             href={siteConfig.betaLinks.android ?? "#"}
             target="_blank"
