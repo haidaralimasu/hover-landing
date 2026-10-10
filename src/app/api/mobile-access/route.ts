@@ -104,7 +104,7 @@ export async function POST(request: Request) {
 }
 
 const PREHEADER =
-  "Thanks for your interest in Hover. Here are the early-access links for iOS and Android.";
+  "Thanks for your interest in Hover. Here's how to get the app on Android and iOS.";
 
 function confirmationHtml(unsub: string) {
   return `<!doctype html>
@@ -138,20 +138,20 @@ function confirmationHtml(unsub: string) {
                   Thanks for your interest.
                 </h1>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
-                  The iOS and Android apps are in early beta. Here are both links,
-                  and Hover also works right now in your browser at app.hover.money.
+                  Hover is live on Google Play for Android. On iPhone, join the
+                  beta through TestFlight.
                 </p>
                 ${
                   siteConfig.betaLinks.ios
                     ? `<p style="margin:0 0 10px;">
-                  <a href="${siteConfig.betaLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iOS (TestFlight)</a>
+                  <a href="${siteConfig.betaLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iPhone (TestFlight beta)</a>
                 </p>`
                     : ""
                 }
                 ${
                   siteConfig.betaLinks.android
                     ? `<p style="margin:0;">
-                  <a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Android (Google Play)</a>
+                  <a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Get it on Google Play</a>
                 </p>`
                     : ""
                 }
@@ -182,9 +182,9 @@ function confirmationText(unsub: string) {
   return [
     "Thanks for your interest.",
     "",
-    "The iOS and Android apps are in early beta. Here are both links, and Hover also works right now in your browser at app.hover.money.",
+    "Hover is live on Google Play for Android. On iPhone, join the beta through TestFlight.",
     "",
-    ...(siteConfig.betaLinks.ios ? [`iOS (TestFlight): ${siteConfig.betaLinks.ios}`] : []),
+    ...(siteConfig.betaLinks.ios ? [`iPhone (TestFlight beta): ${siteConfig.betaLinks.ios}`] : []),
     ...(siteConfig.betaLinks.android ? [`Android (Google Play): ${siteConfig.betaLinks.android}`] : []),
     "",
     "-----",

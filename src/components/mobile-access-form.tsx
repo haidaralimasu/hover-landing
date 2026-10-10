@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -79,17 +80,16 @@ export function MobileAccessForm({
           <p className="text-sm font-medium text-ink">{message}</p>
         </div>
         <p className="mt-2 pl-9 text-sm text-ink-3">
-          We&apos;ll email you the moment the app is ready. In the meantime you can
-          send money now at{" "}
+          Check your inbox for the download links. On Android you can{" "}
           <a
-            href="https://app.hover.money"
+            href={siteConfig.betaLinks.android ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-ink underline underline-offset-2 hover:text-ink-2"
           >
-            app.hover.money
-          </a>
-          .
+            get Hover on Google Play
+          </a>{" "}
+          right now.
         </p>
       </div>
     );

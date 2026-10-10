@@ -196,17 +196,16 @@ function confirmationHtml(params: {
   const betaBlock =
     wantsBetaNow === "yes"
       ? `<p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
-          The app is in early beta. Here's your link:
+          Hover is ready to download. Here's your link:
         </p>
         ${
           device === "android"
-            ? `<p style="margin:0 0 10px;"><a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Download for Android</a></p>`
-            : `<p style="margin:0 0 10px;"><a href="${siteConfig.betaLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iOS (TestFlight)</a></p>`
+            ? `<p style="margin:0 0 10px;"><a href="${siteConfig.betaLinks.android}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">Get it on Google Play</a></p>`
+            : `<p style="margin:0 0 10px;"><a href="${siteConfig.betaLinks.ios}" style="display:inline-block;background:#0a0a0a;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;">iPhone (TestFlight beta)</a></p>`
         }
         <p style="margin:0 0 20px;font-size:13px;line-height:1.6;color:#8a8a8a;">
-          Heads up: INR cash-out is still coming (pending company incorporation)
-          — right now the beta covers receiving and sending USDC, not withdrawing
-          to your bank yet.
+          Heads up: cash-out to your bank account is coming soon. For now you
+          can send and receive money with other Hover users.
         </p>`
       : `<p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
           You're on the list — we'll email you as soon as beta spots open up.
@@ -268,15 +267,15 @@ function confirmationText(params: {
   const lines = [name ? `Thanks, ${name}.` : "You're in.", ""];
 
   if (wantsBetaNow === "yes") {
-    lines.push("The app is in early beta. Here's your link:");
+    lines.push("Hover is ready to download. Here's your link:");
     lines.push(
       device === "android"
-        ? `Android: ${siteConfig.betaLinks.android}`
-        : `iOS (TestFlight): ${siteConfig.betaLinks.ios}`
+        ? `Android (Google Play): ${siteConfig.betaLinks.android}`
+        : `iPhone (TestFlight beta): ${siteConfig.betaLinks.ios}`
     );
     lines.push(
       "",
-      "Heads up: INR cash-out is still coming (pending company incorporation) — right now the beta covers receiving and sending USDC, not withdrawing to your bank yet."
+      "Heads up: cash-out to your bank account is coming soon. For now you can send and receive money with other Hover users."
     );
   } else {
     lines.push("You're on the list — we'll email you as soon as beta spots open up.");

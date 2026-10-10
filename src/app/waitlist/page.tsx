@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { WaitlistForm } from "@/components/waitlist-form";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Join the waitlist",
@@ -32,16 +31,6 @@ export default function WaitlistPage() {
           </Suspense>
         </Reveal>
 
-        <p className="mx-auto mt-6 max-w-xl text-center text-sm text-ink-3">
-          Already have an account?{" "}
-          <a
-            href={siteConfig.appUrl}
-            className="text-ink-2 underline underline-offset-2 transition-colors hover:text-ink"
-          >
-            Sign in at app.hover.money
-          </a>
-          .
-        </p>
       </Container>
     </main>
   );

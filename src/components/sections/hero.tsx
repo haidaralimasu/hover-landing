@@ -25,7 +25,7 @@ export function Hero() {
               cta="Get early access"
               note="Be first when the app launches."
             />
-            <p className="text-sm text-ink-3">Download our early beta</p>
+            <p className="text-sm text-ink-3">Download the app</p>
             <StoreBadges className="mt-1" />
           </div>
         </div>

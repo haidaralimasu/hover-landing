@@ -21,16 +21,11 @@ export const siteConfig = {
     "sign in with Google",
   ],
   twitter: "@hover_money",
-  // The live web app - existing account holders can sign in here directly.
-  // Not the primary conversion path anymore: the site is closed-beta,
-  // register-for-access first (see /waitlist).
-  appUrl: "https://app.hover.money",
-  // Beta builds for people who want the native app before the public launch.
-  // Set to null to hide the "get the beta" line. iOS = public TestFlight link,
-  // android = direct .apk (Cloudflare) or Play internal-testing opt-in URL.
+  // App download links. Set to null to hide. iOS = public TestFlight link
+  // (beta), android = the live Google Play listing.
   betaLinks: {
     ios: "https://testflight.apple.com/join/yfPNFGFC" as string | null,
-    android: "https://play.google.com/apps/test/RQIfI2CBrr8/ahAO29uNSqpkKFLStFN8OfAVgq1HXYGtDqfJ2h6NfzSMexLbx-7wfK4-dmLDWdGQq9Zhbiiolf-JZZF3192SX6HhfR" as string | null,
+    android: "https://play.google.com/store/apps/details?id=money.hover.app" as string | null,
   },
 } as const;
 
