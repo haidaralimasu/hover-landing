@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { unsubscribeUrl } from "@/lib/unsubscribe";
+import { oneClickUnsubscribeUrl, unsubscribeUrl } from "@/lib/unsubscribe";
 import { siteConfig } from "@/lib/site";
 import { setNewsletterSubscribed } from "@/lib/waitlist";
 
-// Runs on the Node.js runtime so the local-file log below works in dev.
+// Node.js runtime: the HMAC unsubscribe tokens use node:crypto.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -72,7 +72,7 @@ export async function POST(request: Request) {
       headers: {
         // One-click unsubscribe (RFC 8058) — shows the native "Unsubscribe"
         // control in Gmail/Apple Mail and improves deliverability.
-        "List-Unsubscribe": `<${unsub}>, <mailto:${REPLY_TO}?subject=unsubscribe>`,
+        "List-Unsubscribe": `<${oneClickUnsubscribeUrl(email)}>, <mailto:${REPLY_TO}?subject=unsubscribe>`,
         "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
       },
     });
@@ -109,7 +109,7 @@ export async function POST(request: Request) {
 }
 
 const PREHEADER =
-  "Thanks for subscribing. Product updates and product news, plus how to get the app.";
+  "Thanks for subscribing. Product updates and new features, plus how to get the app.";
 
 function confirmationHtml(unsub: string) {
   return `<!doctype html>
@@ -144,7 +144,7 @@ function confirmationHtml(unsub: string) {
                 </h1>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
                   Thanks for joining the Hover newsletter. We&rsquo;ll send you occasional
-                  product updates, new features and product news.
+                  product updates and new features.
                 </p>
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#5c5c5c;">
                   Get Hover on Google Play for Android, or on iPhone through
@@ -191,7 +191,7 @@ function confirmationText(unsub: string) {
   return [
     "You're subscribed.",
     "",
-    "Thanks for joining the Hover newsletter. We'll send you occasional product updates, new features and product news.",
+    "Thanks for joining the Hover newsletter. We'll send you occasional product updates and new features.",
     "",
     "Get Hover on Google Play for Android, or on iPhone through TestFlight.",
     "",
@@ -204,9 +204,3 @@ function confirmationText(unsub: string) {
     COMPANY_ADDRESS,
   ].join("\n");
 }
-
-/**
- * Best-effort local record of signups (dev / persistent server only).
- * Serverless read-only filesystems will throw here — that's fine, it's caught
- * by the caller and never affects the user-facing response.
- */

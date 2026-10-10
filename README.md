@@ -1,6 +1,6 @@
 # Hover — Landing page
 
-Marketing / pre-launch landing page for **Hover**, the simplest way to send
+Marketing site for **Hover**, the simplest way to send
 money across borders.
 
 > Positioning note: the public site deliberately avoids all crypto/blockchain
@@ -35,13 +35,16 @@ src/
     twitter-image.tsx    # re-exports the OG image
     icon.png / apple-icon.png / favicon.ico
     robots.ts / sitemap.ts
-    api/notify/route.ts  # waitlist email capture endpoint
+    newsletter/          # newsletter signup page (/waitlist redirects here)
+    api/mobile-access/   # newsletter signup: saves Resend contact + welcome email
+    api/unsubscribe/     # unsubscribe (page link + RFC 8058 one-click)
   components/
     sections/            # site-header, hero, foundations, how-it-works,
                          # features, security(+diagram), faq(+accordion),
                          # cta, site-footer
     ui/                  # button, container, logo, reveal, section-heading, store-badge
-    notify-form.tsx      # email capture form (client)
+    mobile-access-form.tsx  # newsletter signup form (client)
+    store-badges.tsx     # App Store / Google Play links (src/lib/site.ts appLinks)
   lib/                   # site config, faq data, utils
 brand/                   # source logo (svg + png)
 ```
@@ -53,16 +56,6 @@ brand/                   # source logo (svg + png)
   `src/app/opengraph-image.tsx`.
 - **Copy / metadata:** `src/lib/site.ts` (name, tagline, description, keywords,
   social handles) and `src/lib/faq.ts`.
-- **Waitlist storage:** `src/app/api/notify/route.ts` currently appends to a
-  local `.data/waitlist.jsonl` (gitignored). Swap the `persist()` function for
-  Resend / Mailchimp / a database — the route contract stays the same. A Resend
-  example is commented in the file.
-
-## Notes / TODO before launch
-
-- **Imagery:** the page is intentionally typographic + brand-mark driven (no
-  stock photos, per the B&W brief). Add real app screenshots / product shots
-  once the mobile app screens exist.
-- **Legal:** footer links to `/privacy` and `/terms` — create those routes.
-- **Store links:** badges currently scroll to the notify form. Point them at the
-  real App Store / Google Play URLs at launch (`src/components/ui/store-badge.tsx`).
+- **Subscribers:** stored as Resend contacts (`kind: "newsletter"`); unsubscribe
+  sets the contact's `unsubscribed` flag. See `src/lib/waitlist.ts`.
+- **App links:** `appLinks` in `src/lib/site.ts`.

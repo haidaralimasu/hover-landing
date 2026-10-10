@@ -27,6 +27,6 @@ export const faqs: Faq[] = [
   },
   {
     q: "What's in the newsletter?",
-    a: "Occasional product updates, new features and product news. Unsubscribe anytime, one click.",
+    a: "Occasional product updates and new features. Unsubscribe anytime, one click.",
   },
 ];

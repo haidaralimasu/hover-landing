@@ -53,7 +53,7 @@ export function UnsubscribeClient({
         </h1>
         <p className="mt-3 text-pretty text-ink-2">
           We&apos;ve removed <span className="font-medium text-ink">{email}</span>{" "}
-          from the mobile app notification list. You won&apos;t hear from us again.
+          from the Hover newsletter. You won&apos;t receive any more newsletter emails.
         </p>
       </>
     );
@@ -65,7 +65,7 @@ export function UnsubscribeClient({
         Unsubscribe from Hover
       </h1>
       <p className="mt-3 text-pretty text-ink-2">
-        Stop mobile app notifications to{" "}
+        Stop Hover newsletter emails to{" "}
         <span className="font-medium text-ink">{email}</span>? You can sign up
         again any time.
       </p>

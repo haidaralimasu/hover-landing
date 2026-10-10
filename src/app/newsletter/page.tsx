@@ -7,7 +7,7 @@ import { MobileAccessForm } from "@/components/mobile-access-form";
 export const metadata: Metadata = {
   title: "Join the newsletter",
   description:
-    "Get Hover product updates, new features and product news in your inbox.",
+    "Get Hover product updates and new features in your inbox.",
   alternates: { canonical: "/newsletter" },
 };
 
@@ -18,7 +18,7 @@ export default function NewsletterPage() {
         <SectionHeading
           align="center"
           title="Join the Hover newsletter."
-          intro="Product updates, new features and product news. No spam, unsubscribe anytime."
+          intro="Product updates and new features. No spam, unsubscribe anytime."
         />
 
         <Reveal

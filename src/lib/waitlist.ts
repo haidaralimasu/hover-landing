@@ -3,9 +3,9 @@ import { Resend } from "resend";
 /**
  * Everything waitlist/outreach-related is stored as a Resend Contact with
  * custom properties — no separate database. Two "kinds" share the same
- * contact pool, distinguished by the `kind` property: `waitlist` (people who
- * signed up on /waitlist) and `outreach` (people the founders are manually
- * tracking after a 1:1 DM/email/call). Email is always the lookup key —
+ * contact pool, distinguished by the `kind` property: `waitlist` (legacy
+ * pre-launch signups), `newsletter` (newsletter subscribers) and `outreach`
+ * (people the founders are manually tracking after a 1:1 DM/email/call). Email is always the lookup key —
  * Resend's contacts.get/update/remove all accept `{ email }` directly, so we
  * never need to store Resend's own contact ids anywhere else.
  */
@@ -152,7 +152,8 @@ export async function getContact(
  * existing contacts (waitlist/outreach) keep their kind.
  */
 export async function setNewsletterSubscribed(resend: Resend, email: string, subscribed: boolean): Promise<void> {
-  await ensureContactProperties(resend);
+  // No ensureContactProperties here: its ~24-call burst trips Resend's rate
+  // limit on cold starts, and `kind` is already declared on the account.
   const existing = await getContact(resend, email);
   const { error } = existing
     ? await resend.contacts.update({ email, unsubscribed: !subscribed })
@@ -172,21 +173,19 @@ export async function upsertContact(
   await ensureContactProperties(resend);
   const existing = await getContact(resend, params.email);
 
-  if (existing) {
-    await resend.contacts.update({
-      email: params.email,
-      firstName: params.firstName ?? undefined,
-      properties: params.properties,
-    });
-    return { created: false };
-  }
-
-  await resend.contacts.create({
-    email: params.email,
-    firstName: params.firstName ?? undefined,
-    properties: params.properties,
-  });
-  return { created: true };
+  const { error } = existing
+    ? await resend.contacts.update({
+        email: params.email,
+        firstName: params.firstName ?? undefined,
+        properties: params.properties,
+      })
+    : await resend.contacts.create({
+        email: params.email,
+        firstName: params.firstName ?? undefined,
+        properties: params.properties,
+      });
+  if (error) throw new Error(error.message);
+  return { created: !existing };
 }
 
 /**
@@ -224,9 +223,4 @@ export async function listContactsByKind(
   );
 }
 
-/**
- * Simple, tunable referral boost: each referral moves you up 3 spots,
- * floor of 1. Recompute from scratch each time rather than storing a
- * cached rank, so it's always consistent with the current list.
- */
 export type { ContactRecord };

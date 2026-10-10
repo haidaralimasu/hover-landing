@@ -15,7 +15,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export function MobileAccessForm({
   className,
   cta = "Join newsletter",
-  note = "Product updates and product news. Unsubscribe anytime.",
+  note = "Product updates and new features. Unsubscribe anytime.",
 }: {
   className?: string;
   cta?: string;

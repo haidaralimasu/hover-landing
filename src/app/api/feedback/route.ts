@@ -57,7 +57,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: FROM,
       to: NOTIFY_TO,
       replyTo: email || undefined,
@@ -73,6 +73,7 @@ export async function POST(request: Request) {
         `Would use with real money: ${wouldUseReal || "—"} — ${wouldUseReason || "—"}`,
       ].join("\n"),
     });
+    if (error) throw new Error(error.message);
   } catch (err) {
     console.error("[feedback] send failed", err);
     return NextResponse.json({ error: "Couldn't send that. Please try again." }, { status: 502 });

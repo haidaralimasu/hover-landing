@@ -30,10 +30,11 @@ export async function PATCH(
 
   try {
     const resend = getResend();
-    await resend.contacts.update({
+    const { error } = await resend.contacts.update({
       email: decodeURIComponent(email),
       properties: { betaStatus },
     });
+    if (error) throw new Error(error.message);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[admin/contacts] update failed", err);

@@ -36,9 +36,18 @@ export function verifyToken(email: string, token: string): boolean {
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
-/** Public unsubscribe URL for a given email (used in the body + headers). */
+/** Unsubscribe link for the email body (the /unsubscribe confirmation page). */
 export function unsubscribeUrl(email: string): string {
+  return signedUrl("/unsubscribe", email);
+}
+
+/** RFC 8058 one-click target for the List-Unsubscribe header (mail clients POST here). */
+export function oneClickUnsubscribeUrl(email: string): string {
+  return signedUrl("/api/unsubscribe", email);
+}
+
+function signedUrl(pathname: string, email: string): string {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? siteConfig.url;
   const params = new URLSearchParams({ e: email, t: signEmail(email) });
-  return `${base.replace(/\/$/, "")}/unsubscribe?${params.toString()}`;
+  return `${base.replace(/\/$/, "")}${pathname}?${params.toString()}`;
 }
