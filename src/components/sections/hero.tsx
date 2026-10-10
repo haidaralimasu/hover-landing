@@ -26,7 +26,7 @@ export function Hero() {
             </h1>
             <p className="max-w-xl text-pretty text-lg leading-relaxed text-ink-2 sm:text-xl">
               Send and receive money instantly with no hidden charges. Supports
-              90+ currencies.
+              150+ currencies.
             </p>
           </div>
 
