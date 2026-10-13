@@ -136,7 +136,7 @@ function confirmationHtml(name: string) {
             <tr>
               <td style="padding:24px 8px 0;">
                 <p style="margin:0;font-size:12px;line-height:1.6;color:#b0b0b0;">
-                  &copy; ${new Date().getFullYear()} Hover. All rights reserved.
+                  &copy; ${new Date().getFullYear()} Hover Technologies LLC. All rights reserved.
                 </p>
               </td>
             </tr>

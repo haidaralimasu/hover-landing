@@ -175,7 +175,7 @@ function confirmationHtml(unsub: string) {
                   <a href="${unsub}" style="color:#5c5c5c;text-decoration:underline;">unsubscribe</a>.
                 </p>
                 <p style="margin:0;font-size:12px;line-height:1.6;color:#b0b0b0;">
-                  &copy; ${new Date().getFullYear()} Hover. All rights reserved.
+                  &copy; ${new Date().getFullYear()} Hover Technologies LLC. All rights reserved.
                 </p>
               </td>
             </tr>

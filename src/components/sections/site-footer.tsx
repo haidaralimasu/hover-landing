@@ -125,7 +125,7 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-3 border-t border-line py-6 text-sm text-ink-4 sm:flex-row sm:items-center">
-          <p>&copy; {new Date().getFullYear()} Hover. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Hover Technologies LLC. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <CookiePrefsLink className="transition-colors hover:text-ink-2" />
             <p>Get paid from abroad, without the fees.</p>
