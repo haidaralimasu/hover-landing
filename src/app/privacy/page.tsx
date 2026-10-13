@@ -27,27 +27,28 @@ export default function PrivacyPage() {
           <li>
             <strong>Account information</strong> — your name, email address,
             mobile number, and (optionally) a profile picture, collected when
-            you sign in with your Google or Apple account.
+            you sign in with Google, Apple or your email address. Your mobile
+            number is confirmed with a one-time SMS code.
           </li>
           <li>
-            <strong>Identity verification data</strong> — a cryptographic
-            commitment derived from your Google or Apple sign-in, used to
-            prove account ownership without our servers ever seeing your
-            underlying password or full identity token. This is how new
-            transfers and device changes are authorized.
+            <strong>Identity verification (KYC) data</strong> — to meet
+            financial regulations, our provider Didit checks a photo of your
+            ID document and a selfie/liveness check. Didit holds the ID
+            images and the details read from them; Hover stores only the
+            verification result, its status and a reference to the Didit
+            session.
           </li>
           <li>
             <strong>Wallet address</strong> — a blockchain address generated
-            for your account on Base (an Ethereum-compatible network), used
-            to hold and move your balance. We do not generate or store any
-            seed phrase or private key on our servers.
+            for your account on Solana, used to hold and move your balance.
+            The wallet is created and secured by our wallet provider, Privy;
+            Hover&rsquo;s servers never hold your private key or a seed phrase.
           </li>
           <li>
-            <strong>Passkey / biometric data</strong> — the app uses your
-            device&rsquo;s Face ID, Touch ID, or equivalent biometric to
-            authorize transfers. Your biometric data itself never leaves
-            your device or reaches our servers — only a cryptographic
-            signature it produces does.
+            <strong>Biometrics</strong> — the app can use your
+            device&rsquo;s Face ID, Touch ID or screen lock to unlock the app
+            and confirm actions. This check happens entirely on your device;
+            your biometric data never reaches us.
           </li>
           <li>
             <strong>Transaction data</strong> — the amount, recipient,
@@ -85,13 +86,11 @@ export default function PrivacyPage() {
       <section>
         <h2>How transfers work</h2>
         <p>
-          When you send money, the app builds the transaction and asks you to
-          confirm it with your device&rsquo;s biometric. That confirmation
-          produces a cryptographic signature, which our relay service submits
-          to the blockchain on your behalf — we cover the network fee, so you
-          never need to hold a separate currency just to pay gas. We do not
-          have the ability to move your funds without your device producing
-          that signature first.
+          When you confirm a send, your account wallet (secured by Privy)
+          signs the transaction and our relay service submits it to the
+          blockchain on your behalf. We cover the network fee, and any Hover
+          fee is shown before you confirm. Hover cannot move your funds
+          without that signature from your account wallet.
         </p>
       </section>
 
@@ -103,6 +102,18 @@ export default function PrivacyPage() {
           analytics cookies are set until you click &ldquo;Accept&rdquo; on
           our cookie banner. You can change your choice at any time using
           the &ldquo;Cookie preferences&rdquo; link in the footer.
+        </p>
+      </section>
+
+      <section>
+        <h2>Service providers</h2>
+        <p>
+          We share only what each service needs to work: Privy (sign-in and
+          your account wallet), Didit (identity verification), Google
+          Firebase (phone-number verification codes), Expo (push
+          notifications), Resend (email) and our hosting providers. They
+          process this data on our behalf and are not allowed to use it for
+          their own purposes.
         </p>
       </section>
 
@@ -152,8 +163,8 @@ export default function PrivacyPage() {
           We keep your account and transaction data for as long as your
           account is active, and for a period after closure as required to
           meet legal, tax, or fraud-prevention obligations. Data is
-          transmitted over encrypted connections, biometric signing keys are
-          held in your device&rsquo;s secure hardware and never leave it, and
+          transmitted over encrypted connections, wallet keys are held by
+          Privy&rsquo;s secure key infrastructure (never on our servers), and
           server-side access is limited to those who need it.
         </p>
       </section>

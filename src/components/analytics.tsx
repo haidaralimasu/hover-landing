@@ -1,15 +1,34 @@
 "use client";
 
+import { useEffect, useSyncExternalStore } from "react";
 import Script from "next/script";
+
+import { CONSENT_CHANGE_EVENT, getConsent, type Consent } from "@/lib/consent";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
+function subscribe(onChange: () => void) {
+  window.addEventListener(CONSENT_CHANGE_EVENT, onChange);
+  return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
+}
+
 /**
- * Google Analytics 4 — loaded on every visit, independent of the cookie
- * banner choice (accept/reject only affects the banner's own UI state).
+ * Google Analytics 4 — loaded ONLY after the visitor clicks "Accept" on the
+ * cookie banner (opt-in, as the privacy policy states). Withdrawing consent
+ * later flips GA's consent state to denied for the rest of the visit.
  */
 export function Analytics() {
-  if (!GA_ID) return null;
+  const consent = useSyncExternalStore(subscribe, getConsent, () => null);
+  useEffect(() => {
+    const onChange = (e: Event) => {
+      const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+      w.gtag?.("consent", "update", { analytics_storage: (e as CustomEvent<Consent>).detail });
+    };
+    window.addEventListener(CONSENT_CHANGE_EVENT, onChange);
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
+  }, []);
+
+  if (!GA_ID || consent !== "granted") return null;
 
   return (
     <>

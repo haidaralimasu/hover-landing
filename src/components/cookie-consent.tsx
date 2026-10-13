@@ -11,8 +11,8 @@ import {
 
 /**
  * Cookie consent banner. Shows on first visit (no stored decision) and can be
- * re-opened from the footer's "Cookie preferences" link. Analytics runs
- * regardless of the choice made here — see @/components/analytics.
+ * re-opened from the footer's "Cookie preferences" link. Analytics only
+ * loads after "Accept" — see @/components/analytics.
  */
 export function CookieConsent() {
   const [open, setOpen] = useState(false);
