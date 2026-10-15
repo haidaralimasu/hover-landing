@@ -27,7 +27,7 @@ function FlagChip({ xml, name }: { xml: string; name: string }) {
  * The country-coverage marquee.
  *
  * SSR / no-JS / crawlers get ONE static set of chips — the country NAMES are
- * real on-page content next to "Send to 100+ countries" and worth indexing,
+ * real on-page content next to the coverage heading and worth indexing,
  * but 34 inlined data-URI flag SVGs (a doubled train, only needed for the
  * seamless CSS loop) were the single largest chunk of the served HTML.
  * After mount the client swaps in the doubled, animated train.

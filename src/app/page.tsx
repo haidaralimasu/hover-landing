@@ -11,9 +11,6 @@ import { siteConfig } from "@/lib/site";
 const ProductTour = dynamic(() =>
   import("@/components/sections/product-tour").then((m) => m.ProductTour)
 );
-const Stats = dynamic(() =>
-  import("@/components/sections/stats").then((m) => m.Stats)
-);
 const GlobalCoverage = dynamic(() =>
   import("@/components/sections/global-coverage").then((m) => m.GlobalCoverage)
 );
@@ -62,7 +59,6 @@ export default function Home() {
       />
       <Hero />
       <ProductTour />
-      <Stats />
       <GlobalCoverage />
       <Features />
       <Security />

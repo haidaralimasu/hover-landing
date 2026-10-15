@@ -25,8 +25,7 @@ export function Hero() {
               Fastest way to get paid abroad.
             </h1>
             <p className="max-w-xl text-pretty text-lg leading-relaxed text-ink-2 sm:text-xl">
-              Send and receive money instantly with no hidden charges. Supports
-              150+ currencies.
+              Send and receive money instantly with no hidden charges.
             </p>
           </div>
 

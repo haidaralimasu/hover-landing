@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { GlobeNetwork } from "@/components/ui/globe-network";
-import { SUPPORTED_COUNTRIES_COUNT } from "@/lib/coverage";
 import { FlagMarquee } from "@/components/sections/flag-marquee";
 
 export function GlobalCoverage() {
@@ -14,7 +13,7 @@ export function GlobalCoverage() {
         <SectionHeading
           id="coverage"
           align="center"
-          title={`Get paid from ${SUPPORTED_COUNTRIES_COUNT}+ countries.`}
+          title="Get paid from anywhere in seconds."
           intro="Wherever they bank, wherever they live, if they can send money, Hover can get it to you."
         />
       </Container>
