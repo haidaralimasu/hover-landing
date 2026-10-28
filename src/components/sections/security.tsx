@@ -8,7 +8,7 @@ const points: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: UserCheck,
     title: "Only you can approve a payment",
-    body: "Every transfer needs your confirmation. No one at Hover, and no one else, can move your money for you.",
+    body: "Every transfer needs your confirmation on your own device. No one at Hover can move your money for you. Keep your phone locked, since anyone with access to your unlocked device could approve a payment.",
   },
   {
     icon: Fingerprint,
@@ -17,8 +17,8 @@ const points: { icon: LucideIcon; title: string; body: string }[] = [
   },
   {
     icon: ShieldCheck,
-    title: "Every payment is protected end to end",
-    body: "Each transfer is signed by you and cannot be altered or replayed after you approve it. Transfers can't be reversed, so always check the recipient before you confirm.",
+    title: "Every payment is signed by you",
+    body: "Each transfer is signed on your device for one specific amount and recipient. Transfers can't be reversed, so always check the recipient before you confirm.",
   },
 ];
 

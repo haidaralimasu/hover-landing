@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalPage } from "@/components/legal-page";
 import { siteConfig } from "@/lib/site";
 import { company, fees } from "@/lib/company";
@@ -49,14 +50,14 @@ export default function CompanyPage() {
             week. Hover pays the network cost.
           </li>
           <li>
-            Adding money from, or withdrawing to, a US bank account is handled
-            by our banking partner and takes as long as the bank transfer,
+            Adding money from, or withdrawing to, a US bank account is
+            provided by Bridge and takes as long as the bank transfer,
             typically one to a few business days.
           </li>
           <li>
             Every payment is recorded on a public ledger. Your wallet address
             and amounts are visible there; your name and email are not. See
-            our <a href="/privacy">Privacy Policy</a>.
+            our <Link href="/privacy">Privacy Policy</Link>.
           </li>
         </ul>
       </section>
@@ -77,15 +78,31 @@ export default function CompanyPage() {
       </section>
 
       <section>
-        <h2>Partners</h2>
+        <h2>Who can use Hover</h2>
         <ul>
+          <li>You must be of legal age to use financial services where you live.</li>
           <li>
-            <strong>Privy</strong> provides sign-in and the secure account
-            technology your payments are approved with.
+            Hover isn&rsquo;t available where prohibited by law or sanctions.
+            Bank transfers in and out are supported for US bank accounts.
           </li>
           <li>
-            <strong>Bridge</strong> provides bank transfers in and out of
-            Hover and may ask you to verify your identity.
+            Hover doesn&rsquo;t set its own limits on payments between Hover
+            users. Bridge may apply limits and ask you to verify your identity
+            before bank transfers.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Who provides what</h2>
+        <ul>
+          <li>
+            <strong>Bridge</strong> is our partner for bank transfers in and
+            out of Hover.
+          </li>
+          <li>
+            <strong>Privy</strong> is the technology provider for sign-in and
+            the account your payments are approved from.
           </li>
         </ul>
       </section>
@@ -103,7 +120,7 @@ export default function CompanyPage() {
           </li>
           <li>
             Availability depends on where you live and may change. See our{" "}
-            <a href="/terms">Terms of Service</a>.
+            <Link href="/terms">Terms of Service</Link>.
           </li>
         </ul>
       </section>

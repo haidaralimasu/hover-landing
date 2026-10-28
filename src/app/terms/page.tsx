@@ -64,8 +64,9 @@ export default function TermsPage() {
         <p>
           {siteConfig.name} sponsors the underlying network fee for transfers
           you make through the app, so you never need to separately acquire
-          another currency just to pay for network costs. We reserve the
-          right to introduce service fees in the future; any such change
+          another currency just to pay for network costs. Current fees are
+          listed at {siteConfig.domain}/company and the exact fee is always
+          shown in the app before you confirm a transfer. Any change to fees
           will be disclosed in the app before you confirm an affected
           transfer.
         </p>

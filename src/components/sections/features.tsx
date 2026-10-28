@@ -43,7 +43,7 @@ const rest: Feature[] = [
   {
     icon: Lock,
     title: "Your money, your control",
-    body: "Only you can approve a payment. No one else can move your money, at any time, for any reason.",
+    body: "Every payment needs your approval on your own device. Hover staff can't move your money for you.",
   },
 ];
 

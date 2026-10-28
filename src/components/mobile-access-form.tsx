@@ -56,6 +56,8 @@ export function MobileAccessForm({
 
       setStatus("success");
       setMessage("You're subscribed.");
+      // gtag only exists once the visitor has accepted analytics cookies.
+      (window as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "sign_up", { method: "newsletter" });
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");

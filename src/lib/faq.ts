@@ -17,7 +17,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Where can I send money?",
-    a: "You can send to any Hover user, wherever they live, subject to our Terms and applicable law. Adding money from and withdrawing to a bank account is supported for US bank accounts, with more countries rolling out.",
+    a: "You can send to Hover users in other countries, except where prohibited by law or sanctions. Adding money from and withdrawing to a bank account is supported for US bank accounts, with more countries rolling out.",
   },
   {
     q: "Is my money safe?",
@@ -25,7 +25,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "What does it cost?",
-    a: `Sending to another Hover user is free (${fees.sendToHoverUser}%). Adding money from a US bank costs ${fees.addFromBank}% and withdrawing to a US bank costs ${fees.withdrawToBank}%. You always see the exact fee before you confirm.`,
+    a: `Sending to another Hover user is free (${fees.sendToHoverUser}%). Adding money from a US bank costs ${fees.addFromBank}% and withdrawing to a US bank costs ${fees.withdrawToBank}%. You always see the exact fee before you confirm. Full details are on our About Hover page.`,
   },
   {
     q: "Is Hover available yet?",
