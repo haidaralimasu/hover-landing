@@ -25,7 +25,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "What does it cost?",
-    a: `Sending to another Hover user is free (${fees.sendToHoverUser}%). Adding money from a US bank costs ${fees.addFromBank}% and withdrawing to a US bank costs ${fees.withdrawToBank}%. You always see the exact fee before you confirm. Full details are on our About Hover page.`,
+    a: `Sending to another Hover user is free (${fees.sendToHoverUser}%). Adding money from a US bank costs ${fees.addFromBank}% and withdrawing to a US bank costs ${fees.withdrawToBank}%. You always see the exact fee before you confirm.`,
   },
   {
     q: "Is Hover available yet?",

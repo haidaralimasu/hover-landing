@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -35,6 +36,12 @@ export function Faq() {
           />
           <Reveal delay={0.08}>
             <FaqAccordion items={faqs} />
+            <p className="mt-6 text-sm text-ink-3">
+              Who runs Hover, fees and partners:{" "}
+              <Link href="/company" className="font-medium text-ink underline underline-offset-2">
+                About Hover
+              </Link>
+            </p>
           </Reveal>
         </div>
       </Container>
