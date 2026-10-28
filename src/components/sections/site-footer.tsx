@@ -27,6 +27,32 @@ function DiscordGlyph() {
   );
 }
 
+function LinkedInGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="currentColor">
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+    </svg>
+  );
+}
+
+function InstagramGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.8}>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+const socials = [
+  { label: "Hover on X", href: "https://x.com/hover_money", Glyph: XGlyph },
+  { label: "Hover on LinkedIn", href: "https://www.linkedin.com/company/hover_money", Glyph: LinkedInGlyph },
+  { label: "Hover on Instagram", href: "https://www.instagram.com/tryhovermoney", Glyph: InstagramGlyph },
+  { label: "Hover on Telegram", href: "https://t.me/hovermoney", Glyph: TelegramGlyph },
+  { label: "Hover on Discord", href: "https://discord.gg/GA8fpTDsak", Glyph: DiscordGlyph },
+];
+
 const columns: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
   {
     title: "Product",
@@ -64,34 +90,19 @@ export function SiteFooter() {
             <p className="max-w-xs text-sm leading-relaxed text-ink-3">
               The simplest way to send money across borders. Sign in, send, done.
             </p>
-            <div className="mt-1 flex items-center gap-2">
-              <a
-                href="https://x.com/hover_money"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Hover on X"
-                className="grid h-12 w-12 place-items-center rounded-full border border-line-2 text-ink-2 transition-colors hover:border-black/25 hover:text-ink"
-              >
-                <XGlyph />
-              </a>
-              <a
-                href="https://t.me/hovermoney"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Hover on Telegram"
-                className="grid h-12 w-12 place-items-center rounded-full border border-line-2 text-ink-2 transition-colors hover:border-black/25 hover:text-ink"
-              >
-                <TelegramGlyph />
-              </a>
-              <a
-                href="https://discord.gg/GA8fpTDsak"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Hover on Discord"
-                className="grid h-12 w-12 place-items-center rounded-full border border-line-2 text-ink-2 transition-colors hover:border-black/25 hover:text-ink"
-              >
-                <DiscordGlyph />
-              </a>
+            <div className="mt-1 flex flex-wrap items-center gap-2">
+              {socials.map(({ label, href, Glyph }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="grid h-12 w-12 place-items-center rounded-full border border-line-2 text-ink-2 transition-colors hover:border-black/25 hover:text-ink"
+                >
+                  <Glyph />
+                </a>
+              ))}
             </div>
           </div>
 

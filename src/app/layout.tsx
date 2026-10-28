@@ -91,6 +91,8 @@ const organizationLd = {
   },
   sameAs: [
     "https://x.com/hover_money",
+    "https://www.linkedin.com/company/hover_money",
+    "https://www.instagram.com/tryhovermoney",
     "https://t.me/hovermoney",
     "https://play.google.com/store/apps/details?id=money.hover.app",
   ],

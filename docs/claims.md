@@ -48,7 +48,7 @@ Only Bridge is live in prod as a partner (founder, 2026-10-28). Values live in `
 | S-08 | Operational disclosure (countries, eligibility, funding, withdrawals, limits, current fees) | Done on /company + FAQ. Concrete restricted-country list pending counsel |
 | S-09 | Homepage "What is Hover?" | Done |
 | S-10 | Organization JSON-LD (legalName, address, email, sameAs) | **Incomplete**: `founder` added once the owner supplies a name (same blocker as S-07) |
-| S-11 | Entity consistency off-site | **OWNER:** use this one-liner everywhere: "Hover is a payments app for sending and receiving money across borders, operated by Hover Technologies LLC." Apply to Play, TestFlight/App Store, X, Telegram, LinkedIn, Product Hunt, Crunchbase, founder LinkedIn |
+| S-11 | Entity consistency off-site | Site footer + Organization sameAs now link X, LinkedIn, Instagram, Telegram, Discord (Discord is footer only), Play. **OWNER:** use this one-liner everywhere: "Hover is a payments app for sending and receiving money across borders, operated by Hover Technologies LLC." Apply to Play, TestFlight/App Store, X, Telegram, LinkedIn, Product Hunt, Crunchbase, founder LinkedIn |
 | S-12 | /pricing | N/A per spec ("once the fee schedule is fixed"): the schedule is env-configurable and not yet committed as final. Current fees are disclosed on /company (S-08) |
 | S-13 | Help articles from real tickets | N/A until there are ticket volumes; /help stays a contact form |
 | S-14 | US→India corridor page | N/A: India payout is not live |
