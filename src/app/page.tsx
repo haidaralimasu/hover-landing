@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
 import { Features } from "@/components/sections/features";
 import { siteConfig } from "@/lib/site";
@@ -58,6 +59,22 @@ export default function Home() {
         }}
       />
       <Hero />
+      <section aria-labelledby="what-is-hover" className="border-t border-line py-16 md:py-20">
+        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
+          <h2 id="what-is-hover" className="text-2xl font-semibold tracking-[-0.015em] text-ink">
+            What is Hover?
+          </h2>
+          <p className="mt-4 text-pretty leading-relaxed text-ink-2">
+            Hover is a payments app for sending and receiving money across
+            borders, operated by Hover Technologies LLC in the United States.
+            Payments between Hover users are free and arrive in seconds, and
+            you can add money from or withdraw to a US bank account.{" "}
+            <Link href="/company" className="font-medium text-ink underline underline-offset-2">
+              About Hover, fees and partners
+            </Link>
+          </p>
+        </div>
+      </section>
       <ProductTour />
       <GlobalCoverage />
       <Features />

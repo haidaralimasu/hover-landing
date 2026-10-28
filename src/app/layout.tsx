@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Poppins, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
+import { company } from "@/lib/company";
 import { SiteHeader } from "@/components/sections/site-header";
 import { SiteFooter } from "@/components/sections/site-footer";
 import { CookieConsent } from "@/components/cookie-consent";
@@ -35,7 +36,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Hover | Fastest way to get paid abroad",
+    default: "Hover | Get paid from abroad, simply",
     template: "%s | Hover",
   },
   description: siteConfig.description,
@@ -47,14 +48,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "Hover: fastest way to get paid abroad",
+    title: "Hover: get paid from abroad, simply",
     description: siteConfig.description,
     url: siteConfig.url,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hover: fastest way to get paid abroad",
+    title: "Hover: get paid from abroad, simply",
     description: siteConfig.description,
     creator: siteConfig.twitter,
   },
@@ -78,7 +79,21 @@ const organizationLd = {
   url: siteConfig.url,
   logo: `${siteConfig.url}/hover-logo.png`,
   description: siteConfig.description,
-  sameAs: ["https://x.com/hover_money"],
+  legalName: company.legalName,
+  email: company.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: company.address.street,
+    addressLocality: company.address.city,
+    addressRegion: company.address.region,
+    postalCode: company.address.postalCode,
+    addressCountry: company.address.country,
+  },
+  sameAs: [
+    "https://x.com/hover_money",
+    "https://t.me/hovermoney",
+    "https://play.google.com/store/apps/details?id=money.hover.app",
+  ],
 };
 
 export default function RootLayout({

@@ -1,25 +1,31 @@
+import { company, fees } from "@/lib/company";
+
 export type Faq = { q: string; a: string };
 
 export const faqs: Faq[] = [
+  {
+    q: "What is Hover?",
+    a: `Hover is a payments app for sending and receiving money across borders. It is operated by ${company.legalName}, a US company based in Montana.`,
+  },
   {
     q: "Do I need a password?",
     a: "No. You sign in with your Google or Apple account, or with a one-time code sent to your email, so there is nothing to create, remember, or reset.",
   },
   {
     q: "How fast do transfers arrive?",
-    a: "Sending to another Hover user settles in seconds, any time of day, including weekends and holidays. Cash-out to a bank account is coming soon and will depend on local rails.",
+    a: "Payments to another Hover user usually arrive in seconds, any time of day, including weekends and holidays. Adding money from or withdrawing to a bank account takes as long as the bank transfer itself, typically one to a few business days.",
   },
   {
     q: "Where can I send money?",
-    a: "Hover is built for cross-border payments. You can send to anyone, whether they are in another country or your own.",
+    a: "You can send to any Hover user, wherever they live, subject to our Terms and applicable law. Adding money from and withdrawing to a bank account is supported for US bank accounts, with more countries rolling out.",
   },
   {
     q: "Is my money safe?",
-    a: "Yes. Only you can approve a payment, and every transfer is protected end to end so it cannot be altered, reused, or redirected.",
+    a: "Only you can approve a payment: every transfer needs your confirmation on your own device, and no one at Hover can move your money for you. Hover is not a bank and balances are not FDIC-insured. Transfers can't be reversed once sent, so always check the recipient first.",
   },
   {
     q: "What does it cost?",
-    a: "You always see the fee before you confirm a transfer. There are no hidden charges and no surprises.",
+    a: `Sending to another Hover user is free (${fees.sendToHoverUser}%). Adding money from a US bank costs ${fees.addFromBank}% and withdrawing to a US bank costs ${fees.withdrawToBank}%. You always see the exact fee before you confirm.`,
   },
   {
     q: "Is Hover available yet?",

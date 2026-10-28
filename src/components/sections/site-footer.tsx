@@ -40,6 +40,7 @@ const columns: { title: string; links: { label: string; href: string; external?:
   {
     title: "Company",
     links: [
+      { label: "About Hover", href: "/company" },
       { label: "Help center", href: "/help" },
       { label: "Newsletter", href: "/newsletter" },
     ],
@@ -128,7 +129,7 @@ export function SiteFooter() {
           <p>&copy; {new Date().getFullYear()} Hover Technologies LLC. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <CookiePrefsLink className="transition-colors hover:text-ink-2" />
-            <p>Get paid from abroad, without the fees.</p>
+            <p>Get paid from abroad, simply.</p>
           </div>
         </div>
       </Container>

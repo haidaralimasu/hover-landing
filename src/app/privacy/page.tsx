@@ -109,7 +109,8 @@ export default function PrivacyPage() {
         <h2>Service providers</h2>
         <p>
           We share only what each service needs to work: Privy (sign-in and
-          your account wallet), Didit (identity verification), Google
+          your account wallet), Bridge (bank transfers in and out, including
+          the identity checks they require), Didit (identity verification), Google
           Firebase (phone-number verification codes), Expo (push
           notifications), Resend (email) and our hosting providers. They
           process this data on our behalf and are not allowed to use it for

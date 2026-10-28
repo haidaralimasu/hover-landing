@@ -33,7 +33,7 @@ const rest: Feature[] = [
   {
     icon: Globe,
     title: "Across borders in seconds",
-    body: "Send to someone in another country as easily as someone next door, at any hour of any day.",
+    body: "Pay another Hover user in another country as easily as someone next door, at any hour of any day.",
   },
   {
     icon: Wallet,

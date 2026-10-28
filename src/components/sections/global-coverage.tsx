@@ -13,8 +13,8 @@ export function GlobalCoverage() {
         <SectionHeading
           id="coverage"
           align="center"
-          title="Get paid from anywhere in seconds."
-          intro="Wherever they bank, wherever they live, if they can send money, Hover can get it to you."
+          title="Get paid across borders."
+          intro="Send to and receive from Hover users around the world. Payments between Hover users arrive in seconds."
         />
       </Container>
 

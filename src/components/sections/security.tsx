@@ -18,7 +18,7 @@ const points: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: ShieldCheck,
     title: "Every payment is protected end to end",
-    body: "Each transfer is locked to you and cannot be altered, reused, or sent to the wrong place.",
+    body: "Each transfer is signed by you and cannot be altered or replayed after you approve it. Transfers can't be reversed, so always check the recipient before you confirm.",
   },
 ];
 
@@ -31,7 +31,7 @@ export function Security() {
             <SectionHeading
               id="security"
               title="Serious about keeping your money safe."
-              intro="You never have to think about how it works. It just has to keep your money protected, and it does, on every single transfer."
+              intro="You never have to think about how it works. Every payment needs your approval, on your own device."
             />
 
             <ul className="mt-10 flex flex-col gap-8">

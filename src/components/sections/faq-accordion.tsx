@@ -1,15 +1,15 @@
 "use client";
 
 import { useId, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import type { Faq } from "@/lib/faq";
 import { cn } from "@/lib/utils";
-import { useReducedMotionSafe } from "@/lib/use-reduced-motion-safe";
 
+// Every answer is always in the DOM (closed ones carry `hidden`), so the
+// server HTML holds the full Q&A text for crawlers, matching the FAQPage
+// JSON-LD. ponytail: no height animation; add a CSS grid-rows transition if missed.
 export function FaqAccordion({ items }: { items: Faq[] }) {
   const [open, setOpen] = useState<number | null>(0);
-  const reduce = useReducedMotionSafe();
   const baseId = useId();
 
   return (
@@ -43,27 +43,11 @@ export function FaqAccordion({ items }: { items: Faq[] }) {
                 </span>
               </button>
             </h3>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  id={panelId}
-                  role="region"
-                  aria-labelledby={btnId}
-                  key="content"
-                  initial={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                  animate={
-                    reduce ? { opacity: 1 } : { height: "auto", opacity: 1 }
-                  }
-                  exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                  transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                  className="overflow-hidden"
-                >
-                  <p className="max-w-[68ch] pb-6 pr-12 text-pretty text-[15px] leading-relaxed text-ink-2">
-                    {item.a}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div id={panelId} role="region" aria-labelledby={btnId} hidden={!isOpen}>
+              <p className="max-w-[68ch] pb-6 pr-12 text-pretty text-[15px] leading-relaxed text-ink-2">
+                {item.a}
+              </p>
+            </div>
           </div>
         );
       })}
