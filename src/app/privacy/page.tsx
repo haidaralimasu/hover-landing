@@ -40,7 +40,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Face data (identity verification)</strong> — to verify
-            your identity, our providers Didit and, for bank transfers,
+            your identity, our providers Didit and
             Bridge capture a photo of your ID document and a selfie with a
             liveness check. This face data is used only to confirm that you
             are the person on the ID, that you are physically present, and to
@@ -48,8 +48,8 @@ export default function PrivacyPage() {
             any face template; we keep only the verification result, its
             status and a reference to the provider&rsquo;s session. Didit and
             Bridge store the face data on their secure servers for the period
-            required by anti-money-laundering law (generally 5 years after
-            your account is closed), and then delete it. Face data is never sold, used for advertising, or shared with
+            required by law (generally 5 years after your account is
+            closed), and then delete it. Face data is never sold, used for advertising, or shared with
             anyone else. You can ask us to delete your verification data at
             any time by emailing tech@hover.money.
           </li>
