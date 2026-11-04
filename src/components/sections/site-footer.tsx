@@ -48,7 +48,7 @@ function InstagramGlyph() {
 const socials = [
   { label: "Hover on X", href: "https://x.com/hover_money", Glyph: XGlyph },
   { label: "Hover on LinkedIn", href: "https://www.linkedin.com/company/hover_money", Glyph: LinkedInGlyph },
-  { label: "Hover on Instagram", href: "https://www.instagram.com/tryhovermoney", Glyph: InstagramGlyph },
+  { label: "Hover on Instagram", href: "https://www.instagram.com/tryhover", Glyph: InstagramGlyph },
   { label: "Hover on Telegram", href: "https://t.me/hovermoney", Glyph: TelegramGlyph },
   { label: "Hover on Discord", href: "https://discord.gg/GA8fpTDsak", Glyph: DiscordGlyph },
 ];

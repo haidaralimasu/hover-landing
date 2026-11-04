@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="August 16, 2026">
+    <LegalPage title="Privacy Policy" updated="November 4, 2026">
       <section>
         <p>
           This Privacy Policy explains how {siteConfig.name} (&ldquo;we&rdquo;,
@@ -37,6 +37,21 @@ export default function PrivacyPage() {
             images and the details read from them; Hover stores only the
             verification result, its status and a reference to the Didit
             session.
+          </li>
+          <li>
+            <strong>Face data (identity verification)</strong> — to verify
+            your identity, our providers Didit and, for bank transfers,
+            Bridge capture a photo of your ID document and a selfie with a
+            liveness check. This face data is used only to confirm that you
+            are the person on the ID, that you are physically present, and to
+            prevent fraud. Hover never receives or stores the face images or
+            any face template; we keep only the verification result, its
+            status and a reference to the provider&rsquo;s session. Didit and
+            Bridge store the face data on their secure servers for up to 5
+            years, as required by anti-money-laundering law, and then delete
+            it. Face data is never sold, used for advertising, or shared with
+            anyone else. You can ask us to delete your verification data at
+            any time by emailing tech@hover.money.
           </li>
           <li>
             <strong>Wallet address</strong> — a blockchain address generated
