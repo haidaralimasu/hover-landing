@@ -47,9 +47,9 @@ export default function PrivacyPage() {
             prevent fraud. Hover never receives or stores the face images or
             any face template; we keep only the verification result, its
             status and a reference to the provider&rsquo;s session. Didit and
-            Bridge store the face data on their secure servers for up to 5
-            years, as required by anti-money-laundering law, and then delete
-            it. Face data is never sold, used for advertising, or shared with
+            Bridge store the face data on their secure servers for the period
+            required by anti-money-laundering law (generally 5 years after
+            your account is closed), and then delete it. Face data is never sold, used for advertising, or shared with
             anyone else. You can ask us to delete your verification data at
             any time by emailing tech@hover.money.
           </li>
