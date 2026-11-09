@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="560" rx="24" fill="#f7f7f7"/>
+  <text x="60" y="72" font-size="22" font-weight="600" fill="#0a0a0a">A hypothetical $1,000 payment</text>
+  <text x="60" y="104" font-size="16" fill="#5c5c5c">Illustrative numbers only. Not real transactions or any provider's prices.</text>
+  <!-- full bar: 1080px = $1,000 -->
+  <g>
+    <rect x="60" y="150" width="1015" height="96" rx="14" fill="#0a0a0a"/>
+    <text x="90" y="208" font-size="24" font-weight="600" fill="#ffffff">$940 received</text>
+    <rect x="1075" y="150" width="16" height="96" fill="#8a8a8a"/>
+    <rect x="1091" y="150" width="27" height="96" fill="#b0b0b0"/>
+    <rect x="1118" y="150" width="13" height="96" fill="#d4d4d4"/>
+    <rect x="1131" y="150" width="9" height="96" rx="0" fill="#ececec"/>
+  </g>
+  <!-- leader lines -->
+  <g stroke="#8a8a8a" stroke-width="1.5" fill="none">
+    <path d="M1083 250 V300 H900"/>
+    <path d="M1104 250 V360 H900"/>
+    <path d="M1124 250 V420 H900"/>
+    <path d="M1135 250 V480 H900"/>
+  </g>
+  <g font-size="20" fill="#0a0a0a" text-anchor="end">
+    <text x="880" y="307"><tspan font-weight="600">$15</tspan> sender's provider fee</text>
+    <text x="880" y="367"><tspan font-weight="600">$25</tspan> exchange-rate margin</text>
+    <text x="880" y="427"><tspan font-weight="600">$12</tspan> intermediary bank deduction</text>
+    <text x="880" y="487"><tspan font-weight="600">$8</tspan> receiving bank fee</text>
+  </g>
+  <text x="60" y="530" font-size="16" fill="#5c5c5c">Total hypothetical cost: $60, or 6% of the payment.</text>
+</svg>

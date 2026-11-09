@@ -16,6 +16,7 @@ Hover is available on Google Play for Android (https://play.google.com/store/app
 ## Pages
 
 - [Home](https://www.hover.money): product overview, how it works, features, security, and FAQ.
+- [Beyond Borders blog](https://www.hover.money/blog): stories and guides for people who work, earn and move money across borders.
 - [Help center](https://www.hover.money/help): contact form for support questions.
 - [Terms of Service](https://www.hover.money/terms): terms governing the website and service.
 - [Privacy Policy](https://www.hover.money/privacy): what data is collected and how it's used.

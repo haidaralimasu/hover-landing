@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="420" rx="24" fill="#f7f7f7"/>
+  <g fill="#ffffff" stroke="#0a0a0a" stroke-opacity="0.14" stroke-width="2">
+    <rect x="50" y="150" width="190" height="110" rx="18"/>
+    <rect x="290" y="150" width="190" height="110" rx="18"/>
+    <rect x="530" y="150" width="190" height="110" rx="18"/>
+    <rect x="770" y="150" width="190" height="110" rx="18"/>
+  </g>
+  <rect x="1000" y="150" width="150" height="110" rx="18" fill="#0a0a0a"/>
+  <g font-size="19" font-weight="600" fill="#0a0a0a" text-anchor="middle">
+    <text x="145" y="212">Payer</text>
+    <text x="385" y="212">Payer's bank</text>
+    <text x="625" y="212">Intermediary</text>
+    <text x="865" y="212">Your bank</text>
+  </g>
+  <text x="1075" y="212" font-size="19" font-weight="600" fill="#ffffff" text-anchor="middle">You</text>
+  <g stroke="#8a8a8a" stroke-width="2" stroke-linecap="round">
+    <path d="M240 205 H290"/><path d="M480 205 H530"/><path d="M720 205 H770"/><path d="M960 205 H1000"/>
+  </g>
+  <g fill="#8a8a8a">
+    <path d="M290 205 l-9 -6 v12z"/><path d="M530 205 l-9 -6 v12z"/><path d="M770 205 l-9 -6 v12z"/><path d="M1000 205 l-9 -6 v12z"/>
+  </g>
+  <g font-size="15" fill="#5c5c5c" text-anchor="middle">
+    <text x="385" y="296">fee · rate</text>
+    <text x="625" y="296">deduction · wait</text>
+    <text x="865" y="296">fee · rate · checks</text>
+  </g>
+  <text x="60" y="80" font-size="22" font-weight="600" fill="#0a0a0a">One payment, several hands</text>
+  <text x="60" y="112" font-size="16" fill="#5c5c5c">Each step can add a cost or a delay. Which steps exist depends on the route.</text>
+</svg>

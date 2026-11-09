@@ -67,6 +67,7 @@ const columns: { title: string; links: { label: string; href: string; external?:
     title: "Company",
     links: [
       { label: "About Hover", href: "/company" },
+      { label: "Blog", href: "/blog" },
       { label: "Help center", href: "/help" },
       { label: "Newsletter", href: "/newsletter" },
     ],
