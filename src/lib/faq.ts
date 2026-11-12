@@ -17,7 +17,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Where can I send money?",
-    a: "You can send to Hover users in other countries, except where prohibited by law or sanctions. Adding money from and withdrawing to a bank account is supported for US bank accounts, with more countries rolling out.",
+    a: "You can send to other Hover users where supported. Virtual accounts let you receive USD, EUR or GBP after verification. Bank withdrawal options depend on your country and account eligibility.",
   },
   {
     q: "Is my money safe?",
@@ -29,7 +29,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Is Hover available yet?",
-    a: "Yes. Download Hover on Google Play for Android, or on iPhone through TestFlight.",
+    a: "Yes. Hover is live - download it on the App Store for iPhone or on Google Play for Android.",
   },
   {
     q: "What's in the newsletter?",

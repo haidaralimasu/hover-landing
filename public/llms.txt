@@ -2,12 +2,12 @@
 
 > Hover is the simplest way to send money across borders. Sign in with Google, Apple or email, choose an amount, and your money arrives in seconds.
 
-Hover is available on Google Play for Android (https://play.google.com/store/apps/details?id=money.hover.app) and on iPhone through TestFlight. Sign in with Google, Apple, or email.
+Hover is available on the App Store for iPhone (https://apps.apple.com/app/hover-money/id6796756260) and Google Play for Android (https://play.google.com/store/apps/details?id=money.hover.app). Sign in with Google, Apple, or email.
 
 ## Key facts
 
 - No password: sign in with Google, Apple, or a one-time email code.
-- Android: Google Play. iPhone: TestFlight.
+- Android: Google Play. iPhone: App Store.
 - Transfers are typically delivered in seconds, any time of day, including weekends and holidays.
 - Built for cross-border (international) payments; domestic transfers work too.
 - Every transfer's fee is shown before you confirm — no hidden charges.

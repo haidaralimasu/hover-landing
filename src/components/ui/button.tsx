@@ -11,18 +11,16 @@ const base =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-silver-1)]";
 
 const variants: Record<Variant, string> = {
-  // Highest-contrast CTA: flat black fill, white label (app Button.primary —
-  // colors.black, no gradient/shine; hover/active mirror the app's Pressable
-  // opacity feedback instead of a web-only brightness shine).
-  primary: "bg-ink text-white hover:opacity-90 active:opacity-85",
+  // Primary actions use the same lime fill as the Hover app.
+  primary: "bg-accent text-ink hover:opacity-90 active:opacity-85",
   secondary:
     "border border-line-2 bg-surface text-ink hover:bg-surface-2 hover:border-black/20",
   ghost: "text-ink-2 hover:text-ink hover:bg-black/5",
 };
 
 const sizes: Record<Size, string> = {
-  md: "h-10 px-4 text-sm",
-  lg: "h-12 px-6 text-[15px]",
+  md: "min-h-[54px] px-5 text-[15px]",
+  lg: "min-h-[54px] px-6 text-[15px]",
 };
 
 type CommonProps = {

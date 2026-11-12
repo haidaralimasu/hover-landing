@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Reveal } from "@/components/ui/reveal";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { faqs } from "@/lib/faq";
 
@@ -29,12 +27,11 @@ export function Faq() {
       />
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <SectionHeading
-            id="faq"
-            title="Questions, answered."
-            intro="The short version of how Hover keeps your money yours."
-          />
-          <Reveal delay={0.08}>
+          <div>
+            <h2 id="faq" className="scroll-mt-24 text-3xl font-semibold tracking-[-0.04em] text-ink sm:text-4xl">Questions, answered.</h2>
+            <p className="mt-4 text-base leading-relaxed text-ink-2">Accounts, payments and getting started.</p>
+          </div>
+          <div>
             <FaqAccordion items={faqs} />
             <p className="mt-6 text-sm text-ink-3">
               Who runs Hover, fees and partners:{" "}
@@ -42,7 +39,7 @@ export function Faq() {
                 About Hover
               </Link>
             </p>
-          </Reveal>
+          </div>
         </div>
       </Container>
     </section>

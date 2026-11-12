@@ -20,25 +20,25 @@ type Feature = {
 
 const lead: Feature = {
   icon: Send,
-  title: "As simple as sending a message",
-  body: "Enter an amount, pick who gets it, and tap send. That is the whole experience, start to finish.",
+  title: "Send to a Hover user",
+  body: "Choose a recipient, enter an amount and confirm on your device.",
 };
 
 const rest: Feature[] = [
   {
     icon: Fingerprint,
     title: "Sign in, no password",
-    body: "Use your Google or Apple account, or a one-time code sent to your email. Nothing new to remember, nothing to reset.",
+    body: "Use Google, Apple or a one-time email code.",
   },
   {
     icon: Globe,
-    title: "Across borders in seconds",
-    body: "Pay another Hover user in another country as easily as someone next door, at any hour of any day.",
+    title: "Paid in USD, EUR or GBP",
+    body: "Share your virtual account details with clients to receive bank payments. Verification is required.",
   },
   {
     icon: Wallet,
     title: "Clear, upfront fees",
-    body: "See exactly what a transfer costs before you send. No hidden charges, no surprises later.",
+    body: "See the fee before you confirm a transfer.",
   },
   {
     icon: Lock,
@@ -61,8 +61,8 @@ export function Features() {
       <Container>
         <SectionHeading
           id="features"
-          title="Everything you need to send money. Nothing you don't."
-          intro="No jargon, no setup, no learning curve. Open the app, send money, done."
+          title="Client payments, in one place."
+          intro="Receive payments, send money and manage your balance in Hover."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-6">
@@ -70,7 +70,7 @@ export function Features() {
           <Reveal
             className={cn(
               "relative flex flex-col justify-between overflow-hidden rounded-[var(--radius-card)]",
-              "border border-line bg-gradient-to-br from-black/[0.04] to-transparent p-8",
+              "border border-line bg-bg-2 p-6 sm:p-8",
               "md:col-span-4 md:min-h-[260px]"
             )}
           >

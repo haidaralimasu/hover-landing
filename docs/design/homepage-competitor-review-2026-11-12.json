@@ -1,0 +1,390 @@
+[
+  {
+    "name": "Revolut",
+    "url": "https://revolut.com",
+    "title": "Just a moment...",
+    "headings": [
+      "Just a quick security check",
+      ""
+    ],
+    "actions": []
+  },
+  {
+    "name": "PayPal",
+    "url": "https://paypal.com/us/home",
+    "title": "paypal.com",
+    "headings": [],
+    "actions": []
+  },
+  {
+    "name": "Wise",
+    "url": "https://wise.com",
+    "title": "Wise: The international account | Money without borders | Wise India",
+    "headings": [
+      "Send and spend money worldwide",
+      "Take Control of your money",
+      "save on your travels abroad",
+      "Make your transfer count",
+      "100% transparent",
+      "Safe at every step",
+      "Excellent everywhere",
+      "See the stories of people worldwide choosing Wise.",
+      "Take Wise everywhere you go",
+      "Wise works nearly everywhere",
+      "Products",
+      "Wise Personal"
+    ],
+    "actions": [
+      "Sign up",
+      "Sign up",
+      "Sign up in minutes"
+    ]
+  },
+  {
+    "name": "Payoneer",
+    "url": "https://payoneer.com",
+    "title": "Online Payment Processing Platform for Digital Businesses | Payoneer India",
+    "headings": [
+      "Receiving cross-border payments made easy for every business",
+      "All you need to grow your business globally",
+      "Real support when you need it",
+      "Millions",
+      "190+",
+      "70",
+      "17",
+      "24/7",
+      "Why do businesses choose Payoneer?",
+      "Who are our customers?",
+      "Businesses",
+      "Marketplaces"
+    ],
+    "actions": [
+      "Open account",
+      "\n                                    Get started today                                                                                                        "
+    ]
+  },
+  {
+    "name": "Eversend",
+    "url": "https://eversend.co",
+    "title": "Eversend — The cross-border money account",
+    "headings": [
+      "Your money crosses borders. Your account should too.",
+      "Banks were built around countries. Your money was not.",
+      "Send money in minutes.",
+      "Your bank fails you across borders.",
+      "One account for every currency your life touches.",
+      "However your money needs to move, it's here.",
+      "Same account. Different lives.",
+      "Pay online from your Eversend balance.",
+      "Get paid like a local.",
+      "Hold dollar value in USDC & USDT.",
+      "Loved by 1.6M+ registered users across 57 countries.",
+      "Licensed. Protected. Proven."
+    ],
+    "actions": []
+  },
+  {
+    "name": "Grey",
+    "url": "https://grey.co",
+    "title": "Grey – Open global accounts & send money worldwide",
+    "headings": [
+      "Inclusive global\nbanking designed\njust for you.",
+      "No Limits, No Borders",
+      "Go global",
+      "A truly global foreign account.",
+      "Making a\ndifference together",
+      "More than just banking"
+    ],
+    "actions": [
+      "Download brand kit",
+      "Get started — it's free",
+      "Get started for free",
+      "Get started — it's free"
+    ]
+  },
+  {
+    "name": "Cleva",
+    "url": "https://getcleva.com",
+    "title": "Cleva | USD payments without borders",
+    "headings": [
+      "Global Payments\nwithout borders",
+      "Receive payment globally",
+      "Virtual USD card that works",
+      "Get cashback with Cleva Points",
+      "Download the Cleva App & get started now!"
+    ],
+    "actions": [
+      "Get Started",
+      "Get Started",
+      "Get started"
+    ]
+  },
+  {
+    "name": "Raenest",
+    "url": "https://raenest.com",
+    "title": "Raenest | Your Global Money Partner To Receive, Send & Spend",
+    "headings": [
+      "Receive and spend money globally",
+      "Over 1,000,000 people love us. You will too."
+    ],
+    "actions": []
+  },
+  {
+    "name": "Chipper Cash",
+    "url": "https://chippercash.com",
+    "title": "Move Your Money Freely",
+    "headings": [
+      "Cookie Settings",
+      "Move Your Money Freely",
+      "Chipper Cash key figures",
+      "5,000,000+",
+      "1,000,000+",
+      "6,000+",
+      "250,000+",
+      "African payment infrastructure\nwith global ambitions",
+      "Send Money Directly to Bank and Mobile Money Accounts in 21+ African Countries",
+      "Shop, Stream, and\nSubscribe Online.",
+      "Get Help, Say Hello",
+      "Featured In"
+    ],
+    "actions": [
+      "Download",
+      "Download the app",
+      "Get started with Chipper Stocks",
+      "Download on the\n\nApp Store",
+      "Get started with Chipper Cash"
+    ]
+  },
+  {
+    "name": "Remitly",
+    "url": "https://remitly.com",
+    "title": "Send or Transfer Money Online with Remitly",
+    "headings": [
+      "Paise bhejein.\nAage badhein.",
+      "Duniya bhar mein fast tareeke se paise bhejein",
+      "Apne tareeke se paise bhejein",
+      "Duniya bhar ke laakhon logon ka bharosemand",
+      "Money flow ke saath life bhi grow karti hai",
+      "Safely videsh mein paise bhejein.",
+      "Duniya bhar mein use karne ke liye safe",
+      "Secure data protection",
+      "18 languages mein support paayein",
+      "Humaare app ke zariye duniya bhar mein aasaani se paise transfer karein",
+      "Dekhein ki humaare customers kya kahate hain",
+      "Borders ke beyond"
+    ],
+    "actions": [
+      "Sign up karein",
+      "Sign up karein"
+    ]
+  },
+  {
+    "name": "WorldRemit",
+    "url": "https://worldremit.com",
+    "title": "International Money Transfer - Send Money Online | WorldRemit",
+    "headings": [
+      "Fast, flexible and secure money transfers",
+      "This is an added security measure to keep your information safe. Click and hold to help us verify you.",
+      "Ways to send money internationally",
+      "How to transfer money internationally?",
+      "Payment methods for international transfers",
+      "How much does it cost to send money internationally?",
+      "Your money is safe in our hands",
+      "Where can you send money with WorldRemit?",
+      "A fast and secure way to send money on the go",
+      "We will be there for you every step of the way 24/7!",
+      "Allow optional cookies?",
+      "Privacy Preference Center"
+    ],
+    "actions": [
+      "Download App"
+    ]
+  },
+  {
+    "name": "NALA",
+    "url": "https://nala.com",
+    "title": "NALA - Making Money Move",
+    "headings": [
+      "The Global Account for The Next Billion",
+      "Make Money Move",
+      "Billions moved,\ntrusted\nby millions",
+      "One global account\nfor the currencies\nbig\nbanks ignore",
+      "Waiting is cancelled",
+      "",
+      "Waiting is cancelled",
+      "Send & Convert MoneyFast",
+      "One API for global payouts & collections",
+      "rafiki",
+      "Full FX\nRate\nTransparency",
+      "Higher limits, higher impact"
+    ],
+    "actions": [
+      "Download NALA",
+      "Download NALA",
+      "Download NALA",
+      "Download NALA",
+      "Download NALA"
+    ]
+  },
+  {
+    "name": "Afriex",
+    "url": "https://afriex.com",
+    "title": "Afriex for Business | Global Payments Infrastructure",
+    "headings": [
+      "Power seamless global business payments",
+      "Launch in Africa Starter Pack",
+      "Full-stack payment solution for businesses",
+      "Global Collections",
+      "Programmable Payouts",
+      "Local Bank Accounts",
+      "FX/Treasury Management",
+      "Use our enterprise APIs",
+      "Self-serve Dashboard",
+      "Built for businesses expanding globally",
+      "Fintechs, PSPs & Digital Wallets",
+      "Exchanges & Liquidity Providers"
+    ],
+    "actions": [
+      "Download",
+      "Get Started"
+    ]
+  },
+  {
+    "name": "Elevate Pay",
+    "url": "https://elevatepay.co",
+    "title": "Elevate Pay - USD Accounts for Freelancers & Remote Workers",
+    "headings": [
+      "YOUR PASSPORT ",
+      "Your Passport ",
+      "Your Passport ",
+      "FOR THE ONES \nWHO WORK DIFFERENT",
+      "AS SEEN ON",
+      "3 STEPS TO \nGET PAID IN USD",
+      "INDUSTRY-LEADING SECURITY \nFOR YOUR EARNINGS",
+      "Industry-Leading Security forYour Earnings",
+      "OUR TRUSTED SPONSOR BANK",
+      "EVERY JOURNEY IS UNIQUE ELEVATE PAY SUPPORTS YOURS",
+      "DRIVEN BY AMBITION, POWERED BY ELEVATE PAY",
+      "Driven by Ambition, Powered by Elevate Pay"
+    ],
+    "actions": [
+      "Get Started",
+      "Get Started",
+      "Download App",
+      "Download App",
+      "Get Started"
+    ]
+  },
+  {
+    "name": "Taptap Send",
+    "url": "https://taptapsend.com",
+    "title": "Taptap Send | Send Money to Africa, Asia and Latin America",
+    "headings": [
+      "Send money internationally. Fast delivery, zero hassle",
+      "Competitive exchange rates on every transfer",
+      "Taptap Send is currently available in these countries. More countries coming soon.",
+      "Safe, regulated money transfer",
+      "Send money in minutes from your phone",
+      "Bank deposits, mobile money, and cash pickups",
+      "Trusted by millions of customers worldwide"
+    ],
+    "actions": []
+  },
+  {
+    "name": "Dukascopy",
+    "url": "https://dukascopy.bank",
+    "title": "Swiss Online Bank – Secure Multi-Currency Accounts & Investing | Dukascopy Bank",
+    "headings": [
+      "20 Years of Swiss\nPrecision Banking",
+      "Your bank,\nalways with you",
+      "Exclusive investment opportunities",
+      "Easy account opening",
+      "Top exchange rates",
+      "Virtual or plastic,\nyour choice",
+      "Dukascopy payment principles",
+      "For those who demand more"
+    ],
+    "actions": [
+      "Open account",
+      "Open account",
+      "Download the APP",
+      "Get started now"
+    ]
+  },
+  {
+    "name": "Mercury",
+    "url": "https://mercury.com",
+    "title": "Online Business Banking For Startups, Small Businesses & Scaling Companies",
+    "headings": [
+      "Radically different banking",
+      "Loved by 450K+ of the most ambitious entrepreneurs on the planet",
+      "You’re creating something to stand the test of time. So are we.",
+      "$1B in annualized revenue and 4+ years profitable",
+      "Building banking for the agentic era",
+      "Mercury hits $5.2B valuation",
+      "Banking – redesigned from the ground up.",
+      "Mercury for business",
+      "Mercury for personal",
+      "Disclaimers and footnotes"
+    ],
+    "actions": [
+      "Open account",
+      "Open account",
+      "Open account",
+      "Open account",
+      "Open account"
+    ]
+  },
+  {
+    "name": "Paysend",
+    "url": "https://paysend.com",
+    "title": "Paysend — The Global Infrastructure Money Moves On",
+    "headings": [
+      "The infrastructure money moves on.",
+      "Send money home. Power global payments — fast.*",
+      "Used by millions, trusted by leading enterprises.",
+      "Licensed across jurisdictions — protection and compliance without the overhead.",
+      "Run as one owned loop for speed, cost, UX, and reliability.",
+      "Personal",
+      "Enterprise",
+      "Company",
+      "Legal"
+    ],
+    "actions": [
+      "Sign up"
+    ]
+  },
+  {
+    "name": "Airwallex",
+    "url": "https://airwallex.com",
+    "title": "Airwallex: Trusted Global Payments & Financial Platform",
+    "headings": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "actions": [
+      "Get started",
+      "Get started"
+    ]
+  },
+  {
+    "name": "Monzo",
+    "url": "https://monzo.com",
+    "title": "Monzo | Open a Free Account",
+    "headings": [
+      "Can we use optional cookies?",
+      "Adjust your cookie preferences"
+    ],
+    "actions": []
+  }
+]

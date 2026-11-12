@@ -6,25 +6,30 @@ export const siteConfig = {
   // too — a canonical pointing at a URL that redirects is a self-inflicted
   // indexation bug.
   url: "https://www.hover.money",
-  tagline: "Get paid from abroad, simply",
+  tagline: "Get paid by clients abroad",
   // 150-160 chars, keyword-forward, for <meta name="description">
   description:
-    "Hover is a payments app for sending and receiving money across borders. Free between Hover users, with every fee shown before you send.",
+    "Get paid by clients abroad in USD, EUR or GBP. Receive bank payments with virtual accounts, manage your balance and see transfer fees upfront in Hover.",
   keywords: [
-    "send money",
-    "cross-border payments",
-    "money transfer app",
-    "international money transfer",
-    "send money abroad",
+    "get paid in USD",
+    "get paid in EUR",
+    "get paid in GBP",
+    "freelancer payments app",
+    "receive money from clients abroad",
+    "payments app for remote workers",
+    "international payments for freelancers",
+    "cheap cross-border payments",
+    "Payoneer alternative",
+    "cash out USD to local currency",
     "instant money transfer",
-    "secure payments",
-    "sign in with Google",
+    "send money abroad",
   ],
   twitter: "@hover_money",
-  // App download links. Set to null to hide. iOS = public TestFlight link
-  // (until the App Store listing is live), android = Google Play listing.
+  // App download links. Set to null to hide. iOS = App Store listing (live as
+  // of 2026-11-12; country code omitted so Apple redirects each visitor to
+  // their regional store), android = Google Play listing.
   appLinks: {
-    ios: "https://testflight.apple.com/join/yfPNFGFC" as string | null,
+    ios: "https://apps.apple.com/app/hover-money/id6796756260" as string | null,
     android: "https://play.google.com/store/apps/details?id=money.hover.app" as string | null,
   },
 } as const;
@@ -33,8 +38,8 @@ export type NavItem = { label: string; href: string };
 
 export const navItems: NavItem[] = [
   { label: "How it works", href: "/#how-it-works" },
-  { label: "Features", href: "/#features" },
+  { label: "Accounts", href: "/#accounts" },
   { label: "Security", href: "/#security" },
-  { label: "FAQ", href: "/#faq" },
   { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/#faq" },
 ];

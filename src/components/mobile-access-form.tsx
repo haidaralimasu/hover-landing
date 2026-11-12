@@ -132,8 +132,8 @@ export function MobileAccessForm({
           type="submit"
           disabled={status === "loading"}
           className={cn(
-            "inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-6",
-            "text-[15px] font-medium text-white",
+            "inline-flex min-h-[54px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-accent px-6",
+            "text-[15px] font-medium text-ink",
             "transition-[transform,opacity] duration-150 [transition-timing-function:var(--ease-out-quart)]",
             "hover:opacity-90 active:scale-[0.97] active:opacity-85 disabled:opacity-70"
           )}

@@ -10,7 +10,7 @@ import { categoryName } from "@/lib/blog/categories";
 import { getAllPosts, getFeaturedPost, getPopularPosts, postPath } from "@/lib/blog/posts";
 import { siteConfig } from "@/lib/site";
 
-export const BLOG_DESCRIPTION =
+const BLOG_DESCRIPTION =
   "Stories, insights and practical guides for people who work, earn and move money across borders.";
 
 export const metadata: Metadata = {

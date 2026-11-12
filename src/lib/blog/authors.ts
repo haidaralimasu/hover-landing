@@ -1,6 +1,10 @@
 import type { Author } from "./types";
 
 export const authors: Record<string, Author> = {
+  "hover-editorial": {
+    id: "hover-editorial", name: "Hover", title: "Payment guides",
+    bio: "Practical guides from Hover. These articles link to official provider and payment-system documentation. Pricing and availability can change.",
+  },
   "mustakim-nagori": {
     id: "mustakim-nagori",
     name: "Mustakim Nagori",

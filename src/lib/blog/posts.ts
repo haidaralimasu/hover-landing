@@ -1,11 +1,33 @@
 import type { Block, CategorySlug, Post } from "./types";
 import { stripInline } from "./inline";
+import { getAllPosts as getEditorialPosts, slugifyHeading } from "@/lib/blog";
+import type { Block as EditorialBlock } from "@/lib/blog";
 import { post as gettingPaid } from "@/content/blog/getting-paid-across-borders-my-experience-as-an-indian-remote-worker";
 
 // To publish a new article: add a file in src/content/blog/ that exports
 // `post`, then add it to this list. Everything else (index, categories,
 // sitemap, JSON-LD, related posts) is derived.
-const all: Post[] = [gettingPaid];
+function editorialBlock(block: EditorialBlock): Block {
+  switch (block.t) {
+    case "p": return { type: "p", text: block.md };
+    case "quote": return { type: "quote", text: block.md };
+    case "h2": case "h3": return { type: block.t, id: slugifyHeading(block.text), text: block.text };
+    case "ul": case "ol": return { type: block.t, items: block.items };
+    case "table": return { type: "table", caption: "Payment comparison", head: block.columns, rows: block.rows };
+  }
+}
+const editorial: Post[] = getEditorialPosts().map((post) => ({
+  slug: post.slug, title: post.title, description: post.description,
+  intro: post.body[0]?.t === "p" ? post.body[0].md : post.description,
+  category: post.slug.startsWith("usd-") ? "currencies-and-exchange-rates" : post.category === "Getting paid" ? "working-globally" : "money-transfers",
+  authorId: "hover-editorial", publishedAt: post.datePublished, updatedAt: post.dateModified,
+  featuredImage: post.cover.src, featuredImageAlt: post.cover.alt,
+  featuredImageWidth: 1200, featuredImageHeight: 675,
+  seoTitle: post.title, seoDescription: post.description, keywords: post.keywords,
+  blocks: post.body.slice(post.body[0]?.t === "p" ? 1 : 0).map(editorialBlock),
+  faqs: [], sources: [],
+}));
+const all: Post[] = [gettingPaid, ...editorial];
 
 const POPULAR_MIN_POSTS = 4;
 

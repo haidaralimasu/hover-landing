@@ -89,7 +89,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-4">
             <Wordmark />
             <p className="max-w-xs text-sm leading-relaxed text-ink-3">
-              The simplest way to send money across borders. Sign in, send, done.
+              Get paid by clients abroad. Manage your money in Hover.
             </p>
             <div className="mt-1 flex flex-wrap items-center gap-2">
               {socials.map(({ label, href, Glyph }) => (

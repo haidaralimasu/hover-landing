@@ -208,8 +208,8 @@ export function HelpCenterForm({ className }: { className?: string }) {
         type="submit"
         disabled={status === "loading"}
         className={cn(
-          "inline-flex h-14 w-full shrink-0 items-center justify-center gap-2 self-start rounded-full bg-ink px-8 sm:w-auto",
-          "text-base font-medium text-white",
+          "inline-flex min-h-[54px] w-full shrink-0 items-center justify-center gap-2 self-start whitespace-nowrap rounded-full bg-accent px-8 sm:w-auto",
+          "text-base font-medium text-ink",
           "transition-[transform,opacity] duration-150 [transition-timing-function:var(--ease-out-quart)]",
           "hover:opacity-90 active:scale-[0.97] active:opacity-85 disabled:opacity-70"
         )}

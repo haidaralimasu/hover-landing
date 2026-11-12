@@ -11,19 +11,8 @@ import { Analytics } from "@/components/analytics";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  // Only 400/500/600 appear anywhere in the site (700/800 were loaded but
-  // never used).
   weight: ["400", "500", "600"],
-  // `swap`: paint text immediately in the metric-matched system fallback
-  // (so FCP is never gated on the webfont), then swap Poppins in. `optional`
-  // was tried and made it worse — its ~100ms block window plus font-decision
-  // latency pushed the LIVE FCP to ~2.4s because every text node on the page
-  // is Poppins. With adjustFontFallback the fallback is the same size, so
-  // the swap doesn't shift layout or re-fire LCP.
   display: "swap",
-  preload: true,
-  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
-  adjustFontFallback: true,
 });
 
 const geistMono = Geist_Mono({
@@ -36,7 +25,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Hover | Get paid from abroad, simply",
+    default: "Hover | Get paid by clients abroad in USD, EUR & GBP",
     template: "%s | Hover",
   },
   description: siteConfig.description,
@@ -48,14 +37,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "Hover: get paid from abroad, simply",
+    title: "Hover: get paid by clients abroad, in USD, EUR & GBP",
     description: siteConfig.description,
     url: siteConfig.url,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hover: get paid from abroad, simply",
+    title: "Hover: get paid by clients abroad, in USD, EUR & GBP",
     description: siteConfig.description,
     creator: siteConfig.twitter,
   },
@@ -116,11 +105,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: "document.documentElement.classList.add('js')",
           }}
-        />
-        {/* Fixed film-grain overlay: non-scrolling, pointer-events-none (perf) */}
-        <div
-          aria-hidden="true"
-          className="grain pointer-events-none fixed inset-0 z-[var(--z-grain)] opacity-[0.025] mix-blend-multiply"
         />
         <script
           type="application/ld+json"
