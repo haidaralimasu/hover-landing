@@ -60,8 +60,8 @@ export default function OpengraphImage() {
               lineHeight: 1.35,
             }}
           >
-            <span>Send money across borders.</span>
-            <span>Sign in, send, done.</span>
+            <span>Get paid by clients abroad.</span>
+            <span>USD, EUR &amp; GBP accounts for freelancers.</span>
           </div>
           <div
             style={{
