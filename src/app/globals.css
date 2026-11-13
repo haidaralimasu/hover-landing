@@ -695,6 +695,20 @@
   color: #5c5c5c;
   margin-bottom: 28px;
 }
+.landing-newsletter {
+  max-width: 28rem;
+  margin: 36px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  scroll-margin-top: 96px;
+  text-align: left;
+}
+.landing-newsletter > p {
+  font-size: 14px;
+  color: #5c5c5c;
+  margin-bottom: 12px;
+  text-align: center;
+}
 .landing-download .landing-text-link {
   margin-top: 28px;
   font-size: 12px;

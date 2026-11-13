@@ -11,6 +11,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { StoreBadges } from "@/components/store-badges";
+import { MobileAccessForm } from "@/components/mobile-access-form";
 import { Faq } from "@/components/sections/faq";
 
 const accounts = [
@@ -271,6 +272,11 @@ export function LandingPage() {
           <h2>Be ready to get paid.</h2>
           <p>Get Hover for iPhone or Android.</p>
           <StoreBadges />
+          {/* Newsletter signup, anchored so footer/#newsletter links land here. */}
+          <div id="newsletter" className="landing-newsletter">
+            <p>Get product updates by email.</p>
+            <MobileAccessForm cta="Subscribe" />
+          </div>
           <Link href="/help" className="landing-text-link">
             Have a question? Talk to us <ArrowUpRight size={16} />
           </Link>
