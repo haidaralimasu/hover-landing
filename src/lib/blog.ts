@@ -86,6 +86,7 @@ import { postUsdEurGbp } from "@/content/blog/usd-vs-eur-vs-gbp-getting-paid-by-
 import { postCheapestWay } from "@/content/blog/cheapest-way-to-receive-international-payments";
 import { postVsPayoneer } from "@/content/blog/hover-vs-paypal-payoneer-for-freelancers";
 import { postInvoiceInternational } from "@/content/blog/how-to-invoice-an-international-client";
+import { postPaymentMistakes } from "@/content/blog/mistakes-that-delay-international-client-payments";
 
 const posts: BlogPost[] = [
   postGetPaidAfrica,
@@ -93,6 +94,7 @@ const posts: BlogPost[] = [
   postCheapestWay,
   postVsPayoneer,
   postInvoiceInternational,
+  postPaymentMistakes,
 ];
 
 export function getAllPosts(): BlogPost[] {
