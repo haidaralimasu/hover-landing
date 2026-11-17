@@ -19,7 +19,7 @@ function editorialBlock(block: EditorialBlock): Block {
 const editorial: Post[] = getEditorialPosts().map((post) => ({
   slug: post.slug, title: post.title, description: post.description,
   intro: post.body[0]?.t === "p" ? post.body[0].md : post.description,
-  category: post.slug.startsWith("usd-") ? "currencies-and-exchange-rates" : post.category === "Getting paid" ? "working-globally" : "money-transfers",
+  category: post.slug.startsWith("usd-") ? "currencies-and-exchange-rates" : post.category === "Getting paid" ? "working-globally" : post.category === "Building Hover" ? "building-hover" : "money-transfers",
   authorId: "hover-editorial", publishedAt: post.datePublished, updatedAt: post.dateModified,
   featuredImage: post.cover.src, featuredImageAlt: post.cover.alt,
   featuredImageWidth: 1200, featuredImageHeight: 675,
